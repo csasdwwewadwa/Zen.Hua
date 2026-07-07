@@ -18,5 +18,18 @@
     "@capacitor/core": "^8.4.1",
     "iztro": "^2.5.8",
     "tuvi-neo": "^1.0.7"
-  }
+  },
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csasdwwewadwa/tuvisigma.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/csasdwwewadwa/tuvisigma/issues"
+  },
+  "homepage": "https://github.com/csasdwwewadwa/tuvisigma#readme"
 }
