@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>tuvisigma</title>
+  
+  <script src="/lunar.js"></script>
+  
+  <style>
+    /* Samsung OneUI 8.5 Design System */
+      @font-face {
+        font-family: 'Samsung One';
+        src: local('Samsung One'), local('SamsungOne');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      :root {
+        --oneui-bg: #f4f4f6; --oneui-surface: #ffffff; --oneui-surface-strong: #f8f8fa; --oneui-primary: #1b6ef3;
+        --oneui-text-primary: #111111; --oneui-text-secondary: #767676;
+        --star-kim: #616369; --star-thuy: #000000; --star-hoa: #FE0303; --star-tho: #FF9F00; --star-moc: #049A04;
+        --oneui-radius-card: 28px; --oneui-radius-pill: 999px;
+        --oneui-easing: cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --oneui-bg: #0a0a0c;
+          --oneui-surface: #16171a;
+          --oneui-surface-strong: #1f2128;
+          --oneui-text-primary: #f0f0f2;
+          --oneui-text-secondary: #8d9096;
+          --star-kim: #b0b3bb;
+          --star-thuy: #84b7ff;
+          --star-hoa: #ff7b7b;
+          --star-tho: #ffb24a;
+          --star-moc: #7ed97e;
+        }
+      }
+      * { box-sizing: border-box; font-family: 'Samsung One', system-ui, sans-serif; }
+      html { color-scheme: light dark; }
+      body { background-color: var(--oneui-bg); color: var(--oneui-text-primary); margin: 0; overflow: hidden; height: 100vh; }
+      .app-brand {
+        position: fixed;
+        top: 12px;
+        right: 16px;
+        z-index: 40;
+        font-size: 11px;
+        font-weight: 200;
+        letter-spacing: 0.04em;
+        color: rgba(17, 17, 17, 0.25);
+        text-align: right;
+        pointer-events: none;
+      }
+      @media (prefers-color-scheme: dark) {
+        .app-brand { color: rgba(255, 255, 255, 0.20); }
+      }
+      .screen {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.4s var(--oneui-easing), opacity 0.3s ease;
+      }
+      .screen.hidden {
+        transform: translate3d(0, 80px, 0);
+        opacity: 0;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .screen:not(.hidden) {
+        z-index: 10;
+      }
+    
+    .oneui-header { padding: 75px 24px 40px; }
+    .header-title { font-size: 32px; font-weight: 700; margin: 0 0 4px; }
+    .header-subtitle { font-size: 15px; color: var(--oneui-text-secondary); margin: 0; }
+    
+    .oneui-card-form { background: var(--oneui-surface); border-radius: var(--oneui-radius-card) var(--oneui-radius-card) 0 0; padding: 24px; flex: 1; overflow-y: auto; box-shadow: 0 -4px 24px rgba(0,0,0,0.03); }
+    .input-group { margin-bottom: 16px; }
+    .oneui-label { font-size: 13px; font-weight: 600; color: var(--oneui-text-secondary); margin-bottom: 6px; display: block; }
+    .oneui-input, .oneui-input-inline { width: 100%; background: var(--oneui-bg); border: none; padding: 16px; border-radius: 16px; color: var(--oneui-text-primary); font-size: 15px; }
+    .date-row { display: grid; grid-template-columns: 2fr 1fr; gap: 10px; }
+    
+    .oneui-toggle-group { display: flex; background: var(--oneui-bg); padding: 4px; border-radius: 16px; }
+    .toggle-btn { flex: 1; border: none; background: transparent; padding: 12px; border-radius: 12px; color: var(--oneui-text-secondary); font-weight: 600; cursor: pointer; }
+    .toggle-btn.active { background: var(--oneui-surface); color: var(--oneui-primary); box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .oneui-btn-primary { background: var(--oneui-primary); color: #ffffff; border: none; width: 100%; padding: 16px; border-radius: var(--oneui-radius-pill); font-size: 16px; font-weight: 600; margin-top: 10px; cursor: pointer; }
+    .star-element { display: inline-block; margin: 1px 4px 4px 0; padding: 2px 6px; border-radius: 999px; font-size: 12px; line-height: 1.4; font-weight: 700; }
+    .star-element.kim { color: var(--star-kim); }
+    .star-element.thuy { color: var(--star-thuy); }
+    .star-element.hoa { color: var(--star-hoa); }
+    .star-element.tho { color: var(--star-tho); }
+    .star-element.moc { color: var(--star-moc); }
+    .star-element.kim::before { content: '• '; }
+    .star-element.thuy::before { content: '• '; }
+    .star-element.hoa::before { content: '• '; }
+    .star-element.tho::before { content: '• '; }
+    .star-element.moc::before { content: '• '; }
+    
+    .oneui-compact-header { display: flex; align-items: center; padding: 16px 24px; background: var(--oneui-surface); z-index: 10; border-bottom: 1px solid var(--oneui-bg); }
+    .icon-btn-back { background: none; border: none; font-size: 24px; color: var(--oneui-text-primary); margin-right: 16px; cursor: pointer; }
+    
+    /* Grid Canvas */
+    .viewport-mask { flex: 1; overflow: hidden; position: relative; touch-action: none; background: var(--oneui-bg); min-width: 100%; min-height: 100%; }
+    .chart-grid { display: grid; grid-template-columns: repeat(4, 250px); grid-template-rows: repeat(4, 337px); position: absolute; width: 1000px; height: 1348px; transform-origin: 0 0; transform: translate3d(var(--x), var(--y), 0) scale(var(--scale)); will-change: transform; }
+    
+    .p-0 { grid-column: 3; grid-row: 4; } .p-1 { grid-column: 2; grid-row: 4; }
+    .p-2 { grid-column: 1; grid-row: 4; } .p-3 { grid-column: 1; grid-row: 3; }
+    .p-4 { grid-column: 1; grid-row: 2; } .p-5 { grid-column: 1; grid-row: 1; }
+    .p-6 { grid-column: 2; grid-row: 1; } .p-7 { grid-column: 3; grid-row: 1; }
+    .p-8 { grid-column: 4; grid-row: 1; } .p-9 { grid-column: 4; grid-row: 2; }
+    .p-10 { grid-column: 4; grid-row: 3; } .p-11 { grid-column: 4; grid-row: 4; }
+    
+    .center-info { grid-column: 2 / span 2; grid-row: 2 / span 2; background: var(--oneui-bg); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
+    .palace { background: var(--oneui-surface); border: 1px solid var(--oneui-bg); padding: 10px; display: flex; flex-direction: column; gap: 8px; overflow: visible; position: relative; }
+    .palace-header { position: relative; min-height: 44px; }
+    .palace-left-meta, .palace-right-meta { position: absolute; top: 0; display: flex; flex-direction: column; gap: 2px; font-size: 13px; color: var(--oneui-text-secondary); line-height: 1.2; padding-top: 3px;}
+    .palace-left-meta { left: 0; }
+    .palace-right-meta { right: 0; text-align: right; }
+    .palace-title { position: absolute; left: 50%; top: 4px; transform: translateX(-50%); width: calc(100% - 100px); display: flex; justify-content: center; align-items: center; font-weight: 800; font-size: 16px; text-transform: uppercase; letter-spacing: 0.04em; text-align: center; z-index: 6; }
+    .palace-major-stars { position: absolute; top: 32px; left: 50%; transform: translateX(-50%); width: calc(100% - 48px); box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: wrap; justify-content: center; align-items: center; min-height: 52px; margin-top: 0; z-index: 5; }
+    .palace-major-stars span { font-size: 14px; }
+    .palace-middle { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 6px; flex: 1; padding-top: 22px; align-items: start; }
+    .palace-star-col { display: block; gap: 4px; min-height: 0; align-self: start; width: 100%; max-width: 100%; overflow: visible; }
+    .palace-transit-list { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 4px; }
+    .palace-star-list { display: block; gap: 2px; overflow: visible; font-size: 12px; width: 100%; max-width: 100%; }
+    .palace-meta-grid { display: none; }
+    .palace-meta-box { display: none; }
+    .palace-meta-band { display: none; }
+    .palace-bottom { position: relative; height: 44px; font-size: 13px; }
+    .palace-bottom-left, .palace-bottom-right { position: absolute; bottom: 6px; font-size: 13px; color: var(--oneui-text-secondary); }
+    .palace-bottom-left { left: 6px; }
+    .palace-bottom-right { right: 6px; }
+    .palace-bottom-center { position: absolute; left: 50%; bottom: 6px; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 2px; }
+    .palace-trang-sinh { font-weight: 700; font-size: 13px; }
+    .palace-lunar-mansion { font-size: 13px; }
+    .star-chip { display: inline-block; padding: 0px 8px; border-radius: 999px; font-size: 14px; line-height: 1.25; font-weight: 700; background: rgba(17,17,17,0.08); color: var(--oneui-text-primary); white-space: nowrap; overflow: visible; width: fit-content; margin-bottom: 2px; }
+    .star-chip.major { font-size: 15px; padding: 0px 8px; }
+    .star-chip.kim { color: var(--star-kim); }
+    .star-chip.thuy { color: var(--star-thuy); }
+    .star-chip.hoa { color: var(--star-hoa); }
+    .star-chip.tho { color: var(--star-tho); }
+    .star-chip.moc { color: var(--star-moc); }
+    .star-chip.transit { background: rgba(27,110,243,0.12); color: #1b6ef3; }
+    .star-chip.transit.kim { background: rgba(97,99,105,0.12); color: var(--star-kim); }
+    .star-chip.transit.thuy { background: rgba(0,0,0,0.08); color: var(--star-thuy); }
+    .star-chip.transit.hoa { background: rgba(254,3,3,0.12); color: var(--star-hoa); }
+    .star-chip.transit.tho { background: rgba(255,159,0,0.14); color: var(--star-tho); }
+    .star-chip.transit.moc { background: rgba(4,154,4,0.12); color: var(--star-moc); }
+    .star-chip::before { content: ''; }
+    .star-phase { font-size: 9px; font-weight: 800; opacity: 0.8; }
+  </style>
+</head>
+<body>
+  
+  <div id="formScreen" class="screen">
+    <div class="app-brand">Phần mềm được lập trình bởi Hứa Thiện Nhân</div>
+
+    <header class="oneui-header">
+      <h1 class="header-title">Lá Số Tử Vi</h1>
+      <p class="header-subtitle">Lập trình toán học mật mã thống kê</p>
+    </header>
+    <main class="oneui-card-form">
+      <div class="input-group">
+        <label class="oneui-label">Họ và tên</label>
+        <input type="text" id="inpName" class="oneui-input" value="Đương Số">
+      </div>
+      <div class="input-group">
+        <label class="oneui-label">Giới tính</label>
+        <div class="oneui-toggle-group">
+          <button type="button" id="btnNam" class="toggle-btn active">Nam</button>
+          <button type="button" id="btnNu" class="toggle-btn">Nữ</button>
+        </div>
+      </div>
+      <div class="input-group">
+        <label class="oneui-label">Ngày giờ sinh (Dương lịch)</label>
+        <div class="date-row">
+          <input type="date" id="inpBirthDate" class="oneui-input-inline" value="2000-01-01">
+          <input type="time" id="inpBirthTime" class="oneui-input-inline" value="08:00">
+        </div>
+      </div>
+      <div class="input-group">
+        <label class="oneui-label">Ngày xem hạn</label>
+        <input type="date" id="inpViewingDate" class="oneui-input" value="2026-07-04">
+      </div>
+      <button id="btnSubmit" class="oneui-btn-primary">An sao lá số</button>
+    </main>
+  </div>
+
+  <div id="chartScreen" class="screen hidden">
+    <header class="oneui-compact-header">
+      <button id="btnBack" class="icon-btn-back">←</button>
+      <div>
+        <h2 id="txtSummaryName" style="margin:0; font-size:16px;">Đương Số</h2>
+        <p id="txtSummarySub" style="margin:2px 0 0; font-size:13px; color:var(--oneui-text-secondary);"></p>
+      </div>
+    </header>
+    <div id="viewportMask" class="viewport-mask">
+      <div id="tuviChart" class="chart-grid">
+        
+        <div class="palace center-info">
+          <h3 style="margin:0; font-size: 20px;">LÁ SỐ TỬ VI</h3>
+          <p id="lblCenterMeta" style="margin:8px 0; color:var(--oneui-text-secondary);"></p>
+          <div style="margin-top: 12px; width:100%;">
+            <label style="font-size:12px; color:var(--oneui-text-secondary);">Đổi ngày xem hạn (Sao lưu sẽ cập nhật):</label>
+            <input type="date" id="inpLiveViewDate" class="oneui-input" style="padding:10px; text-align:center; margin-top:4px;">
+          </div>
+        </div>
+
+        <div class="palace p-0" id="pal-0"></div><div class="palace p-1" id="pal-1"></div>
+        <div class="palace p-2" id="pal-2"></div><div class="palace p-3" id="pal-3"></div>
+        <div class="palace p-4" id="pal-4"></div><div class="palace p-5" id="pal-5"></div>
+        <div class="palace p-6" id="pal-6"></div><div class="palace p-7" id="pal-7"></div>
+        <div class="palace p-8" id="pal-8"></div><div class="palace p-9" id="pal-9"></div>
+        <div class="palace p-10" id="pal-10"></div><div class="palace p-11" id="pal-11"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { generateLaSo } from 'tuvi-neo';
+
+    // ==========================================
+    // TỬ VI ENGINE: TRANSIT LOGIC (SAO LƯU)
+    // ==========================================
+    const CHI = ["Tý","Sửu","Dần","Mão","Thìn","Tỵ","Ngọ","Mùi","Thân","Dậu","Tuất","Hợi"];
+    const CAN = ["Giáp","Ất","Bính","Đinh","Mậu","Kỷ","Canh","Tân","Nhâm","Quý"];
+
+    function starElementClass(nguhanh) {
+      switch (nguhanh) {
+        case 1:
+          return 'kim';
+        case 2:
+          return 'thuy';
+        case 3:
+          return 'moc';
+        case 4:
+          return 'hoa';
+        case 5:
+          return 'tho';
+        default:
+          return '';
+      }
+    }
+
+    function formatStarLabel(star) {
+      const elementClass = starElementClass(star.element);
+      return `<span class="star-element ${elementClass}">${star.name}</span>`;
+    }
+
+    // 1. Calculate dynamic transits based on the Lunar Year of the Viewing Date
+    function calculateSaoLuu(viewingLunarYearCan, viewingLunarYearChi) {
+      const transits = Array.from({ length: 12 }, () => []);
+
+      const canIndex = CAN.indexOf(viewingLunarYearCan);
+      const chiIndex = CHI.indexOf(viewingLunarYearChi);
+
+      const locTonMap = { 0: 2, 1: 3, 2: 5, 3: 6, 4: 5, 5: 6, 6: 8, 7: 9, 8: 11, 9: 0 };
+      const locTonIdx = locTonMap[canIndex] ?? 0;
+
+      const maMap = {
+        8: 2, 0: 2, 4: 2, // Thân, Tý, Thìn -> Dần
+        2: 8, 6: 8, 10: 8, // Dần, Ngọ, Tuất -> Thân
+        5: 11, 9: 11, 1: 11, // Tỵ, Dậu, Sửu -> Hợi
+        11: 5, 3: 5, 7: 5  // Hợi, Mão, Mùi -> Tỵ
+      };
+      const maIdx = maMap[chiIndex] ?? 0;
+
+      const khocIdx = (6 - chiIndex + 12) % 12;
+      const huIdx = (6 + chiIndex) % 12;
+
+      const place = (index, name) => {
+        if (index >= 0 && index < 12) transits[index].push(name);
+      };
+
+      // Core year-transit ring used by many Tử Vi references.
+      place(chiIndex, "Lưu Thái Tuế");
+      place(locTonIdx, "Lưu Lộc Tồn");
+      place((locTonIdx + 1) % 12, "Lưu Kình Dương");
+      place((locTonIdx + 11) % 12, "Lưu Đà La");
+      place(maIdx, "Lưu Thiên Mã");
+      place(khocIdx, "Lưu Thiên Khốc");
+      place(huIdx, "Lưu Thiên Hư");
+
+      // Secondary transit stars that commonly appear in the year ring.
+      place((chiIndex + 4) % 12, "Lưu Vân Khúc");
+      place((chiIndex + 8) % 12, "Lưu Văn Xương");
+      place((chiIndex + 6) % 12, "Lưu Liêm Trinh");
+      place((locTonIdx + 4) % 12, "Lưu Thất Sát");
+      place((locTonIdx + 6) % 12, "Lưu Phá Quân");
+
+      return transits;
+    }
+
+    // 2. Fetch the Base Chart using tuvi-neo
+    const ELEMENT_NAMES = { 1: 'Kim', 2: 'Thủy', 3: 'Mộc', 4: 'Hỏa', 5: 'Thổ' };
+
+    function generateBaseChart(name, isNam, birthDateStr, birthTimeStr) {
+      const birthDate = new Date(`${birthDateStr}T${birthTimeStr || '00:00'}`);
+      const year = birthDate.getFullYear();
+      const month = birthDate.getMonth() + 1;
+      const day = birthDate.getDate();
+      const hour = birthDate.getHours();
+      const laSo = generateLaSo({
+        name,
+        gender: isNam ? 'male' : 'female',
+        birth: {
+          isLunar: false,
+          year,
+          month,
+          day,
+          hour
+        }
+      });
+
+      return laSo.Cac_cung.map((palace, index) => ({
+        id: index,
+        ...palace,
+        branchName: CHI[palace.ChiCung] || CHI[index],
+        palaceName: palace.Name || "",
+        transitStars: []
+      }));
+    }
+
+    function formatStarPhases(star) {
+      return star.Status ? `(${star.Status})` : '';
+    }
+
+    function renderStarChip(star, isMajor = false) {
+      const phaseLabel = formatStarPhases(star);
+      return `<span class="star-chip ${isMajor ? 'major' : ''} ${starElementClass(star.NguHanh)}">${star.Name}${phaseLabel}</span>`;
+    }
+
+    function classifyTransitStar(name) {
+      const auspicious = [
+        "Lưu Lộc Tồn",
+        "Lưu Kình Dương",
+        "Lưu Thiên Mã",
+        "Lưu Vân Khúc",
+        "Lưu Văn Xương",
+        "Lưu Liêm Trinh"
+      ];
+      const inauspicious = [
+        "Lưu Thái Tuế",
+        "Lưu Đà La",
+        "Lưu Thiên Khốc",
+        "Lưu Thiên Hư",
+        "Lưu Thất Sát",
+        "Lưu Phá Quân"
+      ];
+      if (auspicious.includes(name)) return 'auspicious';
+      if (inauspicious.includes(name)) return 'inauspicious';
+      return 'auspicious';
+    }
+
+    function getTransitElementClass(name) {
+      const map = {
+        'Lưu Thái Tuế': 'thuy',
+        'Lưu Lộc Tồn': 'moc',
+        'Lưu Kình Dương': 'kim',
+        'Lưu Đà La': 'hoa',
+        'Lưu Thiên Mã': 'tho',
+        'Lưu Thiên Khốc': 'hoa',
+        'Lưu Thiên Hư': 'thuy',
+        'Lưu Vân Khúc': 'thuy',
+        'Lưu Văn Xương': 'kim',
+        'Lưu Liêm Trinh': 'moc',
+        'Lưu Thất Sát': 'kim',
+        'Lưu Phá Quân': 'hoa'
+      };
+      return map[name] || '';
+    }
+
+    function renderTransitChip(name) {
+      const category = classifyTransitStar(name);
+      const elementClass = getTransitElementClass(name);
+      const shortName = name.replace(/^Lưu\s+/, 'L.');
+      return `<span class="star-chip transit ${category} ${elementClass}">${shortName}</span>`;
+    }
+
+    function renderPalaceCard(palace, element) {
+      const majorStars = (palace.ChinhTinh || []).slice(0, 2);
+      const auspiciousStars = (palace.Saotot || []);
+      const inauspiciousStars = (palace.Saoxau || []);
+      const canChi = `${CAN[palace.CanCung] ?? '?'} ${CHI[palace.ChiCung] ?? '?'}`;
+      const elementName = ELEMENT_NAMES[palace.NguHanhCung] || '—';
+      const daiHan = palace.LuuDaiHan ? `${palace.LuuDaiHan}` : '—';
+      const thangHan = palace.ThangHan ? `Th.${palace.ThangHan}` : '—';
+      const dynamicRole = palace.LuuTuan || palace.LuuTriet
+        ? `${palace.LuuTuan ? `L.Tuần ${palace.LuuTuan}` : ''}${palace.LuuTuan && palace.LuuTriet ? ' • ' : ''}${palace.LuuTriet ? `L.Triệt ${palace.LuuTriet}` : ''}`
+        : '—';
+      const luuNien = palace.LuuTieuHanTen || palace.LuuDaiHanTen || '—';
+      const lunarMansion = palace.TieuHan || '—';
+      const trangSinh = palace.TrangSinh || '—';
+      const transitStars = palace.transitStars || [];
+      const transitAuspicious = transitStars.filter(star => classifyTransitStar(star) === 'auspicious');
+      const transitInauspicious = transitStars.filter(star => classifyTransitStar(star) === 'inauspicious');
+
+      element.innerHTML = `
+        <div class="palace-header">
+          <div class="palace-left-meta">
+            <span>${canChi}</span>
+            <span>${elementName}</span>
+          </div>
+          <div class="palace-title">
+            ${palace.palaceName}
+          </div>
+          <div class="palace-right-meta">
+            <span>${daiHan}</span>
+            <span>${thangHan}</span>
+          </div>
+        </div>
+        <div class="palace-major-stars">
+          ${majorStars.length ? majorStars.map(star => renderStarChip(star, true)).join('') : '<span class="star-chip">—</span>'}
+        </div>
+        <div class="palace-middle">
+          <div class="palace-star-col">
+            <div class="palace-star-list">
+              ${auspiciousStars.length ? auspiciousStars.map(star => renderStarChip(star)).join('') : '<span class="star-chip">—</span>'}
+            </div>
+            ${transitAuspicious.length ? `<div class="palace-transit-list">${transitAuspicious.map(renderTransitChip).join('')}</div>` : ''}
+          </div>
+          <div class="palace-star-col">
+            <div class="palace-star-list">
+              ${inauspiciousStars.length ? inauspiciousStars.map(star => renderStarChip(star)).join('') : '<span class="star-chip">—</span>'}
+            </div>
+            ${transitInauspicious.length ? `<div class="palace-transit-list">${transitInauspicious.map(renderTransitChip).join('')}</div>` : ''}
+          </div>
+        </div>
+        <div class="palace-bottom">
+          <span class="palace-bottom-left">DV.${dynamicRole}</span>
+          <div class="palace-bottom-center">
+            <span class="palace-lunar-mansion">${lunarMansion}</span>
+            <span class="palace-trang-sinh">${trangSinh}</span>
+          </div>
+          <span class="palace-bottom-right">LN.${luuNien}</span>
+        </div>
+      `;
+    }
+
+    // 3. Master Engine execution
+    function runEngine(name, isNam, bDateStr, bTimeStr, vDateStr) {
+      // Use lunar-javascript to convert Solar dates to Lunar and get accurate Can Chi
+      const bDate = Solar.fromDate(new Date(`${bDateStr}T${bTimeStr || '00:00'}`));
+      const bLunar = Lunar.fromSolar(bDate);
+      
+      const vDate = Solar.fromDate(new Date(vDateStr));
+      const vLunar = Lunar.fromSolar(vDate);
+      
+      // Get exact strings like "Canh Thìn"
+      const birthCanChi = bLunar.getYearInGanZhi(); 
+      const GAN_MAP = {
+        "甲":"Giáp","乙":"Ất","丙":"Bính","丁":"Đinh","戊":"Mậu",
+        "己":"Kỷ","庚":"Canh","辛":"Tân","壬":"Nhâm","癸":"Quý"
+      };
+
+      const ZHI_MAP = {
+        "子":"Tý","丑":"Sửu","寅":"Dần","卯":"Mão","辰":"Thìn","巳":"Tỵ",
+        "午":"Ngọ","未":"Mùi","申":"Thân","酉":"Dậu","戌":"Tuất","亥":"Hợi"
+      };
+
+      const viewCan = GAN_MAP[vLunar.getYearGan()];
+      const viewChi = ZHI_MAP[vLunar.getYearZhi()];
+
+      // 1. Generate base static chart (tuvi-neo layer)
+      const basePalaces = generateBaseChart(name, isNam, bDateStr, bTimeStr);
+      
+      // 2. Calculate dynamic transits specific to viewing year (Your custom layer)
+      const transitArrays = calculateSaoLuu(viewCan, viewChi);
+
+      // 3. Merge them
+      const mergedPalaces = basePalaces.map((palace, index) => ({
+        ...palace,
+        transitStars: transitArrays[index]
+      }));
+
+      return {
+        name,
+        metaInfo: `${isNam ? 'Nam Mệnh' : 'Nữ Mệnh'} • Sinh: ${birthCanChi}`,
+        viewingInfo: `Xem hạn năm: ${viewCan} ${viewChi} (${vDate.getYear()})`,
+        palaces: mergedPalaces
+      };
+    }
+
+    // ==========================================
+    // UI CONTROLLERS
+    // ==========================================
+    let isNam = true;
+    document.getElementById("btnNam").addEventListener("click", () => { isNam = true; document.getElementById("btnNam").classList.add("active"); document.getElementById("btnNu").classList.remove("active"); });
+    document.getElementById("btnNu").addEventListener("click", () => { isNam = false; document.getElementById("btnNu").classList.add("active"); document.getElementById("btnNam").classList.remove("active"); });
+
+    function updateChartUI() {
+      const name = document.getElementById("inpName").value;
+      const bDate = document.getElementById("inpBirthDate").value;
+      const bTime = document.getElementById("inpBirthTime").value;
+      const vDate = document.getElementById("inpViewingDate").value;
+      document.getElementById("inpLiveViewDate").value = vDate;
+
+      const data = runEngine(name, isNam, bDate, bTime, vDate);
+
+      document.getElementById("txtSummaryName").innerText = data.name;
+      document.getElementById("txtSummarySub").innerText = data.metaInfo;
+      document.getElementById("lblCenterMeta").innerHTML = `<b>${data.metaInfo}</b><br><br><span style="color:#1b6ef3; font-weight:bold;">${data.viewingInfo}</span>`;
+
+      data.palaces.forEach(p => {
+        const dom = document.getElementById(`pal-${p.id}`);
+        renderPalaceCard(p, dom);
+      });
+    }
+
+    document.getElementById("btnSubmit").addEventListener("click", () => {
+      updateChartUI();
+      document.getElementById("formScreen").classList.add("hidden");
+      document.getElementById("chartScreen").classList.remove("hidden");
+    });
+    
+    document.getElementById("btnBack").addEventListener("click", () => {
+      document.getElementById("chartScreen").classList.add("hidden");
+      document.getElementById("formScreen").classList.remove("hidden");
+    });
+    
+    document.getElementById("inpLiveViewDate").addEventListener("change", (e) => {
+      document.getElementById("inpViewingDate").value = e.target.value;
+      updateChartUI();
+    });
+
+    // ==========================================
+    // PAN & ZOOM GESTURES
+    // ==========================================
+    let scale = 0.8, x = 20, y = 40;
+    let isDragging = false, startX = 0, startY = 0, initX = 0, initY = 0;
+    let initDist = 0, baseScale = 1;
+    let pinchAnchorX = 0, pinchAnchorY = 0;
+    const mask = document.getElementById("viewportMask");
+    const chart = document.getElementById("tuviChart");
+
+    mask.addEventListener("touchstart", (e) => {
+      if (e.touches.length === 1) {
+        isDragging = true;
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        initX = x;
+        initY = y;
+      } else if (e.touches.length === 2) {
+        isDragging = false;
+        initDist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+        baseScale = scale;
+
+        const centerX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+        const centerY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+        pinchAnchorX = (centerX - x) / scale;
+        pinchAnchorY = (centerY - y) / scale;
+      }
+    }, { passive: true });
+
+    mask.addEventListener("touchmove", (e) => {
+      if (isDragging && e.touches.length === 1) {
+        x = initX + (e.touches[0].clientX - startX);
+        y = initY + (e.touches[0].clientY - startY);
+        applyTransform();
+      } else if (e.touches.length === 2) {
+        const dist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+        const centerX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+        const centerY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+        const nextScale = Math.min(Math.max(baseScale * (dist / initDist), 0.4), 2.5);
+
+        x = centerX - nextScale * pinchAnchorX;
+        y = centerY - nextScale * pinchAnchorY;
+        scale = nextScale;
+        applyTransform();
+      }
+    }, { passive: true });
+
+    mask.addEventListener("touchend", () => { isDragging = false; });
+    function applyTransform() { chart.style.setProperty("--x", `${x}px`); chart.style.setProperty("--y", `${y}px`); chart.style.setProperty("--scale", scale); }
+    applyTransform();
+  </script>
+</body>
+</html>
