@@ -121,7 +121,7 @@
     .palace-left-meta { left: 0; }
     .palace-right-meta { right: 0; text-align: right; }
     .palace-title { position: absolute; left: 50%; top: 4px; transform: translateX(-50%); width: calc(100% - 100px); display: flex; justify-content: center; align-items: center; font-weight: 800; font-size: 16px; text-transform: uppercase; letter-spacing: 0.04em; text-align: center; z-index: 6; }
-    .palace-major-stars { position: absolute; top: 32px; left: 50%; transform: translateX(-50%); width: calc(100% - 48px); box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: wrap; justify-content: center; align-items: center; min-height: 52px; margin-top: 0; z-index: 5; }
+    .palace-major-stars { position: absolute; top: 33px; left: 50%; transform: translateX(-50%); width: calc(100% - 48px); box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: wrap; justify-content: center; align-items: center; min-height: 52px; margin-top: 0; z-index: 5; }
     .palace-major-stars span { font-size: 14px; }
     .palace-middle { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 6px; flex: 1; padding-top: 22px; align-items: start; }
     .palace-star-col { display: block; gap: 4px; min-height: 0; align-self: start; width: 100%; max-width: 100%; overflow: visible; }
@@ -138,7 +138,7 @@
     .palace-trang-sinh { font-weight: 700; font-size: 13px; }
     .palace-lunar-mansion { font-size: 13px; }
     .star-chip { display: inline-block; padding: 0px 8px; border-radius: 999px; font-size: 14px; line-height: 1.25; font-weight: 700; background: rgba(17,17,17,0.08); color: var(--oneui-text-primary); white-space: nowrap; overflow: visible; width: fit-content; margin-bottom: 2px; }
-    .star-chip.major { font-size: 15px; padding: 0px 8px; }
+    .star-chip.major { font-size: 15px; padding: 0px 8px; text-transform: uppercase; }
     .star-chip.kim { color: var(--star-kim); }
     .star-chip.thuy { color: var(--star-thuy); }
     .star-chip.hoa { color: var(--star-hoa); }
@@ -219,198 +219,267 @@
       </div>
     </div>
   </div>
-
+  
   <script type="module">
-    import { generateLaSo } from 'tuvi-neo';
+    import { astro } from 'iztro';
+    
+    function removeVietnameseTones(str) {
+      if (!str) return '';
+      
 
-    // ==========================================
-    // TỬ VI ENGINE: TRANSIT LOGIC (SAO LƯU)
-    // ==========================================
-    const CHI = ["Tý","Sửu","Dần","Mão","Thìn","Tỵ","Ngọ","Mùi","Thân","Dậu","Tuất","Hợi"];
-    const CAN = ["Giáp","Ất","Bính","Đinh","Mậu","Kỷ","Canh","Tân","Nhâm","Quý"];
+      return str
+        .normalize('NFD') // Separate base characters from their accent marks
+        .replace(/[\u0300-\u036f]/g, '') // Remove the accent marks
+        .replace(/đ/g, 'd') // Replace lowercase đ
+        .replace(/Đ/g, 'D') // Replace uppercase Đ
+        .trim();
+    }
 
-    function starElementClass(nguhanh) {
-      switch (nguhanh) {
-        case 1:
-          return 'kim';
-        case 2:
-          return 'thuy';
-        case 3:
-          return 'moc';
-        case 4:
-          return 'hoa';
-        case 5:
-          return 'tho';
-        default:
-          return '';
+    function convertDictValues(obj, func) {
+      const newObj = {};
+      
+      for (const [key, value] of Object.entries(obj)) {
+        // Only convert if the value is a string, otherwise keep it as-is
+        newObj[key] = (typeof value === 'string') ? func(value) : value;
       }
+      
+      return newObj;
     }
 
-    function formatStarLabel(star) {
-      const elementClass = starElementClass(star.element);
-      return `<span class="star-element ${elementClass}">${star.name}</span>`;
-    }
 
-    // 1. Calculate dynamic transits based on the Lunar Year of the Viewing Date
-    function calculateSaoLuu(viewingLunarYearCan, viewingLunarYearChi) {
-      const transits = Array.from({ length: 12 }, () => []);
+    var VI_STAR_ELEMENTS = {
+      // 14 Chính Tinh (Major Stars)
+      'Tử Vi': 'Thổ',
+      'Thiên Cơ': 'Mộc',
+      'Thái Dương': 'Hỏa',
+      'Vũ Khúc': 'Kim',
+      'Thiên Đồng': 'Thủy',
+      'Liêm Trinh': 'Hỏa',
+      'Thiên Phủ': 'Thổ',
+      'Thái Âm': 'Thủy',
+      'Tham Lang': 'Mộc', // Thủy đới Mộc, gốc là Mộc
+      'Cự Môn': 'Thủy', // Hoặc Thủy đới Thổ
+      'Thiên Tướng': 'Thủy',
+      'Thiên Lương': 'Mộc', // Hoặc Thổ đới Mộc
+      'Thất Sát': 'Kim', // Hỏa đới Kim
+      'Phá Quân': 'Thủy',
 
-      const canIndex = CAN.indexOf(viewingLunarYearCan);
-      const chiIndex = CHI.indexOf(viewingLunarYearChi);
+      // Phụ Tinh & Sát Tinh (Minor Stars & Sát Tinh)
+      'Tả Phù': 'Thổ',
+      'Hữu Bật': 'Thủy',
+      'Văn Xương': 'Kim',
+      'Văn Khúc': 'Thủy',
+      'Lộc Tồn': 'Thổ',
+      'Thiên Mã': 'Hỏa',
+      'Kình Dương': 'Kim', // Hỏa đới Kim
+      'Đà La': 'Kim', // Hỏa đới Kim
+      'Hỏa Tinh': 'Hỏa',
+      'Linh Tinh': 'Hỏa',
+      'Thiên Khôi': 'Hỏa',
+      'Thiên Việt': 'Hỏa',
+      'Địa Không': 'Hỏa',
+      'Địa Kiếp': 'Hỏa',
 
-      const locTonMap = { 0: 2, 1: 3, 2: 5, 3: 6, 4: 5, 5: 6, 6: 8, 7: 9, 8: 11, 9: 0 };
-      const locTonIdx = locTonMap[canIndex] ?? 0;
+      // Các Sao Khác
+      'Kiếp Sát': 'Hỏa',
+      'Thiên Không': 'Hỏa',
+      'Thiên Hình': 'Hỏa', // Hoặc Kim đới Hỏa
+      'Thiên Diêu': 'Thủy',
+      'Giải Thần': 'Mộc',
+      'Âm Sát': 'Thổ',
+      'Thiên Hỷ': 'Thủy',
+      'Thiên Quan': 'Hỏa',
+      'Thiên Phúc': 'Thổ',
+      'Thiên Khốc': 'Thủy',
+      'Thiên Hư': 'Thủy',
+      'Long Trì': 'Thủy',
+      'Phụng Các': 'Thổ',
+      'Hồng Loan': 'Thủy',
+      'Cô Thần': 'Thổ',
+      'Quả Tú': 'Thổ',
+      'Phi Liêm': 'Hỏa',
+      'Phá Toái': 'Hỏa',
+      'Đài Phụ': 'Thổ',
+      'Phong Cáo': 'Thổ',
+      'Thiên Vu': 'Thủy',
+      'Thiên Nguyệt': 'Thủy',
+      'Tam Thai': 'Thổ',
+      'Bát Tọa': 'Mộc',
+      'Ân Quang': 'Mộc',
+      'Thiên Quý': 'Thổ',
+      'Thiên Tài': 'Thổ',
+      'Thiên Thọ': 'Thổ',
+      'Triệt Không': 'Hỏa',
+      'Tuần Trung': 'Hỏa',
+      'Tuần Không': 'Hỏa',
+      'Không Vong': 'Hỏa',
+      'Triệt Lộ': 'Hỏa',
+      'Nguyệt Đức': 'Hỏa',
+      'Thiên Thương': 'Thổ',
+      'Thiên Sứ': 'Thủy',
+      'Thiên Trù': 'Thổ',
 
-      const maMap = {
-        8: 2, 0: 2, 4: 2, // Thân, Tý, Thìn -> Dần
-        2: 8, 6: 8, 10: 8, // Dần, Ngọ, Tuất -> Thân
-        5: 11, 9: 11, 1: 11, // Tỵ, Dậu, Sửu -> Hợi
-        11: 5, 3: 5, 7: 5  // Hợi, Mão, Mùi -> Tỵ
-      };
-      const maIdx = maMap[chiIndex] ?? 0;
+      // Vòng Trường Sinh (Lifecycle Stars)
+      'Trường Sinh': 'Thủy',
+      'Mục Dục': 'Thủy',
+      'Quan Đới': 'Kim',
+      'Lâm Quan': 'Kim',
+      'Đế Vượng': 'Kim',
+      'Suy': 'Thủy',
+      'Bệnh': 'Thủy',
+      'Tử': 'Thủy',
+      'Mộ': 'Thổ',
+      'Tuyệt': 'Thủy',
+      'Thai': 'Thổ',
+      'Dưỡng': 'Mộc',
 
-      const khocIdx = (6 - chiIndex + 12) % 12;
-      const huIdx = (6 + chiIndex) % 12;
+      // Vòng Bác Sỹ (Boshi Cycle)
+      'Bác Sỹ': 'Thủy',
+      'Lực Sỹ': 'Hỏa',
+      'Thanh Long': 'Thủy',
+      'Tiểu Hao': 'Hỏa',
+      'Tướng Quân': 'Mộc',
+      'Tấu Thư': 'Kim',
+      'Hỷ Thần': 'Hỏa',
+      'Bệnh Phù': 'Thổ',
+      'Đại Hao': 'Hỏa',
+      'Tuế Phá': 'Hỏa',
+      'Phục Binh': 'Hỏa',
+      'Quan Phủ': 'Hỏa',
 
-      const place = (index, name) => {
-        if (index >= 0 && index < 12) transits[index].push(name);
-      };
+      // Vòng Thái Tuế (Tai Sui Cycle)
+      'Tuế Kiện': 'Hỏa',
+      'Hối Khí': 'Thổ',
+      'Tang Môn': 'Mộc',
+      'Quán Tác': 'Hỏa',
+      'Quan Phù': 'Hỏa',
+      'Long Đức': 'Thủy',
+      'Bạch Hổ': 'Kim',
+      'Thiên Đức': 'Hỏa',
+      'Điếu Khách': 'Hỏa',
 
-      // Core year-transit ring used by many Tử Vi references.
-      place(chiIndex, "Lưu Thái Tuế");
-      place(locTonIdx, "Lưu Lộc Tồn");
-      place((locTonIdx + 1) % 12, "Lưu Kình Dương");
-      place((locTonIdx + 11) % 12, "Lưu Đà La");
-      place(maIdx, "Lưu Thiên Mã");
-      place(khocIdx, "Lưu Thiên Khốc");
-      place(huIdx, "Lưu Thiên Hư");
+      // Vòng Lộc Tồn / Tướng Tinh (General Star Cycle)
+      'Tướng Tinh': 'Mộc',
+      'Phan Án': 'Thủy',
+      'Tuế Dịch': 'Hỏa',
+      'Tức Thần': 'Thổ',
+      'Hoa Cái': 'Kim',
+      'Tai Sát': 'Hỏa',
+      'Thiên Sát': 'Hỏa',
+      'Chỉ Bối': 'Thổ',
+      'Hàm Trì': 'Thủy',
+      'Nguyệt Sát': 'Hỏa',
+      'Vong Thần': 'Hỏa',
 
-      // Secondary transit stars that commonly appear in the year ring.
-      place((chiIndex + 4) % 12, "Lưu Vân Khúc");
-      place((chiIndex + 8) % 12, "Lưu Văn Xương");
-      place((chiIndex + 6) % 12, "Lưu Liêm Trinh");
-      place((locTonIdx + 4) % 12, "Lưu Thất Sát");
-      place((locTonIdx + 6) % 12, "Lưu Phá Quân");
+      // Vận Tinh (Decade Stars)
+      'Vận Khôi': 'Hỏa',
+      'Vận Việt': 'Hỏa',
+      'Vận Xương': 'Kim',
+      'Vận Khúc': 'Thủy',
+      'Vận Loan': 'Thủy',
+      'Vận Hỷ': 'Thủy',
+      'Vận Lộc': 'Thổ',
+      'Vận Dương': 'Kim',
+      'Vận Đà': 'Kim',
+      'Vận Mã': 'Hỏa',
 
-      return transits;
-    }
+      // Lưu Tinh (Annual Stars)
+      'Lưu Khôi': 'Hỏa',
+      'Lưu Việt': 'Hỏa',
+      'Lưu Xương': 'Kim',
+      'Lưu Khúc': 'Thủy',
+      'Lưu Loan': 'Thủy',
+      'Lưu Hỷ': 'Thủy',
+      'Lưu Lộc': 'Thổ',
+      'Lưu Dương': 'Kim',
+      'Lưu Đà': 'Kim',
+      'Lưu Mã': 'Hỏa',
+      'Niên Giải': 'Mộc'
+    };
 
-    // 2. Fetch the Base Chart using tuvi-neo
-    const ELEMENT_NAMES = { 1: 'Kim', 2: 'Thủy', 3: 'Mộc', 4: 'Hỏa', 5: 'Thổ' };
+    VI_STAR_ELEMENTS = convertDictValues(VI_STAR_ELEMENTS, (x) => removeVietnameseTones(x).toLowerCase())
+    
 
-    function generateBaseChart(name, isNam, birthDateStr, birthTimeStr) {
-      const birthDate = new Date(`${birthDateStr}T${birthTimeStr || '00:00'}`);
-      const year = birthDate.getFullYear();
-      const month = birthDate.getMonth() + 1;
-      const day = birthDate.getDate();
-      const hour = birthDate.getHours();
-      const laSo = generateLaSo({
-        name,
-        gender: isNam ? 'male' : 'female',
-        birth: {
-          isLunar: false,
-          year,
-          month,
-          day,
-          hour
-        }
-      });
+    // ==========================================
+    // RENDER COMPONENT FUNCTIONS
+    // ==========================================
 
-      return laSo.Cac_cung.map((palace, index) => ({
-        id: index,
-        ...palace,
-        branchName: CHI[palace.ChiCung] || CHI[index],
-        palaceName: palace.Name || "",
-        transitStars: []
-      }));
+    function classifyTransitStar(name) {
+      const inauspiciousNames = ['Kình Dương', 'Đà La', 'Hỏa Tinh', 'Linh Tinh', 'Địa Không', 'Địa Kiếp', 'Thiên Không', 'Kiếp Sát', 'Đại Hao', 'Tiểu Hao', 'Thiên Khốc', 'Thiên Hư', 'Tang Môn', 'Bạch Hổ', 'Thiên Hình', 'Thiên Diêu', 'Phục Binh', 'Tuế Phá', 'Điếu Khách'];
+      const baseName = name.replace(/^Lưu\s+/, '');
+      return inauspiciousNames.includes(baseName) ? 'inauspicious' : 'auspicious';
     }
 
     function formatStarPhases(star) {
-      return star.Status ? `(${star.Status})` : '';
+      if (star.brightness) {
+        return typeof star.brightness === 'object' ? `(${star.brightness.value[0]})` : `(${star.brightness[0]})`;
+      }
+      return '';
     }
 
     function renderStarChip(star, isMajor = false) {
       const phaseLabel = formatStarPhases(star);
-      return `<span class="star-chip ${isMajor ? 'major' : ''} ${starElementClass(star.NguHanh)}">${star.Name}${phaseLabel}</span>`;
+      const starName = star.name; 
+      const elementClass = VI_STAR_ELEMENTS[starName] || '';
+      return `<span class="star-chip ${isMajor ? 'major' : ''} ${elementClass}">${starName}${phaseLabel}</span>`;
     }
 
-    function classifyTransitStar(name) {
-      const auspicious = [
-        "Lưu Lộc Tồn",
-        "Lưu Kình Dương",
-        "Lưu Thiên Mã",
-        "Lưu Vân Khúc",
-        "Lưu Văn Xương",
-        "Lưu Liêm Trinh"
-      ];
-      const inauspicious = [
-        "Lưu Thái Tuế",
-        "Lưu Đà La",
-        "Lưu Thiên Khốc",
-        "Lưu Thiên Hư",
-        "Lưu Thất Sát",
-        "Lưu Phá Quân"
-      ];
-      if (auspicious.includes(name)) return 'auspicious';
-      if (inauspicious.includes(name)) return 'inauspicious';
-      return 'auspicious';
-    }
-
-    function getTransitElementClass(name) {
-      const map = {
-        'Lưu Thái Tuế': 'thuy',
-        'Lưu Lộc Tồn': 'moc',
-        'Lưu Kình Dương': 'kim',
-        'Lưu Đà La': 'hoa',
-        'Lưu Thiên Mã': 'tho',
-        'Lưu Thiên Khốc': 'hoa',
-        'Lưu Thiên Hư': 'thuy',
-        'Lưu Vân Khúc': 'thuy',
-        'Lưu Văn Xương': 'kim',
-        'Lưu Liêm Trinh': 'moc',
-        'Lưu Thất Sát': 'kim',
-        'Lưu Phá Quân': 'hoa'
-      };
-      return map[name] || '';
-    }
-
-    function renderTransitChip(name) {
+    function renderTransitChip(star) {
+      const name = star.name; 
       const category = classifyTransitStar(name);
-      const elementClass = getTransitElementClass(name);
+      const baseStarName = name.replace(/^Lưu\s+/, '');
+      const elementClass = VI_STAR_ELEMENTS[baseStarName] || '';
       const shortName = name.replace(/^Lưu\s+/, 'L.');
+      
       return `<span class="star-chip transit ${category} ${elementClass}">${shortName}</span>`;
     }
 
     function renderPalaceCard(palace, element) {
-      const majorStars = (palace.ChinhTinh || []).slice(0, 2);
-      const auspiciousStars = (palace.Saotot || []);
-      const inauspiciousStars = (palace.Saoxau || []);
-      const canChi = `${CAN[palace.CanCung] ?? '?'} ${CHI[palace.ChiCung] ?? '?'}`;
-      const elementName = ELEMENT_NAMES[palace.NguHanhCung] || '—';
-      const daiHan = palace.LuuDaiHan ? `${palace.LuuDaiHan}` : '—';
-      const thangHan = palace.ThangHan ? `Th.${palace.ThangHan}` : '—';
-      const dynamicRole = palace.LuuTuan || palace.LuuTriet
-        ? `${palace.LuuTuan ? `L.Tuần ${palace.LuuTuan}` : ''}${palace.LuuTuan && palace.LuuTriet ? ' • ' : ''}${palace.LuuTriet ? `L.Triệt ${palace.LuuTriet}` : ''}`
-        : '—';
-      const luuNien = palace.LuuTieuHanTen || palace.LuuDaiHanTen || '—';
-      const lunarMansion = palace.TieuHan || '—';
-      const trangSinh = palace.TrangSinh || '—';
-      const transitStars = palace.transitStars || [];
-      const transitAuspicious = transitStars.filter(star => classifyTransitStar(star) === 'auspicious');
-      const transitInauspicious = transitStars.filter(star => classifyTransitStar(star) === 'inauspicious');
+      const majorStars = palace.majorStars || [];
+      
+      // Core setup to filter auspicious vs inauspicious minor & adjective stars
+      const inauspiciousNames = ['Kình Dương', 'Đà La', 'Hỏa Tinh', 'Linh Tinh', 'Địa Không', 'Địa Kiếp', 'Thiên Không', 'Kiếp Sát', 'Đại Hao', 'Tiểu Hao', 'Thiên Khốc', 'Thiên Hư', 'Tang Môn', 'Bạch Hổ', 'Thiên Hình', 'Thiên Diêu', 'Phá Toái', 'Phục Binh', 'Quan Phủ', 'Quan Phù', 'Tuế Phá', 'Điếu Khách'];
+      
+      const allMinor = [
+        ...(palace.minorStars || []),
+        ...(palace.adjectiveStars || [])
+      ];
+
+      const auspiciousStars = allMinor.filter(star => !inauspiciousNames.includes(star.name));
+      const inauspiciousStars = allMinor.filter(star => inauspiciousNames.includes(star.name));
+
+      // Core Palace Info Mapping
+      const canChi = `${palace.heavenlyStem[0] || '—'}.${palace.earthlyBranch || '—'}`.trim();
+      const elementName = palace.fiveElements || '—'; 
+      
+      const daiHan = palace.decadal?.range ? `${palace.decadal.range[0]} - ${palace.decadal.range[1]}` : '—';
+      const thangHan = palace.ages ? palace.ages.join(', ') : '—'; // Used ages for Tiểu Hạn
+      
+      const changkong = (palace.changkongStars || []).map(s => s.name).join('/');
+      const dynamicRole = changkong || '—';
+
+      const luuNien = palace.yearlyIndex !== undefined ? `LN.${palace.yearlyIndex}` : '—';
+      
+      const lunarMansion = palace.suiqian12 || palace.jiangxing12 || '—'; 
+      const trangSinh = palace.changsheng12 || '—';
+      
+      // Transit Mapping
+      const transitStars = palace.horoscopeStars || [];
+      const transitAuspicious = transitStars.filter(star => classifyTransitStar(star.name) === 'auspicious');
+      const transitInauspicious = transitStars.filter(star => classifyTransitStar(star.name) === 'inauspicious');
 
       element.innerHTML = `
         <div class="palace-header">
           <div class="palace-left-meta">
             <span>${canChi}</span>
-            <span>${elementName}</span>
+            ${elementName ? `<span>${elementName}</span>` : ''}
           </div>
           <div class="palace-title">
-            ${palace.palaceName}
+            ${palace.name}
           </div>
           <div class="palace-right-meta">
             <span>${daiHan}</span>
-            <span>${thangHan}</span>
+            <span style="max-width: 60px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${thangHan}">${thangHan}</span>
           </div>
         </div>
         <div class="palace-major-stars">
@@ -431,66 +500,70 @@
           </div>
         </div>
         <div class="palace-bottom">
-          <span class="palace-bottom-left">DV.${dynamicRole}</span>
+          <span class="palace-bottom-left">${dynamicRole}</span>
           <div class="palace-bottom-center">
             <span class="palace-lunar-mansion">${lunarMansion}</span>
             <span class="palace-trang-sinh">${trangSinh}</span>
           </div>
-          <span class="palace-bottom-right">LN.${luuNien}</span>
+          <span class="palace-bottom-right">${luuNien}</span>
         </div>
       `;
     }
 
-    // 3. Master Engine execution
+    // ==========================================
+    // MASTER ENGINE EXECUTION 
+    // ==========================================
+
     function runEngine(name, isNam, bDateStr, bTimeStr, vDateStr) {
-      // Use lunar-javascript to convert Solar dates to Lunar and get accurate Can Chi
-      const bDate = Solar.fromDate(new Date(`${bDateStr}T${bTimeStr || '00:00'}`));
-      const bLunar = Lunar.fromSolar(bDate);
+      const birthDate = new Date(`${bDateStr}T${bTimeStr || '00:00'}`);
+      const hour = birthDate.getHours();
       
-      const vDate = Solar.fromDate(new Date(vDateStr));
-      const vLunar = Lunar.fromSolar(vDate);
+      const iztroHourIndex = Math.floor((hour + 1) % 24 / 2);
+      const genderStr = isNam ? 'male' : 'female';
+
+      const astrolabe = astro.bySolar(bDateStr, iztroHourIndex, genderStr, true, 'vi-VN');
+      const viewDate = new Date(vDateStr);
+      const targetYear = viewDate.getFullYear();
       
-      // Get exact strings like "Canh Thìn"
-      const birthCanChi = bLunar.getYearInGanZhi(); 
-      const GAN_MAP = {
-        "甲":"Giáp","乙":"Ất","丙":"Bính","丁":"Đinh","戊":"Mậu",
-        "己":"Kỷ","庚":"Canh","辛":"Tân","壬":"Nhâm","癸":"Quý"
-      };
+      const horoscope = astrolabe.horoscope(vDateStr, iztroHourIndex);
 
-      const ZHI_MAP = {
-        "子":"Tý","丑":"Sửu","寅":"Dần","卯":"Mão","辰":"Thìn","巳":"Tỵ",
-        "午":"Ngọ","未":"Mùi","申":"Thân","酉":"Dậu","戌":"Tuất","亥":"Hợi"
-      };
+      // Using horoscope.astrolabe to ensure transit logic binds correctly if available
+      const baseAstrolabe = horoscope.astrolabe || astrolabe;
 
-      const viewCan = GAN_MAP[vLunar.getYearGan()];
-      const viewChi = ZHI_MAP[vLunar.getYearZhi()];
-
-      // 1. Generate base static chart (tuvi-neo layer)
-      const basePalaces = generateBaseChart(name, isNam, bDateStr, bTimeStr);
-      
-      // 2. Calculate dynamic transits specific to viewing year (Your custom layer)
-      const transitArrays = calculateSaoLuu(viewCan, viewChi);
-
-      // 3. Merge them
-      const mergedPalaces = basePalaces.map((palace, index) => ({
+      const processedPalaces = baseAstrolabe.palaces.map((palace, index) => ({
+        id: index,
         ...palace,
-        transitStars: transitArrays[index]
+        horoscopeStars: palace.horoscopeStars || []
       }));
+
+      const birthStem = astrolabe.yearStem || astrolabe.yearly?.heavenlyStem || '';
+      const birthBranch = astrolabe.yearBranch || astrolabe.yearly?.earthlyBranch || '';
+      const viewStem = horoscope.yearly?.heavenlyStem || '';
+      const viewBranch = horoscope.yearly?.earthlyBranch || '';
 
       return {
         name,
-        metaInfo: `${isNam ? 'Nam Mệnh' : 'Nữ Mệnh'} • Sinh: ${birthCanChi}`,
-        viewingInfo: `Xem hạn năm: ${viewCan} ${viewChi} (${vDate.getYear()})`,
-        palaces: mergedPalaces
+        metaInfo: `${isNam ? 'Nam Mệnh' : 'Nữ Mệnh'} • Can Chi Năm Sinh: ${birthStem} ${birthBranch}`,
+        viewingInfo: `Xem hạn năm: ${viewStem} ${viewBranch} (${targetYear})`,
+        palaces: processedPalaces
       };
     }
 
     // ==========================================
     // UI CONTROLLERS
     // ==========================================
+    
     let isNam = true;
-    document.getElementById("btnNam").addEventListener("click", () => { isNam = true; document.getElementById("btnNam").classList.add("active"); document.getElementById("btnNu").classList.remove("active"); });
-    document.getElementById("btnNu").addEventListener("click", () => { isNam = false; document.getElementById("btnNu").classList.add("active"); document.getElementById("btnNam").classList.remove("active"); });
+    document.getElementById("btnNam").addEventListener("click", () => { 
+      isNam = true; 
+      document.getElementById("btnNam").classList.add("active"); 
+      document.getElementById("btnNu").classList.remove("active"); 
+    });
+    document.getElementById("btnNu").addEventListener("click", () => { 
+      isNam = false; 
+      document.getElementById("btnNu").classList.add("active"); 
+      document.getElementById("btnNam").classList.remove("active"); 
+    });
 
     function updateChartUI() {
       const name = document.getElementById("inpName").value;
@@ -507,7 +580,9 @@
 
       data.palaces.forEach(p => {
         const dom = document.getElementById(`pal-${p.id}`);
-        renderPalaceCard(p, dom);
+        if (dom) {
+          renderPalaceCard(p, dom);
+        }
       });
     }
 
@@ -530,6 +605,7 @@
     // ==========================================
     // PAN & ZOOM GESTURES
     // ==========================================
+    
     let scale = 0.8, x = 20, y = 40;
     let isDragging = false, startX = 0, startY = 0, initX = 0, initY = 0;
     let initDist = 0, baseScale = 1;

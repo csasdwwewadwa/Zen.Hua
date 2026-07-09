@@ -1,0 +1,788 @@
+{
+    "+THIÊN LƯƠNG": {
+        "element": "Mộc",
+        "column": "major",
+        "is_bold": false,
+        "order": 51
+    },
+    "+THIÊN TƯỚNG": {
+        "element": "Kim",
+        "column": "major",
+        "is_bold": false,
+        "order": 53
+    },
+    "+THIÊN ĐỒNG": {
+        "element": "Kim",
+        "column": "major",
+        "is_bold": false,
+        "order": 50
+    },
+    "+THÁI DƯƠNG": {
+        "element": "Hỏa",
+        "column": "major",
+        "is_bold": false,
+        "order": 54
+    },
+    "+THẤT SÁT": {
+        "element": "Kim",
+        "column": "major",
+        "is_bold": false,
+        "order": 65
+    },
+    "+TỬ VI": {
+        "element": "Thổ",
+        "column": "major",
+        "is_bold": false,
+        "order": 58
+    },
+    "-CỰ MÔN": {
+        "element": "Kim",
+        "column": "major",
+        "is_bold": false,
+        "order": 49
+    },
+    "-LIÊM TRINH": {
+        "element": "Hỏa",
+        "column": "major",
+        "is_bold": false,
+        "order": 45
+    },
+    "-PHÁ QUÂN": {
+        "element": "Kim",
+        "column": "major",
+        "is_bold": false,
+        "order": 101
+    },
+    "-THAM LANG": {
+        "element": "Kim",
+        "column": "major",
+        "is_bold": false,
+        "order": null
+    },
+    "-THIÊN CƠ": {
+        "element": "Mộc",
+        "column": "major",
+        "is_bold": false,
+        "order": 55
+    },
+    "-THIÊN PHỦ": {
+        "element": "Thổ",
+        "column": "major",
+        "is_bold": false,
+        "order": 59
+    },
+    "-THÁI ÂM": {
+        "element": "Kim",
+        "column": "major",
+        "is_bold": false,
+        "order": null
+    },
+    "-VŨ KHÚC": {
+        "element": "Kim",
+        "column": "major",
+        "is_bold": false,
+        "order": 52
+    },
+    "Bác sỹ": {
+        "element": "Kim",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 152
+    },
+    "Bát toạ": {
+        "element": "Mộc",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 221
+    },
+    "Bạch hổ": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 39
+    },
+    "Bệnh phù": {
+        "element": "Thổ",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 115
+    },
+    "Chỉ bối": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 195
+    },
+    "Cô thần": {
+        "element": "Thổ",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 104
+    },
+    "Giải thần": {
+        "element": "Mộc",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 193
+    },
+    "Hoa cái": {
+        "element": "Kim",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 180
+    },
+    "Hoá Khoa": {
+        "element": "Kim",
+        "column": "left_col",
+        "is_bold": true,
+        "order": 74
+    },
+    "Hoá Kị": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": true,
+        "order": 17
+    },
+    "Hoá Lộc": {
+        "element": "Mộc",
+        "column": "left_col",
+        "is_bold": true,
+        "order": 0
+    },
+    "Hoá Quyền": {
+        "element": "Mộc",
+        "column": "left_col",
+        "is_bold": true,
+        "order": 57
+    },
+    "Hoả Tinh": {
+        "element": "Hỏa",
+        "column": "right_col",
+        "is_bold": true,
+        "order": 28
+    },
+    "Hỉ thần": {
+        "element": "Hỏa",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 162
+    },
+    "Hồng Loan": {
+        "element": "Kim",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 151
+    },
+    "Hữu Bật": {
+        "element": "Kim",
+        "column": "left_col",
+        "is_bold": true,
+        "order": 115
+    },
+    "Kiếp sát": {
+        "element": "Hỏa",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 49
+    },
+    "Kình Dương": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": true,
+        "order": 6
+    },
+    "L.Bạch hổ": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 188
+    },
+    "L.Khúc": {
+        "element": "Kim",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 254
+    },
+    "L.Kình dương": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 183
+    },
+    "L.Lộc tồn": {
+        "element": "Thổ",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 258
+    },
+    "L.Tang môn": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 179
+    },
+    "L.Thiên hư": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 204
+    },
+    "L.Thiên mã": {
+        "element": "Hỏa",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 261
+    },
+    "L.Thái tuế": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 61
+    },
+    "L.Xương": {
+        "element": "Kim",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 255
+    },
+    "L.Đà la": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 184
+    },
+    "LN Văn tinh": {
+        "element": "Kim",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 248
+    },
+    "LN. Kị": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 205
+    },
+    "LN.Khoa": {
+        "element": "Kim",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 275
+    },
+    "LN.Lộc": {
+        "element": "Mộc",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 267
+    },
+    "LN.Quyền": {
+        "element": "Mộc",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 274
+    },
+    "LThiên khốc": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 186
+    },
+    "Linh Tinh": {
+        "element": "Hỏa",
+        "column": "right_col",
+        "is_bold": true,
+        "order": 16
+    },
+    "Long trì": {
+        "element": "Kim",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 212
+    },
+    "Long đức": {
+        "element": "Kim",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 187
+    },
+    "Lưu hà": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 147
+    },
+    "Lộc Tồn": {
+        "element": "Thổ",
+        "column": "left_col",
+        "is_bold": true,
+        "order": 1
+    },
+    "Lực sỹ": {
+        "element": "Hỏa",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 153
+    },
+    "N.Khoa": {
+        "element": "Kim",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 277
+    },
+    "N.Kị": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 217
+    },
+    "N.Lộc": {
+        "element": "Mộc",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 249
+    },
+    "N.Quyền": {
+        "element": "Mộc",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 271
+    },
+    "Nguyệt sát": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 212
+    },
+    "Nguyệt đức": {
+        "element": "Hỏa",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 219
+    },
+    "Phan an": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 207
+    },
+    "Phi liêm": {
+        "element": "Hỏa",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 118
+    },
+    "Phong cáo": {
+        "element": "Thổ",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 148
+    },
+    "Phá toái": {
+        "element": "Hỏa",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 139
+    },
+    "Phúc đức": {
+        "element": "Thổ",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 178
+    },
+    "Phượng các": {
+        "element": "Mộc",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 182
+    },
+    "Phục binh": {
+        "element": "Hỏa",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 116
+    },
+    "Quan phù": {
+        "element": "Hỏa",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 138
+    },
+    "Quan phủ": {
+        "element": "Hỏa",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 133
+    },
+    "Quả tú": {
+        "element": "Thổ",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 92
+    },
+    "Quốc Ân": {
+        "element": "Thổ",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 171
+    },
+    "Tai sát": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 197
+    },
+    "Tam thai": {
+        "element": "Kim",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 220
+    },
+    "Tang môn": {
+        "element": "Mộc",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 51
+    },
+    "Thai phụ": {
+        "element": "Kim",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 159
+    },
+    "Thanh long": {
+        "element": "Kim",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 204
+    },
+    "Thiên Khôi": {
+        "element": "Hỏa",
+        "column": "left_col",
+        "is_bold": true,
+        "order": 90
+    },
+    "Thiên Mã": {
+        "element": "Hỏa",
+        "column": "left_col",
+        "is_bold": true,
+        "order": 93
+    },
+    "Thiên Việt": {
+        "element": "Hỏa",
+        "column": "left_col",
+        "is_bold": true,
+        "order": 64
+    },
+    "Thiên diêu": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 94
+    },
+    "Thiên giải": {
+        "element": "Hỏa",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 205
+    },
+    "Thiên hình": {
+        "element": "Hỏa",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 30
+    },
+    "Thiên hư": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 55
+    },
+    "Thiên hỉ": {
+        "element": "Kim",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 133
+    },
+    "Thiên không": {
+        "element": "Hỏa",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 43
+    },
+    "Thiên khốc": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 69
+    },
+    "Thiên la": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 163
+    },
+    "Thiên phúc": {
+        "element": "Thổ",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 175
+    },
+    "Thiên quan": {
+        "element": "Hỏa",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 170
+    },
+    "Thiên quý": {
+        "element": "Thổ",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 134
+    },
+    "Thiên sát": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 193
+    },
+    "Thiên sứ": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 156
+    },
+    "Thiên thương": {
+        "element": "Thổ",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 148
+    },
+    "Thiên thọ": {
+        "element": "Thổ",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 235
+    },
+    "Thiên trù": {
+        "element": "Thổ",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 229
+    },
+    "Thiên tài": {
+        "element": "Thổ",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 215
+    },
+    "Thiên y": {
+        "element": "Kim",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 168
+    },
+    "Thiên đức": {
+        "element": "Hỏa",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 185
+    },
+    "Thiếu dương": {
+        "element": "Hỏa",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 197
+    },
+    "Thiếu âm": {
+        "element": "Kim",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 245
+    },
+    "Thái Tuế": {
+        "element": "Hỏa",
+        "column": "right_col",
+        "is_bold": true,
+        "order": 7
+    },
+    "Tiểu Hao": {
+        "element": "Hỏa",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 79
+    },
+    "Trực phù": {
+        "element": "Hỏa",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 142
+    },
+    "Tuế dịch": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 213
+    },
+    "Tuế phá": {
+        "element": "Hỏa",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 106
+    },
+    "Tướng quân": {
+        "element": "Mộc",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 117
+    },
+    "Tướng tinh": {
+        "element": "Kim",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 231
+    },
+    "Tả Phù": {
+        "element": "Thổ",
+        "column": "left_col",
+        "is_bold": true,
+        "order": 120
+    },
+    "Tấu thư": {
+        "element": "Kim",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 216
+    },
+    "Tức thần": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 209
+    },
+    "Tử phù": {
+        "element": "Hỏa",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 136
+    },
+    "Vong thần": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 211
+    },
+    "Văn Khúc": {
+        "element": "Kim",
+        "column": "left_col",
+        "is_bold": true,
+        "order": 95
+    },
+    "Văn Xương": {
+        "element": "Kim",
+        "column": "left_col",
+        "is_bold": true,
+        "order": 91
+    },
+    "none": {
+        "element": "Kim",
+        "column": "major",
+        "is_bold": false,
+        "order": 44
+    },
+    "Âm sát": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 185
+    },
+    "Ân Quang": {
+        "element": "Mộc",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 156
+    },
+    "ĐV.Khoa": {
+        "element": "Kim",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 273
+    },
+    "ĐV.Kị": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 202
+    },
+    "ĐV.Lộc": {
+        "element": "Mộc",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 264
+    },
+    "ĐV.Quyền": {
+        "element": "Mộc",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 272
+    },
+    "Điếu khách": {
+        "element": "Hỏa",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 130
+    },
+    "Đà La": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": true,
+        "order": 26
+    },
+    "Đào Hoa": {
+        "element": "Mộc",
+        "column": "left_col",
+        "is_bold": true,
+        "order": 135
+    },
+    "Đường phù": {
+        "element": "Mộc",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 179
+    },
+    "Đại Hao": {
+        "element": "Hỏa",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 3
+    },
+    "Đẩu quân": {
+        "element": "Hỏa",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 108
+    },
+    "Địa Không": {
+        "element": "Hỏa",
+        "column": "right_col",
+        "is_bold": true,
+        "order": 29
+    },
+    "Địa Kiếp": {
+        "element": "Hỏa",
+        "column": "right_col",
+        "is_bold": true,
+        "order": 21
+    },
+    "Địa giải": {
+        "element": "Thổ",
+        "column": "left_col",
+        "is_bold": false,
+        "order": 206
+    },
+    "Địa võng": {
+        "element": "Kim",
+        "column": "right_col",
+        "is_bold": false,
+        "order": 152
+    }
+}

@@ -1,0 +1,1302 @@
+{
+  "825a7362a1cd1a3e5181a86d81572c94f52695e4f68fead917fb56b63e3041ae": {
+    "hash": "825a7362a1cd1a3e5181a86d81572c94f52695e4f68fead917fb56b63e3041ae",
+    "file": "p00_r00.png",
+    "column": "major",
+    "palace": 0,
+    "local_order": 0,
+    "element": "Moc",
+    "name": null,
+    "is_bold": null
+  },
+  "7d46f249fff56d83b5cddedaf5b418b101e1a311c93fe1e8f72746f83f9b31d5": {
+    "hash": "7d46f249fff56d83b5cddedaf5b418b101e1a311c93fe1e8f72746f83f9b31d5",
+    "file": "p00_r00.png",
+    "column": "left",
+    "palace": 0,
+    "local_order": 0,
+    "element": "Tho",
+    "name": null,
+    "is_bold": null
+  },
+  "1d1da1055544899df30321224a07f11345f74b7cd45183fe3be213660be3c096": {
+    "hash": "1d1da1055544899df30321224a07f11345f74b7cd45183fe3be213660be3c096",
+    "file": "p00_r01.png",
+    "column": "left",
+    "palace": 0,
+    "local_order": 1,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "9e9f02fe3c890ec18d6d72b08ffc22383161d27b782c20089ed2110a4df49f70": {
+    "hash": "9e9f02fe3c890ec18d6d72b08ffc22383161d27b782c20089ed2110a4df49f70",
+    "file": "p00_r02.png",
+    "column": "left",
+    "palace": 0,
+    "local_order": 2,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "878870127bbe3780391d8f112d3e8a11f82f31aa67c5f749c37bb61db95b2071": {
+    "hash": "878870127bbe3780391d8f112d3e8a11f82f31aa67c5f749c37bb61db95b2071",
+    "file": "p00_r03.png",
+    "column": "left",
+    "palace": 0,
+    "local_order": 3,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "b83ad7ce57b78170eb1ace31c28db3f987a638687305daae353684010ffa2049": {
+    "hash": "b83ad7ce57b78170eb1ace31c28db3f987a638687305daae353684010ffa2049",
+    "file": "p00_r04.png",
+    "column": "left",
+    "palace": 0,
+    "local_order": 4,
+    "element": "Moc",
+    "name": null,
+    "is_bold": null
+  },
+  "37496867a1f98cb429597750942136e0246c57426dcfe941ecb4e7c9b7875055": {
+    "hash": "37496867a1f98cb429597750942136e0246c57426dcfe941ecb4e7c9b7875055",
+    "file": "p00_r05.png",
+    "column": "left",
+    "palace": 0,
+    "local_order": 5,
+    "element": "Tho",
+    "name": null,
+    "is_bold": null
+  },
+  "bce8f3ac979eb285a4bb315504831eea67f4de7d20d5bc8bb22f59c14b243a4e": {
+    "hash": "bce8f3ac979eb285a4bb315504831eea67f4de7d20d5bc8bb22f59c14b243a4e",
+    "file": "p00_r00.png",
+    "column": "right",
+    "palace": 0,
+    "local_order": 0,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "2728cb63c2f0966c54cd6b6dde730be0292c7357ba9cf998c5a0ec78ffe1c5e4": {
+    "hash": "2728cb63c2f0966c54cd6b6dde730be0292c7357ba9cf998c5a0ec78ffe1c5e4",
+    "file": "p00_r01.png",
+    "column": "right",
+    "palace": 0,
+    "local_order": 1,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "b01688ff3a45bfa4deeaf7852380565f97ab98b361964d44c767f8cf7d369b6a": {
+    "hash": "b01688ff3a45bfa4deeaf7852380565f97ab98b361964d44c767f8cf7d369b6a",
+    "file": "p00_r02.png",
+    "column": "right",
+    "palace": 0,
+    "local_order": 2,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "8016749cb039f172f73b252262150f617fd5e648aeea26b6f3f81d03e72d62dd": {
+    "hash": "8016749cb039f172f73b252262150f617fd5e648aeea26b6f3f81d03e72d62dd",
+    "file": "p00_r03.png",
+    "column": "right",
+    "palace": 0,
+    "local_order": 3,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "ac826b9e491a356563df45322b0941b5194e8c06125b8c69c728e27699915e21": {
+    "hash": "ac826b9e491a356563df45322b0941b5194e8c06125b8c69c728e27699915e21",
+    "file": "p00_r04.png",
+    "column": "right",
+    "palace": 0,
+    "local_order": 4,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "57f21048f14aeb7dcbbc57818b54f4cb0680009b1e220d149982cf30d7e5ba16": {
+    "hash": "57f21048f14aeb7dcbbc57818b54f4cb0680009b1e220d149982cf30d7e5ba16",
+    "file": "p00_r05.png",
+    "column": "right",
+    "palace": 0,
+    "local_order": 5,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "f9c6d33e730d7f532e87e9fb58e50cb5f4626723ad5310660bea46a2a86382ac": {
+    "hash": "f9c6d33e730d7f532e87e9fb58e50cb5f4626723ad5310660bea46a2a86382ac",
+    "file": "p00_r06.png",
+    "column": "right",
+    "palace": 0,
+    "local_order": 6,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "584de00ab19a287bb64bb5ed6beb52842940763e5056b4fed3f181181e88963f": {
+    "hash": "584de00ab19a287bb64bb5ed6beb52842940763e5056b4fed3f181181e88963f",
+    "file": "p00_r07.png",
+    "column": "right",
+    "palace": 0,
+    "local_order": 7,
+    "element": "Tho",
+    "name": null,
+    "is_bold": null
+  },
+  "fe986a36df1c14d1358ff26903d944922298221aed011d6780655f94f52b0e7f": {
+    "hash": "fe986a36df1c14d1358ff26903d944922298221aed011d6780655f94f52b0e7f",
+    "file": "p01_r00.png",
+    "column": "major",
+    "palace": 1,
+    "local_order": 0,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "21e193df596a19be381300866fc79562139d313f08a40e9a4d3ddfedc294c54c": {
+    "hash": "21e193df596a19be381300866fc79562139d313f08a40e9a4d3ddfedc294c54c",
+    "file": "p01_r00.png",
+    "column": "left",
+    "palace": 1,
+    "local_order": 0,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "eae28f7a8218a0b6ce29b85eee785f5ed22b96637dd10d2fd39bcdd3f9000601": {
+    "hash": "eae28f7a8218a0b6ce29b85eee785f5ed22b96637dd10d2fd39bcdd3f9000601",
+    "file": "p01_r01.png",
+    "column": "left",
+    "palace": 1,
+    "local_order": 1,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "c1c691711a92d2e07575a1f9cef6e68fe70dcdb2eb70ad6a9e5eb0ee15104d89": {
+    "hash": "c1c691711a92d2e07575a1f9cef6e68fe70dcdb2eb70ad6a9e5eb0ee15104d89",
+    "file": "p01_r02.png",
+    "column": "left",
+    "palace": 1,
+    "local_order": 2,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "a7215804e062e9a2ac53e148317437a24e1af7b5b6b75b36d2dc08a801c6934b": {
+    "hash": "a7215804e062e9a2ac53e148317437a24e1af7b5b6b75b36d2dc08a801c6934b",
+    "file": "p01_r03.png",
+    "column": "left",
+    "palace": 1,
+    "local_order": 3,
+    "element": "Tho",
+    "name": null,
+    "is_bold": null
+  },
+  "7a94370a5559bf2f967a33942143a24176bb1b19986ecc6f6ec2454bcae4c024": {
+    "hash": "7a94370a5559bf2f967a33942143a24176bb1b19986ecc6f6ec2454bcae4c024",
+    "file": "p01_r04.png",
+    "column": "left",
+    "palace": 1,
+    "local_order": 4,
+    "element": "Kim",
+    "name": null,
+    "is_bold": null
+  },
+  "35dbab168c1f36918396e5cd56d40beb8631123322b810c0c81dcf537e34a956": {
+    "hash": "35dbab168c1f36918396e5cd56d40beb8631123322b810c0c81dcf537e34a956",
+    "file": "p01_r00.png",
+    "column": "right",
+    "palace": 1,
+    "local_order": 0,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "95664c161abb63c3327f473112d270f14e3b7c8e12f2fe3e7047570e20e7511a": {
+    "hash": "95664c161abb63c3327f473112d270f14e3b7c8e12f2fe3e7047570e20e7511a",
+    "file": "p01_r01.png",
+    "column": "right",
+    "palace": 1,
+    "local_order": 1,
+    "element": "Kim",
+    "name": null,
+    "is_bold": null
+  },
+  "be8ac77549dcf37e0eed8b001a2e7ef7c9097698a98632a0efcba9a40f92cc28": {
+    "hash": "be8ac77549dcf37e0eed8b001a2e7ef7c9097698a98632a0efcba9a40f92cc28",
+    "file": "p01_r02.png",
+    "column": "right",
+    "palace": 1,
+    "local_order": 2,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "5b7e802c5fa668df76b50dd25b61779855e7d99a29c39686fa53053fd25d64a5": {
+    "hash": "5b7e802c5fa668df76b50dd25b61779855e7d99a29c39686fa53053fd25d64a5",
+    "file": "p01_r03.png",
+    "column": "right",
+    "palace": 1,
+    "local_order": 3,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "94258cb9406fac7f4720748a908fd9892536da7bc99ecc54467633a2a0e670a9": {
+    "hash": "94258cb9406fac7f4720748a908fd9892536da7bc99ecc54467633a2a0e670a9",
+    "file": "p01_r04.png",
+    "column": "right",
+    "palace": 1,
+    "local_order": 4,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "953d4e81ffe47e7c68329e2e1fc0ae74409c817a3b1685880be93a7c0603513e": {
+    "hash": "953d4e81ffe47e7c68329e2e1fc0ae74409c817a3b1685880be93a7c0603513e",
+    "file": "p01_r05.png",
+    "column": "right",
+    "palace": 1,
+    "local_order": 5,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "49375bd63741c1981907d14f5c5d03163dfcfa919fdf65d203410af0ad227b7f": {
+    "hash": "49375bd63741c1981907d14f5c5d03163dfcfa919fdf65d203410af0ad227b7f",
+    "file": "p01_r06.png",
+    "column": "right",
+    "palace": 1,
+    "local_order": 6,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "80238a1827d027ecc85d9d1518f4f76f4fa09b2951c81ee6fe746d01b80457d0": {
+    "hash": "80238a1827d027ecc85d9d1518f4f76f4fa09b2951c81ee6fe746d01b80457d0",
+    "file": "p02_r00.png",
+    "column": "left",
+    "palace": 2,
+    "local_order": 0,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "4e8bf354ae6a625cf2453c4dd237a5e3c29659361a2be08830d3ea2650edd59b": {
+    "hash": "4e8bf354ae6a625cf2453c4dd237a5e3c29659361a2be08830d3ea2650edd59b",
+    "file": "p02_r01.png",
+    "column": "left",
+    "palace": 2,
+    "local_order": 1,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "0655249d292d73a1306f3c6d24094216e3f99fc3c3d01314d1f66005f8bf392a": {
+    "hash": "0655249d292d73a1306f3c6d24094216e3f99fc3c3d01314d1f66005f8bf392a",
+    "file": "p02_r02.png",
+    "column": "left",
+    "palace": 2,
+    "local_order": 2,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "8e821faf77d205b854e1dc8d2671fa89d406dcf0da5b5df44f506da83af9c5f4": {
+    "hash": "8e821faf77d205b854e1dc8d2671fa89d406dcf0da5b5df44f506da83af9c5f4",
+    "file": "p02_r00.png",
+    "column": "right",
+    "palace": 2,
+    "local_order": 0,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "6442e6c52ec4d5c40f5cf7f6f681e00cdaea6b5bfd35c622790352dfc04cc57e": {
+    "hash": "6442e6c52ec4d5c40f5cf7f6f681e00cdaea6b5bfd35c622790352dfc04cc57e",
+    "file": "p02_r01.png",
+    "column": "right",
+    "palace": 2,
+    "local_order": 1,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "2cca0ec81f38aa4ba49c7416079a8f04b33a5d693111281fff6725f7371f77f0": {
+    "hash": "2cca0ec81f38aa4ba49c7416079a8f04b33a5d693111281fff6725f7371f77f0",
+    "file": "p03_r00.png",
+    "column": "major",
+    "palace": 3,
+    "local_order": 0,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "611315b6d412587a2ce6b55f89a4f399b5569fcb6e6e510676b2b8360eb439a9": {
+    "hash": "611315b6d412587a2ce6b55f89a4f399b5569fcb6e6e510676b2b8360eb439a9",
+    "file": "p03_r00.png",
+    "column": "left",
+    "palace": 3,
+    "local_order": 0,
+    "element": "Tho",
+    "name": null,
+    "is_bold": null
+  },
+  "680499ed4e9f3e1993a4cdecbae8f72d9d0c772bbf55a513f9f25edcc0174630": {
+    "hash": "680499ed4e9f3e1993a4cdecbae8f72d9d0c772bbf55a513f9f25edcc0174630",
+    "file": "p03_r01.png",
+    "column": "left",
+    "palace": 3,
+    "local_order": 1,
+    "element": "Tho",
+    "name": null,
+    "is_bold": null
+  },
+  "c67789fd9c8e8cb534e2904f9ca3699acf76fe1683452ac55a638adf7a3bb76d": {
+    "hash": "c67789fd9c8e8cb534e2904f9ca3699acf76fe1683452ac55a638adf7a3bb76d",
+    "file": "p03_r02.png",
+    "column": "left",
+    "palace": 3,
+    "local_order": 2,
+    "element": "Kim",
+    "name": null,
+    "is_bold": null
+  },
+  "9c2f19436ade16589fc0cf59662432862625ce5c069a106aac1d900b699ce32e": {
+    "hash": "9c2f19436ade16589fc0cf59662432862625ce5c069a106aac1d900b699ce32e",
+    "file": "p03_r03.png",
+    "column": "left",
+    "palace": 3,
+    "local_order": 3,
+    "element": "Kim",
+    "name": null,
+    "is_bold": null
+  },
+  "5025d847baba58ecc56a026d5a37a23409a81890a0319dcada57af652865ddd1": {
+    "hash": "5025d847baba58ecc56a026d5a37a23409a81890a0319dcada57af652865ddd1",
+    "file": "p03_r04.png",
+    "column": "left",
+    "palace": 3,
+    "local_order": 4,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "f2e0b260e7f58f7a2169b7ae2d62b78deb404f6d55dc360bf9a172f9edfbfeb2": {
+    "hash": "f2e0b260e7f58f7a2169b7ae2d62b78deb404f6d55dc360bf9a172f9edfbfeb2",
+    "file": "p03_r05.png",
+    "column": "left",
+    "palace": 3,
+    "local_order": 5,
+    "element": "Moc",
+    "name": null,
+    "is_bold": null
+  },
+  "bc904120dfce639a4ee0f9280a1053cbfceb32aa30265c76c66057aa25b09f31": {
+    "hash": "bc904120dfce639a4ee0f9280a1053cbfceb32aa30265c76c66057aa25b09f31",
+    "file": "p03_r00.png",
+    "column": "right",
+    "palace": 3,
+    "local_order": 0,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "9659993659bc1fa6e3b5ab228dfa39444a4f248a365c3aebc66fc2e041e67476": {
+    "hash": "9659993659bc1fa6e3b5ab228dfa39444a4f248a365c3aebc66fc2e041e67476",
+    "file": "p03_r01.png",
+    "column": "right",
+    "palace": 3,
+    "local_order": 1,
+    "element": "Kim",
+    "name": null,
+    "is_bold": null
+  },
+  "af06430a00a976004ef83f058f3e8d9fe9fe9474ac1146360b28513db975a10c": {
+    "hash": "af06430a00a976004ef83f058f3e8d9fe9fe9474ac1146360b28513db975a10c",
+    "file": "p03_r02.png",
+    "column": "right",
+    "palace": 3,
+    "local_order": 2,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "1717b49ec1763706c3d1df945c9e4e9845d80a01c37ec8dae3e89515ab6a397f": {
+    "hash": "1717b49ec1763706c3d1df945c9e4e9845d80a01c37ec8dae3e89515ab6a397f",
+    "file": "p03_r03.png",
+    "column": "right",
+    "palace": 3,
+    "local_order": 3,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "49579961bfc5e772595da10552657476659159745b93046256eb13b6b1fe5653": {
+    "hash": "49579961bfc5e772595da10552657476659159745b93046256eb13b6b1fe5653",
+    "file": "p03_r04.png",
+    "column": "right",
+    "palace": 3,
+    "local_order": 4,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "e4686bbbafefe5e9a58ab64f3b30d9438a701daa4ec893bcf365e4eba3354eeb": {
+    "hash": "e4686bbbafefe5e9a58ab64f3b30d9438a701daa4ec893bcf365e4eba3354eeb",
+    "file": "p03_r05.png",
+    "column": "right",
+    "palace": 3,
+    "local_order": 5,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "89853933d48b1d6945cd3c3b5a6455cb2d61e3fa30d2c28004404281794105a5": {
+    "hash": "89853933d48b1d6945cd3c3b5a6455cb2d61e3fa30d2c28004404281794105a5",
+    "file": "p03_r06.png",
+    "column": "right",
+    "palace": 3,
+    "local_order": 6,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "a6c20de6e5772868f30c095778d917dafcf7baeca8d186dd507acd754c3edb60": {
+    "hash": "a6c20de6e5772868f30c095778d917dafcf7baeca8d186dd507acd754c3edb60",
+    "file": "p04_r00.png",
+    "column": "major",
+    "palace": 4,
+    "local_order": 0,
+    "element": "Tho",
+    "name": null,
+    "is_bold": null
+  },
+  "1f0debb27139c18d2918452e5200b9ab4786b60f66b631199547e0d28e466b5b": {
+    "hash": "1f0debb27139c18d2918452e5200b9ab4786b60f66b631199547e0d28e466b5b",
+    "file": "p04_r01.png",
+    "column": "major",
+    "palace": 4,
+    "local_order": 1,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "7706a3b6ffd09375bcdb4068f4675ce30b8721a88178b672df54e5cc7ca4c39a": {
+    "hash": "7706a3b6ffd09375bcdb4068f4675ce30b8721a88178b672df54e5cc7ca4c39a",
+    "file": "p04_r00.png",
+    "column": "left",
+    "palace": 4,
+    "local_order": 0,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "d3d96f2a9611884530f8a11d12a770807a3e71f311470c3c9597649466f3a988": {
+    "hash": "d3d96f2a9611884530f8a11d12a770807a3e71f311470c3c9597649466f3a988",
+    "file": "p04_r01.png",
+    "column": "left",
+    "palace": 4,
+    "local_order": 1,
+    "element": "Moc",
+    "name": null,
+    "is_bold": null
+  },
+  "42825b047d64abf7f44a8056bdd219e5042296c2bf9d8056ed9759e59d0cd70d": {
+    "hash": "42825b047d64abf7f44a8056bdd219e5042296c2bf9d8056ed9759e59d0cd70d",
+    "file": "p04_r02.png",
+    "column": "left",
+    "palace": 4,
+    "local_order": 2,
+    "element": "Kim",
+    "name": null,
+    "is_bold": null
+  },
+  "4857db9a26cb9b397ae8dc1c3598d47e0c219048857bf1ec4f9949f97e69ade0": {
+    "hash": "4857db9a26cb9b397ae8dc1c3598d47e0c219048857bf1ec4f9949f97e69ade0",
+    "file": "p04_r03.png",
+    "column": "left",
+    "palace": 4,
+    "local_order": 3,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "dcbba5102f1ea16a28c8793746fd6e657310f9cab46d81ec4a4533aa4331bcd1": {
+    "hash": "dcbba5102f1ea16a28c8793746fd6e657310f9cab46d81ec4a4533aa4331bcd1",
+    "file": "p04_r04.png",
+    "column": "left",
+    "palace": 4,
+    "local_order": 4,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "f47be29cc83bb52a52e1a2e42ca16572ad81080342a1befec12953e86f2d877f": {
+    "hash": "f47be29cc83bb52a52e1a2e42ca16572ad81080342a1befec12953e86f2d877f",
+    "file": "p04_r05.png",
+    "column": "left",
+    "palace": 4,
+    "local_order": 5,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "77a3cd7a69ed33bc3ac10345416592465f4f4ca0ae4484436c54ed3436dbd99b": {
+    "hash": "77a3cd7a69ed33bc3ac10345416592465f4f4ca0ae4484436c54ed3436dbd99b",
+    "file": "p04_r00.png",
+    "column": "right",
+    "palace": 4,
+    "local_order": 0,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "3d60e8eae52fffcc7232413346a4d8c29f9e8cf476f86d9fe7ba363d20180776": {
+    "hash": "3d60e8eae52fffcc7232413346a4d8c29f9e8cf476f86d9fe7ba363d20180776",
+    "file": "p04_r01.png",
+    "column": "right",
+    "palace": 4,
+    "local_order": 1,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "236ff723f37030750919c4a8ba825d886b71f2362fe3e39a2e6366e818269729": {
+    "hash": "236ff723f37030750919c4a8ba825d886b71f2362fe3e39a2e6366e818269729",
+    "file": "p04_r02.png",
+    "column": "right",
+    "palace": 4,
+    "local_order": 2,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "80430f4a36ce7b1ced501f8023c8e756b78a2bd62d526bfb9e5817b3be9f0917": {
+    "hash": "80430f4a36ce7b1ced501f8023c8e756b78a2bd62d526bfb9e5817b3be9f0917",
+    "file": "p04_r03.png",
+    "column": "right",
+    "palace": 4,
+    "local_order": 3,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "8835aa61681c49b78b9d03437a1f3a0885385377c1540c73fb0739059e8e7185": {
+    "hash": "8835aa61681c49b78b9d03437a1f3a0885385377c1540c73fb0739059e8e7185",
+    "file": "p04_r04.png",
+    "column": "right",
+    "palace": 4,
+    "local_order": 4,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "faca736b1f12b204c9e7c2b5722e3eae8eedf8cee9a14a1eea131840231f49fc": {
+    "hash": "faca736b1f12b204c9e7c2b5722e3eae8eedf8cee9a14a1eea131840231f49fc",
+    "file": "p04_r05.png",
+    "column": "right",
+    "palace": 4,
+    "local_order": 5,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "da1ce7d4ac927419ac5992db7eecfae9479a53ecb8afb7c4c6db42a8c6024c48": {
+    "hash": "da1ce7d4ac927419ac5992db7eecfae9479a53ecb8afb7c4c6db42a8c6024c48",
+    "file": "p04_r06.png",
+    "column": "right",
+    "palace": 4,
+    "local_order": 6,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "05518cd2505f30c74ecee57609c3bf66baffd93de0d162b1da86164713950a70": {
+    "hash": "05518cd2505f30c74ecee57609c3bf66baffd93de0d162b1da86164713950a70",
+    "file": "p05_r00.png",
+    "column": "left",
+    "palace": 5,
+    "local_order": 0,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "3f8bd97e99b84606c39957719b98d0f89470a7e20f2a5c2a5505968e5a67fba6": {
+    "hash": "3f8bd97e99b84606c39957719b98d0f89470a7e20f2a5c2a5505968e5a67fba6",
+    "file": "p05_r01.png",
+    "column": "left",
+    "palace": 5,
+    "local_order": 1,
+    "element": "Moc",
+    "name": null,
+    "is_bold": null
+  },
+  "38f222d2242ff1cc7962c3fba658c8f3be25dc7cbbe80da3e92540b814e05bb1": {
+    "hash": "38f222d2242ff1cc7962c3fba658c8f3be25dc7cbbe80da3e92540b814e05bb1",
+    "file": "p05_r02.png",
+    "column": "left",
+    "palace": 5,
+    "local_order": 2,
+    "element": "Tho",
+    "name": null,
+    "is_bold": null
+  },
+  "a42f40fcd6fe1a489282a6aab777912b9be8ff4b66350602d13aa4f7e6ccbb92": {
+    "hash": "a42f40fcd6fe1a489282a6aab777912b9be8ff4b66350602d13aa4f7e6ccbb92",
+    "file": "p05_r03.png",
+    "column": "left",
+    "palace": 5,
+    "local_order": 3,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "7ed2391b9609bab1f899d3335846900151181df820a4fffd4ec5e266f6bc9e10": {
+    "hash": "7ed2391b9609bab1f899d3335846900151181df820a4fffd4ec5e266f6bc9e10",
+    "file": "p05_r04.png",
+    "column": "left",
+    "palace": 5,
+    "local_order": 4,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "a55d39d91bb880a6fcb589f8aa318c900b1ff0cd90dc1aa87983a24b3dabec98": {
+    "hash": "a55d39d91bb880a6fcb589f8aa318c900b1ff0cd90dc1aa87983a24b3dabec98",
+    "file": "p05_r00.png",
+    "column": "right",
+    "palace": 5,
+    "local_order": 0,
+    "element": "Moc",
+    "name": null,
+    "is_bold": null
+  },
+  "f4f3741f381daf3d11228b9ee871cd8ee2dd9b65ccd489ed969567914255a900": {
+    "hash": "f4f3741f381daf3d11228b9ee871cd8ee2dd9b65ccd489ed969567914255a900",
+    "file": "p06_r00.png",
+    "column": "major",
+    "palace": 6,
+    "local_order": 0,
+    "element": "Moc",
+    "name": null,
+    "is_bold": null
+  },
+  "973195f2486756cb2a2c4a3a3448768a2c5519404842101ddd394c2d23eb5387": {
+    "hash": "973195f2486756cb2a2c4a3a3448768a2c5519404842101ddd394c2d23eb5387",
+    "file": "p06_r01.png",
+    "column": "major",
+    "palace": 6,
+    "local_order": 1,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "d7f886f780580f145c7ff19a0a2efa6894f5a231c68919b01022a0eb6e5b85ec": {
+    "hash": "d7f886f780580f145c7ff19a0a2efa6894f5a231c68919b01022a0eb6e5b85ec",
+    "file": "p06_r00.png",
+    "column": "left",
+    "palace": 6,
+    "local_order": 0,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "ee603e531c6305824cae333f1ab3d5edf5d76f9e1abcb928ce237ffd8ab7d897": {
+    "hash": "ee603e531c6305824cae333f1ab3d5edf5d76f9e1abcb928ce237ffd8ab7d897",
+    "file": "p06_r01.png",
+    "column": "left",
+    "palace": 6,
+    "local_order": 1,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "d85eb605dc5bec79853a00295a15f278234b264130e3cb0cdafb2048d5f8c204": {
+    "hash": "d85eb605dc5bec79853a00295a15f278234b264130e3cb0cdafb2048d5f8c204",
+    "file": "p06_r02.png",
+    "column": "left",
+    "palace": 6,
+    "local_order": 2,
+    "element": "Tho",
+    "name": null,
+    "is_bold": null
+  },
+  "62b19a77a6465a23bd56513467a4ddcc5efad8920c96fbc920e2132f7c8192c1": {
+    "hash": "62b19a77a6465a23bd56513467a4ddcc5efad8920c96fbc920e2132f7c8192c1",
+    "file": "p06_r03.png",
+    "column": "left",
+    "palace": 6,
+    "local_order": 3,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "c8895e8c3f9b027e92dc48c33648585ad28b11f490009da802816a4a99157288": {
+    "hash": "c8895e8c3f9b027e92dc48c33648585ad28b11f490009da802816a4a99157288",
+    "file": "p06_r04.png",
+    "column": "left",
+    "palace": 6,
+    "local_order": 4,
+    "element": "Moc",
+    "name": null,
+    "is_bold": null
+  },
+  "b1cd1b36444616e4763ed95e7e09ad60c05eff1e390168f6b3a71579d4580fae": {
+    "hash": "b1cd1b36444616e4763ed95e7e09ad60c05eff1e390168f6b3a71579d4580fae",
+    "file": "p06_r05.png",
+    "column": "left",
+    "palace": 6,
+    "local_order": 5,
+    "element": "Moc",
+    "name": null,
+    "is_bold": null
+  },
+  "b9a007d29ccc8069e89d08024f661b5e287248a422dbc7c021f6a06586267e50": {
+    "hash": "b9a007d29ccc8069e89d08024f661b5e287248a422dbc7c021f6a06586267e50",
+    "file": "p06_r00.png",
+    "column": "right",
+    "palace": 6,
+    "local_order": 0,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "a289eb82633fbdb20a2eeda16becbb85c456dd0f5c39e489731b2e5b329eb3db": {
+    "hash": "a289eb82633fbdb20a2eeda16becbb85c456dd0f5c39e489731b2e5b329eb3db",
+    "file": "p06_r01.png",
+    "column": "right",
+    "palace": 6,
+    "local_order": 1,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "2d1ef04b7d7428b3081dc9368ceb6667e139f1ee741d084ebc484ab94305cc85": {
+    "hash": "2d1ef04b7d7428b3081dc9368ceb6667e139f1ee741d084ebc484ab94305cc85",
+    "file": "p06_r02.png",
+    "column": "right",
+    "palace": 6,
+    "local_order": 2,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "8621492591dc29c1ca0c66f5cb9148bced4424c726261a58d209375eb77b9c14": {
+    "hash": "8621492591dc29c1ca0c66f5cb9148bced4424c726261a58d209375eb77b9c14",
+    "file": "p07_r00.png",
+    "column": "major",
+    "palace": 7,
+    "local_order": 0,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "aa697df2889fa8b3537b4de2bf37f41f549ea4ddb3a5a096ff1bb217d1831709": {
+    "hash": "aa697df2889fa8b3537b4de2bf37f41f549ea4ddb3a5a096ff1bb217d1831709",
+    "file": "p07_r00.png",
+    "column": "left",
+    "palace": 7,
+    "local_order": 0,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "d3eac7152338742d4bfb2dab750162611c53ffbfa8f686412a9f5143501a07ce": {
+    "hash": "d3eac7152338742d4bfb2dab750162611c53ffbfa8f686412a9f5143501a07ce",
+    "file": "p07_r01.png",
+    "column": "left",
+    "palace": 7,
+    "local_order": 1,
+    "element": "Tho",
+    "name": null,
+    "is_bold": null
+  },
+  "dd81bb70e3cf7f5ee0c26564cdc4065df6d5bf29547cb61ad2b0117a20e2d081": {
+    "hash": "dd81bb70e3cf7f5ee0c26564cdc4065df6d5bf29547cb61ad2b0117a20e2d081",
+    "file": "p07_r02.png",
+    "column": "left",
+    "palace": 7,
+    "local_order": 2,
+    "element": "Moc",
+    "name": null,
+    "is_bold": null
+  },
+  "6be260a12c91684b91d04685832c00c6479be1b12a6e12c9fb1040f360b7c892": {
+    "hash": "6be260a12c91684b91d04685832c00c6479be1b12a6e12c9fb1040f360b7c892",
+    "file": "p07_r03.png",
+    "column": "left",
+    "palace": 7,
+    "local_order": 3,
+    "element": "Moc",
+    "name": null,
+    "is_bold": null
+  },
+  "9dc7a7c419a6f9a9188cebe532a334ac6a3605603ee63e4c440cbf8cb9c6bcfb": {
+    "hash": "9dc7a7c419a6f9a9188cebe532a334ac6a3605603ee63e4c440cbf8cb9c6bcfb",
+    "file": "p07_r04.png",
+    "column": "left",
+    "palace": 7,
+    "local_order": 4,
+    "element": "Moc",
+    "name": null,
+    "is_bold": null
+  },
+  "b3c55c8447c4d290ba44a60e67cf402718a30734098f56bd9030b43a978d0225": {
+    "hash": "b3c55c8447c4d290ba44a60e67cf402718a30734098f56bd9030b43a978d0225",
+    "file": "p07_r05.png",
+    "column": "left",
+    "palace": 7,
+    "local_order": 5,
+    "element": "Kim",
+    "name": null,
+    "is_bold": null
+  },
+  "c006053b3202e959c81f651e8e2baa875d5c0e63833cf3ea5631cf2797272719": {
+    "hash": "c006053b3202e959c81f651e8e2baa875d5c0e63833cf3ea5631cf2797272719",
+    "file": "p07_r06.png",
+    "column": "left",
+    "palace": 7,
+    "local_order": 6,
+    "element": "Moc",
+    "name": null,
+    "is_bold": null
+  },
+  "cbb09df05982afaf268a9081cc2a3702439dbfbaf82bea64421248df88a1515b": {
+    "hash": "cbb09df05982afaf268a9081cc2a3702439dbfbaf82bea64421248df88a1515b",
+    "file": "p07_r00.png",
+    "column": "right",
+    "palace": 7,
+    "local_order": 0,
+    "element": "Tho",
+    "name": null,
+    "is_bold": null
+  },
+  "e54b8da4d6bb9b5ccce5d3b5f8d554198ab50ca917bd444e4f6274e2d3438a70": {
+    "hash": "e54b8da4d6bb9b5ccce5d3b5f8d554198ab50ca917bd444e4f6274e2d3438a70",
+    "file": "p07_r01.png",
+    "column": "right",
+    "palace": 7,
+    "local_order": 1,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "cd4bd3e9116a55528e83b248a2df857fd712418d4de18c37b0a9eb7e5956c432": {
+    "hash": "cd4bd3e9116a55528e83b248a2df857fd712418d4de18c37b0a9eb7e5956c432",
+    "file": "p07_r02.png",
+    "column": "right",
+    "palace": 7,
+    "local_order": 2,
+    "element": "Kim",
+    "name": null,
+    "is_bold": null
+  },
+  "d930c2565e1492d0765d02c3acfa9a540f458804fca1ffe1a57418507a6b1888": {
+    "hash": "d930c2565e1492d0765d02c3acfa9a540f458804fca1ffe1a57418507a6b1888",
+    "file": "p07_r03.png",
+    "column": "right",
+    "palace": 7,
+    "local_order": 3,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "5e9bb60a54804270b4f91178ffe45da955295976891f6a459e30fb55152db2d4": {
+    "hash": "5e9bb60a54804270b4f91178ffe45da955295976891f6a459e30fb55152db2d4",
+    "file": "p08_r00.png",
+    "column": "major",
+    "palace": 8,
+    "local_order": 0,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "de7d1ea0c85397bc9ae9963e3977357669990e10ee07d1287e893834133aedd7": {
+    "hash": "de7d1ea0c85397bc9ae9963e3977357669990e10ee07d1287e893834133aedd7",
+    "file": "p08_r00.png",
+    "column": "left",
+    "palace": 8,
+    "local_order": 0,
+    "element": "Moc",
+    "name": null,
+    "is_bold": null
+  },
+  "80aa5c361ad30e1d3c1037b9ba5ba0268e06a529da25346168757f3880f0884b": {
+    "hash": "80aa5c361ad30e1d3c1037b9ba5ba0268e06a529da25346168757f3880f0884b",
+    "file": "p08_r01.png",
+    "column": "left",
+    "palace": 8,
+    "local_order": 1,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "3d204f56cc66e5ebdfa3eead4ff616939cd0a85da6b33644c72db1420db14171": {
+    "hash": "3d204f56cc66e5ebdfa3eead4ff616939cd0a85da6b33644c72db1420db14171",
+    "file": "p08_r00.png",
+    "column": "right",
+    "palace": 8,
+    "local_order": 0,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "d932a7cb497e46fab69122674d87e24dec6b4eabdf91444fd7317cad3f388369": {
+    "hash": "d932a7cb497e46fab69122674d87e24dec6b4eabdf91444fd7317cad3f388369",
+    "file": "p08_r01.png",
+    "column": "right",
+    "palace": 8,
+    "local_order": 1,
+    "element": "Moc",
+    "name": null,
+    "is_bold": null
+  },
+  "98cf99ceb32ed4b1913cb751cc3a20b6018c599a62c062d6565581b207df8cff": {
+    "hash": "98cf99ceb32ed4b1913cb751cc3a20b6018c599a62c062d6565581b207df8cff",
+    "file": "p08_r02.png",
+    "column": "right",
+    "palace": 8,
+    "local_order": 2,
+    "element": "Tho",
+    "name": null,
+    "is_bold": null
+  },
+  "c2e6b6336b6d621cb419e7bd3876a03f4dcfef4a27d371fbf50a051c440e40ce": {
+    "hash": "c2e6b6336b6d621cb419e7bd3876a03f4dcfef4a27d371fbf50a051c440e40ce",
+    "file": "p08_r03.png",
+    "column": "right",
+    "palace": 8,
+    "local_order": 3,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "b587ae9007c713fd896b8f4a7058269f8a2f5ac69aac34ed1310a1d33b8b8b6b": {
+    "hash": "b587ae9007c713fd896b8f4a7058269f8a2f5ac69aac34ed1310a1d33b8b8b6b",
+    "file": "p08_r04.png",
+    "column": "right",
+    "palace": 8,
+    "local_order": 4,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "62c93816c5c266e068154bd1aa61643b0454694a5aea97d68feaa90748be6652": {
+    "hash": "62c93816c5c266e068154bd1aa61643b0454694a5aea97d68feaa90748be6652",
+    "file": "p08_r05.png",
+    "column": "right",
+    "palace": 8,
+    "local_order": 5,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "6528c494bd1dbee8b36e90721d1548150e8e6dca345d8810fbcd6eefb43b1154": {
+    "hash": "6528c494bd1dbee8b36e90721d1548150e8e6dca345d8810fbcd6eefb43b1154",
+    "file": "p09_r00.png",
+    "column": "major",
+    "palace": 9,
+    "local_order": 0,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "97559cd8b82f451ffd4904be04c49b11192fa3cbea9648811a16028167a73d27": {
+    "hash": "97559cd8b82f451ffd4904be04c49b11192fa3cbea9648811a16028167a73d27",
+    "file": "p09_r01.png",
+    "column": "major",
+    "palace": 9,
+    "local_order": 1,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "4f7748c430515fb9c45c5fb1ca18a37eb38a9f266f8a6a910bec050242d7fd06": {
+    "hash": "4f7748c430515fb9c45c5fb1ca18a37eb38a9f266f8a6a910bec050242d7fd06",
+    "file": "p09_r00.png",
+    "column": "left",
+    "palace": 9,
+    "local_order": 0,
+    "element": "Moc",
+    "name": null,
+    "is_bold": null
+  },
+  "de109c87f74457394f216ba7fef52a37c8691c1232a0bbc4ab79c3b43d78d850": {
+    "hash": "de109c87f74457394f216ba7fef52a37c8691c1232a0bbc4ab79c3b43d78d850",
+    "file": "p09_r01.png",
+    "column": "left",
+    "palace": 9,
+    "local_order": 1,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "95393b76d4ad3c54d60147b6121e0345020b3f37e417dd0f782ce011f8a32d4b": {
+    "hash": "95393b76d4ad3c54d60147b6121e0345020b3f37e417dd0f782ce011f8a32d4b",
+    "file": "p09_r02.png",
+    "column": "left",
+    "palace": 9,
+    "local_order": 2,
+    "element": "Tho",
+    "name": null,
+    "is_bold": null
+  },
+  "c0d9fa5ca01b83a2d9893dbc57196a38d6fd413841489872716808df9534cf02": {
+    "hash": "c0d9fa5ca01b83a2d9893dbc57196a38d6fd413841489872716808df9534cf02",
+    "file": "p09_r03.png",
+    "column": "left",
+    "palace": 9,
+    "local_order": 3,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "e2422ccd2d5c38200e12cbf8f02904df4a86caf4f3cbf02ef3ebfa854da9da0a": {
+    "hash": "e2422ccd2d5c38200e12cbf8f02904df4a86caf4f3cbf02ef3ebfa854da9da0a",
+    "file": "p09_r00.png",
+    "column": "right",
+    "palace": 9,
+    "local_order": 0,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "de18412d770949712b09940bf3b82ae5eb3489b02bdaee6598e97e38d48ffa26": {
+    "hash": "de18412d770949712b09940bf3b82ae5eb3489b02bdaee6598e97e38d48ffa26",
+    "file": "p09_r01.png",
+    "column": "right",
+    "palace": 9,
+    "local_order": 1,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "6fd29596e7f8b57351e53a124399d8e2226b5e7f812b31965a2c290b1f5856c6": {
+    "hash": "6fd29596e7f8b57351e53a124399d8e2226b5e7f812b31965a2c290b1f5856c6",
+    "file": "p09_r02.png",
+    "column": "right",
+    "palace": 9,
+    "local_order": 2,
+    "element": "Tho",
+    "name": null,
+    "is_bold": null
+  },
+  "e2c90710dbc36b5c5acb32a0f5095ac9ace0b749b021a151b5f475ec90c8e427": {
+    "hash": "e2c90710dbc36b5c5acb32a0f5095ac9ace0b749b021a151b5f475ec90c8e427",
+    "file": "p09_r03.png",
+    "column": "right",
+    "palace": 9,
+    "local_order": 3,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "e44189129f6bcc2e4a5cfa60701ab681bae4769f54b7bc62e7128c42224daeff": {
+    "hash": "e44189129f6bcc2e4a5cfa60701ab681bae4769f54b7bc62e7128c42224daeff",
+    "file": "p09_r04.png",
+    "column": "right",
+    "palace": 9,
+    "local_order": 4,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "66bbf238089cf43f7af81530d3fe5a3f2fbcaff0830b9cbe92eac83f9eb5e469": {
+    "hash": "66bbf238089cf43f7af81530d3fe5a3f2fbcaff0830b9cbe92eac83f9eb5e469",
+    "file": "p10_r00.png",
+    "column": "major",
+    "palace": 10,
+    "local_order": 0,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "9383c594d85e74f8157da650d0dece26c792bfa4308fc47f770c6d6b64c9a163": {
+    "hash": "9383c594d85e74f8157da650d0dece26c792bfa4308fc47f770c6d6b64c9a163",
+    "file": "p10_r01.png",
+    "column": "major",
+    "palace": 10,
+    "local_order": 1,
+    "element": "Tho",
+    "name": null,
+    "is_bold": null
+  },
+  "f7c920f45930e936347bc1036d5741b93f1608d0532f8e2fe93227c4b0524d26": {
+    "hash": "f7c920f45930e936347bc1036d5741b93f1608d0532f8e2fe93227c4b0524d26",
+    "file": "p10_r00.png",
+    "column": "left",
+    "palace": 10,
+    "local_order": 0,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "a28ac7ccd4eb4234677c5070e5b81faaf1b4f0030136f2960a434b597148a5d3": {
+    "hash": "a28ac7ccd4eb4234677c5070e5b81faaf1b4f0030136f2960a434b597148a5d3",
+    "file": "p10_r01.png",
+    "column": "left",
+    "palace": 10,
+    "local_order": 1,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "3b82c8165a9ed62327c22b12b1031f1b572f26a6e5d69ed7fd9b75e1bfc9d60a": {
+    "hash": "3b82c8165a9ed62327c22b12b1031f1b572f26a6e5d69ed7fd9b75e1bfc9d60a",
+    "file": "p10_r02.png",
+    "column": "left",
+    "palace": 10,
+    "local_order": 2,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "7d6e40d73cc2e406e5f9a7ee06031e57a8ff8930644c97c015b5cc113e03a3a8": {
+    "hash": "7d6e40d73cc2e406e5f9a7ee06031e57a8ff8930644c97c015b5cc113e03a3a8",
+    "file": "p10_r03.png",
+    "column": "left",
+    "palace": 10,
+    "local_order": 3,
+    "element": "Tho",
+    "name": null,
+    "is_bold": null
+  },
+  "ce178611cf860a99de5628b55142816f75571dddacec59f84ae2205bcc98bfc2": {
+    "hash": "ce178611cf860a99de5628b55142816f75571dddacec59f84ae2205bcc98bfc2",
+    "file": "p10_r04.png",
+    "column": "left",
+    "palace": 10,
+    "local_order": 4,
+    "element": "Tho",
+    "name": null,
+    "is_bold": null
+  },
+  "00885815f2ce011b9823dc7519ece0fdfaf77d9ae06c53be5b3685e4ebc80f27": {
+    "hash": "00885815f2ce011b9823dc7519ece0fdfaf77d9ae06c53be5b3685e4ebc80f27",
+    "file": "p10_r05.png",
+    "column": "left",
+    "palace": 10,
+    "local_order": 5,
+    "element": "Kim",
+    "name": null,
+    "is_bold": null
+  },
+  "f283b8e4571f2b9b1953da9a8c8a69df55b6ad00363b7d090b0c3a64a7edb9a4": {
+    "hash": "f283b8e4571f2b9b1953da9a8c8a69df55b6ad00363b7d090b0c3a64a7edb9a4",
+    "file": "p10_r06.png",
+    "column": "left",
+    "palace": 10,
+    "local_order": 6,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "d945ae5ee126a51a79ad06eb1c5687b774cb1d73bdedeb4f0e33409f5d73879e": {
+    "hash": "d945ae5ee126a51a79ad06eb1c5687b774cb1d73bdedeb4f0e33409f5d73879e",
+    "file": "p10_r00.png",
+    "column": "right",
+    "palace": 10,
+    "local_order": 0,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "c84a71706640666c4178b8d18728c356289906020bb8783b9eecf15a82efe80e": {
+    "hash": "c84a71706640666c4178b8d18728c356289906020bb8783b9eecf15a82efe80e",
+    "file": "p10_r01.png",
+    "column": "right",
+    "palace": 10,
+    "local_order": 1,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "a245e6b96f4b756280b7e735333f924c716d716656a5624c28097b7a41a3ce9d": {
+    "hash": "a245e6b96f4b756280b7e735333f924c716d716656a5624c28097b7a41a3ce9d",
+    "file": "p10_r02.png",
+    "column": "right",
+    "palace": 10,
+    "local_order": 2,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "fb4760bb4ebaac9c0dc7cca01066b18da537cfc63de1c4a9dfde80268a7df7e0": {
+    "hash": "fb4760bb4ebaac9c0dc7cca01066b18da537cfc63de1c4a9dfde80268a7df7e0",
+    "file": "p11_r00.png",
+    "column": "major",
+    "palace": 11,
+    "local_order": 0,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  },
+  "eb0dde647af094cdd7094d53f578430a786493a65954f9070e2d20bcdb46649b": {
+    "hash": "eb0dde647af094cdd7094d53f578430a786493a65954f9070e2d20bcdb46649b",
+    "file": "p11_r00.png",
+    "column": "left",
+    "palace": 11,
+    "local_order": 0,
+    "element": "Tho",
+    "name": null,
+    "is_bold": null
+  },
+  "4c2d466745634c01dc9581c01b53be8ced19ac602dfcfea813db8885406c717f": {
+    "hash": "4c2d466745634c01dc9581c01b53be8ced19ac602dfcfea813db8885406c717f",
+    "file": "p11_r01.png",
+    "column": "left",
+    "palace": 11,
+    "local_order": 1,
+    "element": "Moc",
+    "name": null,
+    "is_bold": null
+  },
+  "9e359debadc80c08ba44188db12d7cd5fb33e0c31f213fa93b2df08564d54e31": {
+    "hash": "9e359debadc80c08ba44188db12d7cd5fb33e0c31f213fa93b2df08564d54e31",
+    "file": "p11_r02.png",
+    "column": "left",
+    "palace": 11,
+    "local_order": 2,
+    "element": "Moc",
+    "name": null,
+    "is_bold": null
+  },
+  "fdd0666bb1a3bc8ee91da46bb708a8321252899d203bc7fc93d6cb3ce0b35c47": {
+    "hash": "fdd0666bb1a3bc8ee91da46bb708a8321252899d203bc7fc93d6cb3ce0b35c47",
+    "file": "p11_r00.png",
+    "column": "right",
+    "palace": 11,
+    "local_order": 0,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "e831741bb347a63591a06dfe4fe570de103de5103427f89facae41915586379b": {
+    "hash": "e831741bb347a63591a06dfe4fe570de103de5103427f89facae41915586379b",
+    "file": "p11_r01.png",
+    "column": "right",
+    "palace": 11,
+    "local_order": 1,
+    "element": "Hoa",
+    "name": null,
+    "is_bold": null
+  },
+  "1677a49cbc9e1dcabc442af55be3045c433de960df987bf3b3218a293decdd74": {
+    "hash": "1677a49cbc9e1dcabc442af55be3045c433de960df987bf3b3218a293decdd74",
+    "file": "p11_r02.png",
+    "column": "right",
+    "palace": 11,
+    "local_order": 2,
+    "element": "Thuy",
+    "name": null,
+    "is_bold": null
+  }
+}
