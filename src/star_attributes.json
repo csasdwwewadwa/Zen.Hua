@@ -6,13 +6,13 @@
         "order": 51
     },
     "+THIÊN TƯỚNG": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "major",
         "is_bold": false,
         "order": 53
     },
     "+THIÊN ĐỒNG": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "major",
         "is_bold": false,
         "order": 50
@@ -36,7 +36,7 @@
         "order": 58
     },
     "-CỰ MÔN": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "major",
         "is_bold": false,
         "order": 49
@@ -48,13 +48,13 @@
         "order": 45
     },
     "-PHÁ QUÂN": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "major",
         "is_bold": false,
         "order": 101
     },
     "-THAM LANG": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "major",
         "is_bold": false,
         "order": null
@@ -72,7 +72,7 @@
         "order": 59
     },
     "-THÁI ÂM": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "major",
         "is_bold": false,
         "order": null
@@ -84,7 +84,7 @@
         "order": 52
     },
     "Bác sỹ": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "left_col",
         "is_bold": false,
         "order": 152
@@ -108,7 +108,7 @@
         "order": 115
     },
     "Chỉ bối": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "right_col",
         "is_bold": false,
         "order": 195
@@ -132,13 +132,13 @@
         "order": 180
     },
     "Hoá Khoa": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "left_col",
         "is_bold": true,
         "order": 74
     },
     "Hoá Kị": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "right_col",
         "is_bold": true,
         "order": 17
@@ -168,13 +168,13 @@
         "order": 162
     },
     "Hồng Loan": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "left_col",
         "is_bold": false,
         "order": 151
     },
     "Hữu Bật": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "left_col",
         "is_bold": true,
         "order": 115
@@ -192,7 +192,7 @@
         "order": 6
     },
     "L.Bạch hổ": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "right_col",
         "is_bold": false,
         "order": 188
@@ -204,7 +204,7 @@
         "order": 254
     },
     "L.Kình dương": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "right_col",
         "is_bold": false,
         "order": 183
@@ -216,13 +216,13 @@
         "order": 258
     },
     "L.Tang môn": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "right_col",
         "is_bold": false,
         "order": 179
     },
     "L.Thiên hư": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "right_col",
         "is_bold": false,
         "order": 204
@@ -234,7 +234,7 @@
         "order": 261
     },
     "L.Thái tuế": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "right_col",
         "is_bold": false,
         "order": 61
@@ -246,7 +246,7 @@
         "order": 255
     },
     "L.Đà la": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "right_col",
         "is_bold": false,
         "order": 184
@@ -258,13 +258,13 @@
         "order": 248
     },
     "LN. Kị": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "right_col",
         "is_bold": false,
         "order": 205
     },
     "LN.Khoa": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "left_col",
         "is_bold": false,
         "order": 275
@@ -282,7 +282,7 @@
         "order": 274
     },
     "LThiên khốc": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "right_col",
         "is_bold": false,
         "order": 186
@@ -294,19 +294,19 @@
         "order": 16
     },
     "Long trì": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "left_col",
         "is_bold": false,
         "order": 212
     },
     "Long đức": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "left_col",
         "is_bold": false,
         "order": 187
     },
     "Lưu hà": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "right_col",
         "is_bold": false,
         "order": 147
@@ -324,13 +324,13 @@
         "order": 153
     },
     "N.Khoa": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "left_col",
         "is_bold": false,
         "order": 277
     },
     "N.Kị": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "right_col",
         "is_bold": false,
         "order": 217
@@ -348,7 +348,7 @@
         "order": 271
     },
     "Nguyệt sát": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "right_col",
         "is_bold": false,
         "order": 212
@@ -360,7 +360,7 @@
         "order": 219
     },
     "Phan an": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "right_col",
         "is_bold": false,
         "order": 207
@@ -426,13 +426,13 @@
         "order": 171
     },
     "Tai sát": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "right_col",
         "is_bold": false,
         "order": 197
     },
     "Tam thai": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "left_col",
         "is_bold": false,
         "order": 220
@@ -450,7 +450,7 @@
         "order": 159
     },
     "Thanh long": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "left_col",
         "is_bold": false,
         "order": 204
@@ -474,7 +474,7 @@
         "order": 64
     },
     "Thiên diêu": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "right_col",
         "is_bold": false,
         "order": 94
@@ -492,13 +492,13 @@
         "order": 30
     },
     "Thiên hư": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "right_col",
         "is_bold": false,
         "order": 55
     },
     "Thiên hỉ": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "left_col",
         "is_bold": false,
         "order": 133
@@ -540,13 +540,13 @@
         "order": 134
     },
     "Thiên sát": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "right_col",
         "is_bold": false,
         "order": 193
     },
     "Thiên sứ": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "right_col",
         "is_bold": false,
         "order": 156
@@ -576,7 +576,7 @@
         "order": 215
     },
     "Thiên y": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "left_col",
         "is_bold": false,
         "order": 168
@@ -594,7 +594,7 @@
         "order": 197
     },
     "Thiếu âm": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "left_col",
         "is_bold": false,
         "order": 245
@@ -618,7 +618,7 @@
         "order": 142
     },
     "Tuế dịch": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "right_col",
         "is_bold": false,
         "order": 213
@@ -654,7 +654,7 @@
         "order": 216
     },
     "Tức thần": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "right_col",
         "is_bold": false,
         "order": 209
@@ -666,13 +666,13 @@
         "order": 136
     },
     "Vong thần": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "right_col",
         "is_bold": false,
         "order": 211
     },
     "Văn Khúc": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "left_col",
         "is_bold": true,
         "order": 95
@@ -684,13 +684,13 @@
         "order": 91
     },
     "none": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "major",
         "is_bold": false,
         "order": 44
     },
     "Âm sát": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "right_col",
         "is_bold": false,
         "order": 185
@@ -702,13 +702,13 @@
         "order": 156
     },
     "ĐV.Khoa": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "left_col",
         "is_bold": false,
         "order": 273
     },
     "ĐV.Kị": {
-        "element": "Kim",
+        "element": "Thủy",
         "column": "right_col",
         "is_bold": false,
         "order": 202
