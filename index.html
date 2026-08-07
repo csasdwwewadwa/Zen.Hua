@@ -157,11 +157,11 @@
 <body>
   
   <div id="formScreen" class="screen">
-    <div class="app-brand">Phần mềm được lập trình bởi Hứa Thiện Nhân</div>
+    <div class="app-brand">V0.1 BETA</div>
 
     <header class="oneui-header">
-      <h1 class="header-title">Lá Số Tử Vi</h1>
-      <p class="header-subtitle">Lập trình toán học mật mã thống kê</p>
+      <h1 class="header-title">Zen.Hua</h1>
+      <p class="header-subtitle">Dựa trên thuật toán của Thầy Cao Anh</p>
     </header>
     <main class="oneui-card-form">
       <div class="input-group">
@@ -221,12 +221,10 @@
   </div>
   
   <script type="module">
-    import { astro } from 'iztro';
+    import { generate_chart } from './src/generate_chart.js';
     
     function removeVietnameseTones(str) {
       if (!str) return '';
-      
-
       return str
         .normalize('NFD') // Separate base characters from their accent marks
         .replace(/[\u0300-\u036f]/g, '') // Remove the accent marks
@@ -235,251 +233,56 @@
         .trim();
     }
 
-    function convertDictValues(obj, func) {
-      const newObj = {};
-      
-      for (const [key, value] of Object.entries(obj)) {
-        // Only convert if the value is a string, otherwise keep it as-is
-        newObj[key] = (typeof value === 'string') ? func(value) : value;
-      }
-      
-      return newObj;
-    }
-
-
-    var VI_STAR_ELEMENTS = {
-      // 14 Chính Tinh (Major Stars)
-      'Tử Vi': 'Thổ',
-      'Thiên Cơ': 'Mộc',
-      'Thái Dương': 'Hỏa',
-      'Vũ Khúc': 'Kim',
-      'Thiên Đồng': 'Thủy',
-      'Liêm Trinh': 'Hỏa',
-      'Thiên Phủ': 'Thổ',
-      'Thái Âm': 'Thủy',
-      'Tham Lang': 'Mộc', // Thủy đới Mộc, gốc là Mộc
-      'Cự Môn': 'Thủy', // Hoặc Thủy đới Thổ
-      'Thiên Tướng': 'Thủy',
-      'Thiên Lương': 'Mộc', // Hoặc Thổ đới Mộc
-      'Thất Sát': 'Kim', // Hỏa đới Kim
-      'Phá Quân': 'Thủy',
-
-      // Phụ Tinh & Sát Tinh (Minor Stars & Sát Tinh)
-      'Tả Phù': 'Thổ',
-      'Hữu Bật': 'Thủy',
-      'Văn Xương': 'Kim',
-      'Văn Khúc': 'Thủy',
-      'Lộc Tồn': 'Thổ',
-      'Thiên Mã': 'Hỏa',
-      'Kình Dương': 'Kim', // Hỏa đới Kim
-      'Đà La': 'Kim', // Hỏa đới Kim
-      'Hỏa Tinh': 'Hỏa',
-      'Linh Tinh': 'Hỏa',
-      'Thiên Khôi': 'Hỏa',
-      'Thiên Việt': 'Hỏa',
-      'Địa Không': 'Hỏa',
-      'Địa Kiếp': 'Hỏa',
-
-      // Các Sao Khác
-      'Kiếp Sát': 'Hỏa',
-      'Thiên Không': 'Hỏa',
-      'Thiên Hình': 'Hỏa', // Hoặc Kim đới Hỏa
-      'Thiên Diêu': 'Thủy',
-      'Giải Thần': 'Mộc',
-      'Âm Sát': 'Thổ',
-      'Thiên Hỷ': 'Thủy',
-      'Thiên Quan': 'Hỏa',
-      'Thiên Phúc': 'Thổ',
-      'Thiên Khốc': 'Thủy',
-      'Thiên Hư': 'Thủy',
-      'Long Trì': 'Thủy',
-      'Phụng Các': 'Thổ',
-      'Hồng Loan': 'Thủy',
-      'Cô Thần': 'Thổ',
-      'Quả Tú': 'Thổ',
-      'Phi Liêm': 'Hỏa',
-      'Phá Toái': 'Hỏa',
-      'Đài Phụ': 'Thổ',
-      'Phong Cáo': 'Thổ',
-      'Thiên Vu': 'Thủy',
-      'Thiên Nguyệt': 'Thủy',
-      'Tam Thai': 'Thổ',
-      'Bát Tọa': 'Mộc',
-      'Ân Quang': 'Mộc',
-      'Thiên Quý': 'Thổ',
-      'Thiên Tài': 'Thổ',
-      'Thiên Thọ': 'Thổ',
-      'Triệt Không': 'Hỏa',
-      'Tuần Trung': 'Hỏa',
-      'Tuần Không': 'Hỏa',
-      'Không Vong': 'Hỏa',
-      'Triệt Lộ': 'Hỏa',
-      'Nguyệt Đức': 'Hỏa',
-      'Thiên Thương': 'Thổ',
-      'Thiên Sứ': 'Thủy',
-      'Thiên Trù': 'Thổ',
-
-      // Vòng Trường Sinh (Lifecycle Stars)
-      'Trường Sinh': 'Thủy',
-      'Mục Dục': 'Thủy',
-      'Quan Đới': 'Kim',
-      'Lâm Quan': 'Kim',
-      'Đế Vượng': 'Kim',
-      'Suy': 'Thủy',
-      'Bệnh': 'Thủy',
-      'Tử': 'Thủy',
-      'Mộ': 'Thổ',
-      'Tuyệt': 'Thủy',
-      'Thai': 'Thổ',
-      'Dưỡng': 'Mộc',
-
-      // Vòng Bác Sỹ (Boshi Cycle)
-      'Bác Sỹ': 'Thủy',
-      'Lực Sỹ': 'Hỏa',
-      'Thanh Long': 'Thủy',
-      'Tiểu Hao': 'Hỏa',
-      'Tướng Quân': 'Mộc',
-      'Tấu Thư': 'Kim',
-      'Hỷ Thần': 'Hỏa',
-      'Bệnh Phù': 'Thổ',
-      'Đại Hao': 'Hỏa',
-      'Tuế Phá': 'Hỏa',
-      'Phục Binh': 'Hỏa',
-      'Quan Phủ': 'Hỏa',
-
-      // Vòng Thái Tuế (Tai Sui Cycle)
-      'Tuế Kiện': 'Hỏa',
-      'Hối Khí': 'Thổ',
-      'Tang Môn': 'Mộc',
-      'Quán Tác': 'Hỏa',
-      'Quan Phù': 'Hỏa',
-      'Long Đức': 'Thủy',
-      'Bạch Hổ': 'Kim',
-      'Thiên Đức': 'Hỏa',
-      'Điếu Khách': 'Hỏa',
-
-      // Vòng Lộc Tồn / Tướng Tinh (General Star Cycle)
-      'Tướng Tinh': 'Mộc',
-      'Phan Án': 'Thủy',
-      'Tuế Dịch': 'Hỏa',
-      'Tức Thần': 'Thổ',
-      'Hoa Cái': 'Kim',
-      'Tai Sát': 'Hỏa',
-      'Thiên Sát': 'Hỏa',
-      'Chỉ Bối': 'Thổ',
-      'Hàm Trì': 'Thủy',
-      'Nguyệt Sát': 'Hỏa',
-      'Vong Thần': 'Hỏa',
-
-      // Vận Tinh (Decade Stars)
-      'Vận Khôi': 'Hỏa',
-      'Vận Việt': 'Hỏa',
-      'Vận Xương': 'Kim',
-      'Vận Khúc': 'Thủy',
-      'Vận Loan': 'Thủy',
-      'Vận Hỷ': 'Thủy',
-      'Vận Lộc': 'Thổ',
-      'Vận Dương': 'Kim',
-      'Vận Đà': 'Kim',
-      'Vận Mã': 'Hỏa',
-
-      // Lưu Tinh (Annual Stars)
-      'Lưu Khôi': 'Hỏa',
-      'Lưu Việt': 'Hỏa',
-      'Lưu Xương': 'Kim',
-      'Lưu Khúc': 'Thủy',
-      'Lưu Loan': 'Thủy',
-      'Lưu Hỷ': 'Thủy',
-      'Lưu Lộc': 'Thổ',
-      'Lưu Dương': 'Kim',
-      'Lưu Đà': 'Kim',
-      'Lưu Mã': 'Hỏa',
-      'Niên Giải': 'Mộc'
-    };
-
-    VI_STAR_ELEMENTS = convertDictValues(VI_STAR_ELEMENTS, (x) => removeVietnameseTones(x).toLowerCase())
-    
 
     // ==========================================
     // RENDER COMPONENT FUNCTIONS
     // ==========================================
 
-    function classifyTransitStar(name) {
-      const inauspiciousNames = ['Kình Dương', 'Đà La', 'Hỏa Tinh', 'Linh Tinh', 'Địa Không', 'Địa Kiếp', 'Thiên Không', 'Kiếp Sát', 'Đại Hao', 'Tiểu Hao', 'Thiên Khốc', 'Thiên Hư', 'Tang Môn', 'Bạch Hổ', 'Thiên Hình', 'Thiên Diêu', 'Phục Binh', 'Tuế Phá', 'Điếu Khách'];
-      const baseName = name.replace(/^Lưu\s+/, '');
-      return inauspiciousNames.includes(baseName) ? 'inauspicious' : 'auspicious';
-    }
-
-    function formatStarPhases(star) {
-      if (star.brightness) {
-        return typeof star.brightness === 'object' ? `(${star.brightness.value[0]})` : `(${star.brightness[0]})`;
-      }
-      return '';
-    }
-
     function renderStarChip(star, isMajor = false) {
-      const phaseLabel = formatStarPhases(star);
       const starName = star.name; 
-      const elementClass = VI_STAR_ELEMENTS[starName] || '';
-      return `<span class="star-chip ${isMajor ? 'major' : ''} ${elementClass}">${starName}${phaseLabel}</span>`;
+      const elementClass = star.element
+      return `<span class="star-chip ${isMajor ? 'major' : ''} ${elementClass}">${starName}</span>`;
     }
 
     function renderTransitChip(star) {
-      const name = star.name; 
-      const category = classifyTransitStar(name);
-      const baseStarName = name.replace(/^Lưu\s+/, '');
-      const elementClass = VI_STAR_ELEMENTS[baseStarName] || '';
-      const shortName = name.replace(/^Lưu\s+/, 'L.');
-      
-      return `<span class="star-chip transit ${category} ${elementClass}">${shortName}</span>`;
+      const starName = star.name; 
+      const elementClass = star.element
+      return `<span class="star-chip transit ${elementClass}">${starName}</span>`;
     }
 
     function renderPalaceCard(palace, element) {
-      const majorStars = palace.majorStars || [];
-      
-      // Core setup to filter auspicious vs inauspicious minor & adjective stars
-      const inauspiciousNames = ['Kình Dương', 'Đà La', 'Hỏa Tinh', 'Linh Tinh', 'Địa Không', 'Địa Kiếp', 'Thiên Không', 'Kiếp Sát', 'Đại Hao', 'Tiểu Hao', 'Thiên Khốc', 'Thiên Hư', 'Tang Môn', 'Bạch Hổ', 'Thiên Hình', 'Thiên Diêu', 'Phá Toái', 'Phục Binh', 'Quan Phủ', 'Quan Phù', 'Tuế Phá', 'Điếu Khách'];
-      
-      const allMinor = [
-        ...(palace.minorStars || []),
-        ...(palace.adjectiveStars || [])
-      ];
-
-      const auspiciousStars = allMinor.filter(star => !inauspiciousNames.includes(star.name));
-      const inauspiciousStars = allMinor.filter(star => inauspiciousNames.includes(star.name));
+      const majorStars = palace.major_stars
+      const leftColStars = palace.left_stars
+      const rightColStars = palace.right_stars
 
       // Core Palace Info Mapping
-      const canChi = `${palace.heavenlyStem[0] || '—'}.${palace.earthlyBranch || '—'}`.trim();
-      const elementName = palace.fiveElements || '—'; 
-      
-      const daiHan = palace.decadal?.range ? `${palace.decadal.range[0]} - ${palace.decadal.range[1]}` : '—';
-      const thangHan = palace.ages ? palace.ages.join(', ') : '—'; // Used ages for Tiểu Hạn
-      
-      const changkong = (palace.changkongStars || []).map(s => s.name).join('/');
-      const dynamicRole = changkong || '—';
+      const pm_name = palace.palace_name
 
-      const luuNien = palace.yearlyIndex !== undefined ? `LN.${palace.yearlyIndex}` : '—';
+      const pm_l1 = `${palace.stem[0]}.${palace.branch}`
+      const pm_l2 = `${palace.polarity}${palace.element}`
       
-      const lunarMansion = palace.suiqian12 || palace.jiangxing12 || '—'; 
-      const trangSinh = palace.changsheng12 || '—';
+      const pm_r1 = `${palace.dai_van_start_age}`
+      const pm_r2 = `${palace.month_label}`
+      
+      const pb_l = `${palace.dai_van_label}`
+      const pb_r = `${palace.luu_nien_label}`
+      
+      const pb_m1 = `${palace.branch}`
+      const pb_m2 = `${palace.truong_sinh}`
       
       // Transit Mapping
-      const transitStars = palace.horoscopeStars || [];
-      const transitAuspicious = transitStars.filter(star => classifyTransitStar(star.name) === 'auspicious');
-      const transitInauspicious = transitStars.filter(star => classifyTransitStar(star.name) === 'inauspicious');
-
       element.innerHTML = `
         <div class="palace-header">
           <div class="palace-left-meta">
-            <span>${canChi}</span>
-            ${elementName ? `<span>${elementName}</span>` : ''}
+            <span>${pm_l1}</span>
+            <span>${pm_l2}</span>
           </div>
           <div class="palace-title">
-            ${palace.name}
+            ${pm_name}
           </div>
           <div class="palace-right-meta">
-            <span>${daiHan}</span>
-            <span style="max-width: 60px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${thangHan}">${thangHan}</span>
+            <span>${pm_r1}</span>
+            <span>${pm_r2}</span>
           </div>
         </div>
         <div class="palace-major-stars">
@@ -488,24 +291,22 @@
         <div class="palace-middle">
           <div class="palace-star-col">
             <div class="palace-star-list">
-              ${auspiciousStars.length ? auspiciousStars.map(star => renderStarChip(star)).join('') : '<span class="star-chip">—</span>'}
+              ${leftColStars.length ? leftColStars.map(star => renderStarChip(star)).join('') : '<span class="star-chip">—</span>'}
             </div>
-            ${transitAuspicious.length ? `<div class="palace-transit-list">${transitAuspicious.map(renderTransitChip).join('')}</div>` : ''}
           </div>
           <div class="palace-star-col">
             <div class="palace-star-list">
-              ${inauspiciousStars.length ? inauspiciousStars.map(star => renderStarChip(star)).join('') : '<span class="star-chip">—</span>'}
+              ${rightColStars.length ? rightColStars.map(star => renderStarChip(star)).join('') : '<span class="star-chip">—</span>'}
             </div>
-            ${transitInauspicious.length ? `<div class="palace-transit-list">${transitInauspicious.map(renderTransitChip).join('')}</div>` : ''}
           </div>
         </div>
         <div class="palace-bottom">
-          <span class="palace-bottom-left">${dynamicRole}</span>
+          <span class="palace-bottom-left">${pb_l}</span>
           <div class="palace-bottom-center">
-            <span class="palace-lunar-mansion">${lunarMansion}</span>
-            <span class="palace-trang-sinh">${trangSinh}</span>
+            <span class="palace-lunar-mansion">${pb_m1}</span>
+            <span class="palace-trang-sinh">${pb_m2}</span>
           </div>
-          <span class="palace-bottom-right">${luuNien}</span>
+          <span class="palace-bottom-right">${pb_r}</span>
         </div>
       `;
     }
@@ -515,38 +316,35 @@
     // ==========================================
 
     function runEngine(name, isNam, bDateStr, bTimeStr, vDateStr) {
-      const birthDate = new Date(`${bDateStr}T${bTimeStr || '00:00'}`);
-      const hour = birthDate.getHours();
-      
-      const iztroHourIndex = Math.floor((hour + 1) % 24 / 2);
-      const genderStr = isNam ? 'male' : 'female';
+      const bDateSplitted = bDateStr.split('-');
+      const bTimeSplitted = bTimeStr.split(':');
+      const vDateSplitted = vDateStr.split('-');
 
-      const astrolabe = astro.bySolar(bDateStr, iztroHourIndex, genderStr, true, 'vi-VN');
-      const viewDate = new Date(vDateStr);
-      const targetYear = viewDate.getFullYear();
-      
-      const horoscope = astrolabe.horoscope(vDateStr, iztroHourIndex);
+      const sex = isNam ? 1 : 2;
+      const day = bDateSplitted[1];
+      const month = bDateSplitted[2];
+      const year = bDateSplitted[0];
+      const hour = bTimeSplitted[0];
+      const minute = bTimeSplitted[1];
+      const yearcalc = vDateSplitted[0];
+      const monthcalc = vDateSplitted[2];
+      const convert_to_lunar = true;
 
-      // Using horoscope.astrolabe to ensure transit logic binds correctly if available
-      const baseAstrolabe = horoscope.astrolabe || astrolabe;
+      const chart = generate_chart(
+        sex,
+        day,
+        month,
+        year,
+        hour,
+        minute,
+        yearcalc,
+        monthcalc,
+        convert_to_lunar,
+        name
+      );
 
-      const processedPalaces = baseAstrolabe.palaces.map((palace, index) => ({
-        id: index,
-        ...palace,
-        horoscopeStars: palace.horoscopeStars || []
-      }));
-
-      const birthStem = astrolabe.yearStem || astrolabe.yearly?.heavenlyStem || '';
-      const birthBranch = astrolabe.yearBranch || astrolabe.yearly?.earthlyBranch || '';
-      const viewStem = horoscope.yearly?.heavenlyStem || '';
-      const viewBranch = horoscope.yearly?.earthlyBranch || '';
-
-      return {
-        name,
-        metaInfo: `${isNam ? 'Nam Mệnh' : 'Nữ Mệnh'} • Can Chi Năm Sinh: ${birthStem} ${birthBranch}`,
-        viewingInfo: `Xem hạn năm: ${viewStem} ${viewBranch} (${targetYear})`,
-        palaces: processedPalaces
-      };
+      console.log(chart);
+      return chart;
     }
 
     // ==========================================
@@ -572,14 +370,14 @@
       const vDate = document.getElementById("inpViewingDate").value;
       document.getElementById("inpLiveViewDate").value = vDate;
 
-      const data = runEngine(name, isNam, bDate, bTime, vDate);
+      const chart = runEngine(name, isNam, bDate, bTime, vDate);
 
-      document.getElementById("txtSummaryName").innerText = data.name;
-      document.getElementById("txtSummarySub").innerText = data.metaInfo;
-      document.getElementById("lblCenterMeta").innerHTML = `<b>${data.metaInfo}</b><br><br><span style="color:#1b6ef3; font-weight:bold;">${data.viewingInfo}</span>`;
+      document.getElementById("txtSummaryName").innerText = chart.name;
+      document.getElementById("txtSummarySub").innerText = `placeholder`;
+      document.getElementById("lblCenterMeta").innerHTML = `placeholder`;
 
-      data.palaces.forEach(p => {
-        const dom = document.getElementById(`pal-${p.id}`);
+      chart.palaces.forEach((p, idx) => {
+        const dom = document.getElementById(`pal-${idx}`);
         if (dom) {
           renderPalaceCard(p, dom);
         }

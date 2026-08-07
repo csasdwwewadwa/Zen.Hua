@@ -2,8 +2,8 @@ import subprocess
 import sys
 
 # Define your project root and the distribution folder
-project_root = r"c:\Users\csasd\source\repos\tuvisigma"
-dist_dir = r"c:\Users\csasd\source\repos\tuvisigma\dist"
+project_root = r"c:\Users\csasd\source\repos\zenhua"
+dist_dir = r"c:\Users\csasd\source\repos\zenhua\dist"
 
 def run_command(command, cwd):
     """Helper function to run sequential build commands and show output."""

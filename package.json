@@ -1,5 +1,5 @@
 {
-  "name": "tuvisigma",
+  "name": "zenhua",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -15,8 +15,7 @@
   "dependencies": {
     "@capacitor/android": "^8.4.1",
     "@capacitor/cli": "^8.4.1",
-    "@capacitor/core": "^8.4.1",
-    "iztro": "^2.5.8"
+    "@capacitor/core": "^8.4.1"
   },
   "description": "",
   "main": "index.js",

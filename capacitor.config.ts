@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.huathiennhan.tuvisigma',
-  appName: 'tuvisigma',
+  appId: 'com.huathiennhan.zenhua',
+  appName: 'Zen.Hua',
   webDir: 'dist'
 };
 

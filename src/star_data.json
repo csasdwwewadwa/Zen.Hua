@@ -1,0 +1,1367 @@
+{
+    "0": {
+        "name": "Tả Phù",
+        "id": 0,
+        "is_bold": true,
+        "element": "tho",
+        "column": "left"
+    },
+    "1": {
+        "name": "Hồng Loan",
+        "id": 1,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "left"
+    },
+    "2": {
+        "name": "Long Đức",
+        "id": 2,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "left"
+    },
+    "3": {
+        "name": "Tam Thai",
+        "id": 3,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "left"
+    },
+    "4": {
+        "name": "Thiên Trù",
+        "id": 4,
+        "is_bold": false,
+        "element": "tho",
+        "column": "left"
+    },
+    "5": {
+        "name": "LN.Văn Tinh",
+        "id": 5,
+        "is_bold": false,
+        "element": "kim",
+        "column": "left"
+    },
+    "6": {
+        "name": "L.Xương",
+        "id": 6,
+        "is_bold": false,
+        "element": "kim",
+        "column": "left"
+    },
+    "7": {
+        "name": "L.Thiên Mã",
+        "id": 7,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "left"
+    },
+    "8": {
+        "name": "LN.Lộc",
+        "id": 8,
+        "is_bold": false,
+        "element": "moc",
+        "column": "left"
+    },
+    "9": {
+        "name": "ĐV.Khoa",
+        "id": 9,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "left"
+    },
+    "10": {
+        "name": "Địa Kiếp(Đ)",
+        "id": 10,
+        "is_bold": true,
+        "element": "hoa",
+        "column": "right"
+    },
+    "11": {
+        "name": "Địa Không(Đ)",
+        "id": 11,
+        "is_bold": true,
+        "element": "hoa",
+        "column": "right"
+    },
+    "12": {
+        "name": "Tiểu Hao(H)",
+        "id": 12,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "right"
+    },
+    "13": {
+        "name": "L.Tang Môn",
+        "id": 13,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "right"
+    },
+    "14": {
+        "name": "Vong Thần",
+        "id": 14,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "right"
+    },
+    "15": {
+        "name": "-CỰ MÔN(H)",
+        "id": 15,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "major"
+    },
+    "16": {
+        "name": "Hóa Lộc(B)",
+        "id": 16,
+        "is_bold": true,
+        "element": "moc",
+        "column": "left"
+    },
+    "17": {
+        "name": "Tướng Tinh",
+        "id": 17,
+        "is_bold": false,
+        "element": "kim",
+        "column": "left"
+    },
+    "18": {
+        "name": "Bạch Hổ(H)",
+        "id": 18,
+        "is_bold": false,
+        "element": "kim",
+        "column": "right"
+    },
+    "19": {
+        "name": "Tướng Quân",
+        "id": 19,
+        "is_bold": false,
+        "element": "moc",
+        "column": "right"
+    },
+    "20": {
+        "name": "-LIÊM TRINH(V)",
+        "id": 20,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "major"
+    },
+    "21": {
+        "name": "+THIÊN TƯỚNG(V)",
+        "id": 21,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "major"
+    },
+    "22": {
+        "name": "Thiên Việt",
+        "id": 22,
+        "is_bold": true,
+        "element": "hoa",
+        "column": "left"
+    },
+    "23": {
+        "name": "Thiên Quan",
+        "id": 23,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "left"
+    },
+    "24": {
+        "name": "Đường Phù",
+        "id": 24,
+        "is_bold": false,
+        "element": "moc",
+        "column": "left"
+    },
+    "25": {
+        "name": "Phúc Đức",
+        "id": 25,
+        "is_bold": false,
+        "element": "tho",
+        "column": "left"
+    },
+    "26": {
+        "name": "Thiên Đức",
+        "id": 26,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "left"
+    },
+    "27": {
+        "name": "Thiên Tài",
+        "id": 27,
+        "is_bold": false,
+        "element": "tho",
+        "column": "left"
+    },
+    "28": {
+        "name": "Tấu Thư",
+        "id": 28,
+        "is_bold": false,
+        "element": "kim",
+        "column": "left"
+    },
+    "29": {
+        "name": "Thiên Thọ",
+        "id": 29,
+        "is_bold": false,
+        "element": "tho",
+        "column": "left"
+    },
+    "30": {
+        "name": "ĐV.Lộc",
+        "id": 30,
+        "is_bold": false,
+        "element": "moc",
+        "column": "left"
+    },
+    "31": {
+        "name": "N.Khoa",
+        "id": 31,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "left"
+    },
+    "32": {
+        "name": "Hỏa Tinh(H)",
+        "id": 32,
+        "is_bold": true,
+        "element": "hoa",
+        "column": "right"
+    },
+    "33": {
+        "name": "Quả Tú",
+        "id": 33,
+        "is_bold": false,
+        "element": "tho",
+        "column": "right"
+    },
+    "34": {
+        "name": "Phan An",
+        "id": 34,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "right"
+    },
+    "35": {
+        "name": "+THIÊN LƯƠNG(Đ)",
+        "id": 35,
+        "is_bold": false,
+        "element": "moc",
+        "column": "major"
+    },
+    "36": {
+        "name": "Thiên Mã(H)",
+        "id": 36,
+        "is_bold": true,
+        "element": "hoa",
+        "column": "left"
+    },
+    "37": {
+        "name": "Phong Cáo",
+        "id": 37,
+        "is_bold": false,
+        "element": "tho",
+        "column": "left"
+    },
+    "38": {
+        "name": "Địa Giải",
+        "id": 38,
+        "is_bold": false,
+        "element": "tho",
+        "column": "left"
+    },
+    "39": {
+        "name": "Thiên Khốc(H)",
+        "id": 39,
+        "is_bold": false,
+        "element": "kim",
+        "column": "right"
+    },
+    "40": {
+        "name": "Phi Liêm",
+        "id": 40,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "right"
+    },
+    "41": {
+        "name": "Điếu Khách",
+        "id": 41,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "right"
+    },
+    "42": {
+        "name": "L.Đà La",
+        "id": 42,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "right"
+    },
+    "43": {
+        "name": "Tuế Dịch",
+        "id": 43,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "right"
+    },
+    "44": {
+        "name": "+THẤT SÁT(M)",
+        "id": 44,
+        "is_bold": false,
+        "element": "kim",
+        "column": "major"
+    },
+    "45": {
+        "name": "Văn Xương(Đ)",
+        "id": 45,
+        "is_bold": true,
+        "element": "kim",
+        "column": "left"
+    },
+    "46": {
+        "name": "Thanh Long",
+        "id": 46,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "left"
+    },
+    "47": {
+        "name": "N.Quyền",
+        "id": 47,
+        "is_bold": false,
+        "element": "moc",
+        "column": "left"
+    },
+    "48": {
+        "name": "Thiên Hư(H)",
+        "id": 48,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "right"
+    },
+    "49": {
+        "name": "Tuế Phá",
+        "id": 49,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "right"
+    },
+    "50": {
+        "name": "Thiên La",
+        "id": 50,
+        "is_bold": false,
+        "element": "kim",
+        "column": "right"
+    },
+    "51": {
+        "name": "Thiên Sứ",
+        "id": 51,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "right"
+    },
+    "52": {
+        "name": "Nguyệt Sát",
+        "id": 52,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "right"
+    },
+    "53": {
+        "name": "LN.Kị",
+        "id": 53,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "right"
+    },
+    "54": {
+        "name": "-THAM LANG(V)",
+        "id": 54,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "major"
+    },
+    "55": {
+        "name": "Hữu Bật",
+        "id": 55,
+        "is_bold": true,
+        "element": "thuy",
+        "column": "left"
+    },
+    "56": {
+        "name": "Hỉ Thần",
+        "id": 56,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "left"
+    },
+    "57": {
+        "name": "Thiên Phúc",
+        "id": 57,
+        "is_bold": false,
+        "element": "tho",
+        "column": "left"
+    },
+    "58": {
+        "name": "Thiên Giải",
+        "id": 58,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "left"
+    },
+    "59": {
+        "name": "Bát Tọa",
+        "id": 59,
+        "is_bold": false,
+        "element": "moc",
+        "column": "left"
+    },
+    "60": {
+        "name": "L.Khúc",
+        "id": 60,
+        "is_bold": false,
+        "element": "kim",
+        "column": "left"
+    },
+    "61": {
+        "name": "L.Lộc Tồn",
+        "id": 61,
+        "is_bold": false,
+        "element": "tho",
+        "column": "left"
+    },
+    "62": {
+        "name": "Linh Tinh(H)",
+        "id": 62,
+        "is_bold": true,
+        "element": "hoa",
+        "column": "right"
+    },
+    "63": {
+        "name": "Lưu Hà",
+        "id": 63,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "right"
+    },
+    "64": {
+        "name": "Trực Phù",
+        "id": 64,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "right"
+    },
+    "65": {
+        "name": "L.Thiên Hư",
+        "id": 65,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "right"
+    },
+    "66": {
+        "name": "Tức Thần",
+        "id": 66,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "right"
+    },
+    "67": {
+        "name": "+THIÊN ĐỒNG(H)",
+        "id": 67,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "major"
+    },
+    "68": {
+        "name": "Đào Hoa",
+        "id": 68,
+        "is_bold": true,
+        "element": "moc",
+        "column": "left"
+    },
+    "69": {
+        "name": "Ân Quang",
+        "id": 69,
+        "is_bold": false,
+        "element": "moc",
+        "column": "left"
+    },
+    "70": {
+        "name": "Lực Sỹ",
+        "id": 70,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "left"
+    },
+    "71": {
+        "name": "Nguyệt Đức",
+        "id": 71,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "left"
+    },
+    "72": {
+        "name": "Kình Dương(H)",
+        "id": 72,
+        "is_bold": true,
+        "element": "kim",
+        "column": "right"
+    },
+    "73": {
+        "name": "Đẩu Quân",
+        "id": 73,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "right"
+    },
+    "74": {
+        "name": "Tử Phù",
+        "id": 74,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "right"
+    },
+    "75": {
+        "name": "L.Thái Tuế",
+        "id": 75,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "right"
+    },
+    "76": {
+        "name": "L.Thiên Khốc",
+        "id": 76,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "right"
+    },
+    "77": {
+        "name": "-THÁI ÂM(H)",
+        "id": 77,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "major"
+    },
+    "78": {
+        "name": "Hóa Khoa(V)",
+        "id": 78,
+        "is_bold": true,
+        "element": "thuy",
+        "column": "left"
+    },
+    "79": {
+        "name": "Văn Khúc(Đ)",
+        "id": 79,
+        "is_bold": true,
+        "element": "thuy",
+        "column": "left"
+    },
+    "80": {
+        "name": "Quốc Ấn",
+        "id": 80,
+        "is_bold": false,
+        "element": "tho",
+        "column": "left"
+    },
+    "81": {
+        "name": "Hoa Cái",
+        "id": 81,
+        "is_bold": false,
+        "element": "kim",
+        "column": "left"
+    },
+    "82": {
+        "name": "N.Lộc",
+        "id": 82,
+        "is_bold": false,
+        "element": "moc",
+        "column": "left"
+    },
+    "83": {
+        "name": "LN.Khoa",
+        "id": 83,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "left"
+    },
+    "84": {
+        "name": "Thái Tuế",
+        "id": 84,
+        "is_bold": true,
+        "element": "hoa",
+        "column": "right"
+    },
+    "85": {
+        "name": "Thiên Hình(H)",
+        "id": 85,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "right"
+    },
+    "86": {
+        "name": "Bệnh Phù",
+        "id": 86,
+        "is_bold": false,
+        "element": "tho",
+        "column": "right"
+    },
+    "87": {
+        "name": "Địa Võng",
+        "id": 87,
+        "is_bold": false,
+        "element": "kim",
+        "column": "right"
+    },
+    "88": {
+        "name": "L.Kình Dương",
+        "id": 88,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "right"
+    },
+    "89": {
+        "name": "Âm Sát",
+        "id": 89,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "right"
+    },
+    "90": {
+        "name": "ĐV.Kị",
+        "id": 90,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "right"
+    },
+    "91": {
+        "name": "N.Kị",
+        "id": 91,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "right"
+    },
+    "92": {
+        "name": "-VŨ KHÚC(M)",
+        "id": 92,
+        "is_bold": false,
+        "element": "kim",
+        "column": "major"
+    },
+    "93": {
+        "name": "Lộc Tồn",
+        "id": 93,
+        "is_bold": true,
+        "element": "tho",
+        "column": "left"
+    },
+    "94": {
+        "name": "Bác Sỹ",
+        "id": 94,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "left"
+    },
+    "95": {
+        "name": "Thiên Y",
+        "id": 95,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "left"
+    },
+    "96": {
+        "name": "Long Trì",
+        "id": 96,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "left"
+    },
+    "97": {
+        "name": "ĐV.Quyền",
+        "id": 97,
+        "is_bold": false,
+        "element": "moc",
+        "column": "left"
+    },
+    "98": {
+        "name": "Thiên Diêu(Đ)",
+        "id": 98,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "right"
+    },
+    "99": {
+        "name": "Quan Phù",
+        "id": 99,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "right"
+    },
+    "100": {
+        "name": "Thiên Thương",
+        "id": 100,
+        "is_bold": false,
+        "element": "tho",
+        "column": "right"
+    },
+    "101": {
+        "name": "Chỉ Bối",
+        "id": 101,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "right"
+    },
+    "102": {
+        "name": "+TỬ VI(M)",
+        "id": 102,
+        "is_bold": false,
+        "element": "tho",
+        "column": "major"
+    },
+    "103": {
+        "name": "-THIÊN PHỦ(M)",
+        "id": 103,
+        "is_bold": false,
+        "element": "tho",
+        "column": "major"
+    },
+    "104": {
+        "name": "Thiên Khôi",
+        "id": 104,
+        "is_bold": true,
+        "element": "hoa",
+        "column": "left"
+    },
+    "105": {
+        "name": "Thiếu Âm",
+        "id": 105,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "left"
+    },
+    "106": {
+        "name": "Đà La(Đ)",
+        "id": 106,
+        "is_bold": true,
+        "element": "kim",
+        "column": "right"
+    },
+    "107": {
+        "name": "Quan Phủ",
+        "id": 107,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "right"
+    },
+    "108": {
+        "name": "Phá Toái",
+        "id": 108,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "right"
+    },
+    "109": {
+        "name": "Thiên Sát",
+        "id": 109,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "right"
+    },
+    "110": {
+        "name": "-THIÊN CƠ(Đ)",
+        "id": 110,
+        "is_bold": false,
+        "element": "moc",
+        "column": "major"
+    },
+    "111": {
+        "name": "Hóa Quyền(B)",
+        "id": 111,
+        "is_bold": true,
+        "element": "moc",
+        "column": "left"
+    },
+    "112": {
+        "name": "Thai Phụ",
+        "id": 112,
+        "is_bold": false,
+        "element": "kim",
+        "column": "left"
+    },
+    "113": {
+        "name": "Phượng Các",
+        "id": 113,
+        "is_bold": false,
+        "element": "moc",
+        "column": "left"
+    },
+    "114": {
+        "name": "Giải Thần",
+        "id": 114,
+        "is_bold": false,
+        "element": "moc",
+        "column": "left"
+    },
+    "115": {
+        "name": "Tang Môn(H)",
+        "id": 115,
+        "is_bold": false,
+        "element": "moc",
+        "column": "right"
+    },
+    "116": {
+        "name": "Phục Binh",
+        "id": 116,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "right"
+    },
+    "117": {
+        "name": "Tai Sát",
+        "id": 117,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "right"
+    },
+    "118": {
+        "name": "-PHÁ QUÂN(M)",
+        "id": 118,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "major"
+    },
+    "119": {
+        "name": "Thiên Quý",
+        "id": 119,
+        "is_bold": false,
+        "element": "tho",
+        "column": "left"
+    },
+    "120": {
+        "name": "Thiên Hỉ",
+        "id": 120,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "left"
+    },
+    "121": {
+        "name": "Thiếu Dương",
+        "id": 121,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "left"
+    },
+    "122": {
+        "name": "LN.Quyền",
+        "id": 122,
+        "is_bold": false,
+        "element": "moc",
+        "column": "left"
+    },
+    "123": {
+        "name": "Hóa Kị(H)",
+        "id": 123,
+        "is_bold": true,
+        "element": "thuy",
+        "column": "right"
+    },
+    "124": {
+        "name": "Thiên Không",
+        "id": 124,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "right"
+    },
+    "125": {
+        "name": "Kiếp Sát",
+        "id": 125,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "right"
+    },
+    "126": {
+        "name": "Đại Hao(H)",
+        "id": 126,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "right"
+    },
+    "127": {
+        "name": "Cô Thần",
+        "id": 127,
+        "is_bold": false,
+        "element": "tho",
+        "column": "right"
+    },
+    "128": {
+        "name": "L.Bạch Hổ",
+        "id": 128,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "right"
+    },
+    "129": {
+        "name": "+THÁI DƯƠNG(H)",
+        "id": 129,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "major"
+    },
+    "130": {
+        "name": "Đà La(H)",
+        "id": 130,
+        "is_bold": true,
+        "element": "kim",
+        "column": "right"
+    },
+    "131": {
+        "name": "-THIÊN PHỦ(Đ)",
+        "id": 131,
+        "is_bold": false,
+        "element": "tho",
+        "column": "major"
+    },
+    "132": {
+        "name": "Hóa Lộc(Đ)",
+        "id": 132,
+        "is_bold": true,
+        "element": "moc",
+        "column": "left"
+    },
+    "133": {
+        "name": "Hóa Quyền(Đ)",
+        "id": 133,
+        "is_bold": true,
+        "element": "moc",
+        "column": "left"
+    },
+    "134": {
+        "name": "Kình Dương(Đ)",
+        "id": 134,
+        "is_bold": true,
+        "element": "kim",
+        "column": "right"
+    },
+    "135": {
+        "name": "-THAM LANG(M)",
+        "id": 135,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "major"
+    },
+    "136": {
+        "name": "-CỰ MÔN(Đ)",
+        "id": 136,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "major"
+    },
+    "137": {
+        "name": "Linh Tinh(Đ)",
+        "id": 137,
+        "is_bold": true,
+        "element": "hoa",
+        "column": "right"
+    },
+    "138": {
+        "name": "Tiểu Hao(Đ)",
+        "id": 138,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "right"
+    },
+    "139": {
+        "name": "+THIÊN TƯỚNG(H)",
+        "id": 139,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "major"
+    },
+    "140": {
+        "name": "Đại Hao(Đ)",
+        "id": 140,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "right"
+    },
+    "141": {
+        "name": "-LIÊM TRINH(H)",
+        "id": 141,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "major"
+    },
+    "142": {
+        "name": "-PHÁ QUÂN(H)",
+        "id": 142,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "major"
+    },
+    "143": {
+        "name": "Hóa Kị(B)",
+        "id": 143,
+        "is_bold": true,
+        "element": "thuy",
+        "column": "right"
+    },
+    "144": {
+        "name": "-THIÊN CƠ(M)",
+        "id": 144,
+        "is_bold": false,
+        "element": "moc",
+        "column": "major"
+    },
+    "145": {
+        "name": "+THIÊN LƯƠNG(M)",
+        "id": 145,
+        "is_bold": false,
+        "element": "moc",
+        "column": "major"
+    },
+    "146": {
+        "name": "Thiên Khốc(Đ)",
+        "id": 146,
+        "is_bold": false,
+        "element": "kim",
+        "column": "right"
+    },
+    "147": {
+        "name": "+TỬ VI(B)",
+        "id": 147,
+        "is_bold": false,
+        "element": "tho",
+        "column": "major"
+    },
+    "148": {
+        "name": "+THẤT SÁT(V)",
+        "id": 148,
+        "is_bold": false,
+        "element": "kim",
+        "column": "major"
+    },
+    "149": {
+        "name": "Thiên Mã(Đ)",
+        "id": 149,
+        "is_bold": true,
+        "element": "hoa",
+        "column": "left"
+    },
+    "150": {
+        "name": "+THIÊN TƯỚNG(Đ)",
+        "id": 150,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "major"
+    },
+    "151": {
+        "name": "Hóa Khoa(Đ)",
+        "id": 151,
+        "is_bold": true,
+        "element": "thuy",
+        "column": "left"
+    },
+    "152": {
+        "name": "-LIÊM TRINH(Đ)",
+        "id": 152,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "major"
+    },
+    "153": {
+        "name": "+THẤT SÁT(Đ)",
+        "id": 153,
+        "is_bold": false,
+        "element": "kim",
+        "column": "major"
+    },
+    "154": {
+        "name": "Thiên Hư(Đ)",
+        "id": 154,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "right"
+    },
+    "155": {
+        "name": "Hóa Quyền(V)",
+        "id": 155,
+        "is_bold": true,
+        "element": "moc",
+        "column": "left"
+    },
+    "156": {
+        "name": "Hỏa Tinh(Đ)",
+        "id": 156,
+        "is_bold": true,
+        "element": "hoa",
+        "column": "right"
+    },
+    "157": {
+        "name": "-THAM LANG(H)",
+        "id": 157,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "major"
+    },
+    "158": {
+        "name": "-THIÊN CƠ(H)",
+        "id": 158,
+        "is_bold": false,
+        "element": "moc",
+        "column": "major"
+    },
+    "159": {
+        "name": "-THIÊN PHỦ(B)",
+        "id": 159,
+        "is_bold": false,
+        "element": "tho",
+        "column": "major"
+    },
+    "160": {
+        "name": "Thiên Diêu(H)",
+        "id": 160,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "right"
+    },
+    "161": {
+        "name": "-VŨ KHÚC(H)",
+        "id": 161,
+        "is_bold": false,
+        "element": "kim",
+        "column": "major"
+    },
+    "162": {
+        "name": "+THÁI DƯƠNG(M)",
+        "id": 162,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "major"
+    },
+    "163": {
+        "name": "-THÁI ÂM(M)",
+        "id": 163,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "major"
+    },
+    "164": {
+        "name": "+THIÊN ĐỒNG(Đ)",
+        "id": 164,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "major"
+    },
+    "165": {
+        "name": "Thiên Hình(Đ)",
+        "id": 165,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "right"
+    },
+    "166": {
+        "name": "-THIÊN CƠ(Đ)",
+        "id": 166,
+        "is_bold": false,
+        "element": "moc",
+        "column": "major"
+    },
+    "167": {
+        "name": "+THẤT SÁT(H)",
+        "id": 167,
+        "is_bold": false,
+        "element": "kim",
+        "column": "major"
+    },
+    "168": {
+        "name": "Bạch Hổ(Đ)",
+        "id": 168,
+        "is_bold": false,
+        "element": "kim",
+        "column": "right"
+    },
+    "169": {
+        "name": "Tang Môn(Đ)",
+        "id": 169,
+        "is_bold": false,
+        "element": "moc",
+        "column": "right"
+    },
+    "170": {
+        "name": "+THÁI DƯƠNG(V)",
+        "id": 170,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "major"
+    },
+    "171": {
+        "name": "+THIÊN LƯƠNG(V)",
+        "id": 171,
+        "is_bold": false,
+        "element": "moc",
+        "column": "major"
+    },
+    "172": {
+        "name": "-LIÊM TRINH(M)",
+        "id": 172,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "major"
+    },
+    "173": {
+        "name": "-THIÊN PHỦ(V)",
+        "id": 173,
+        "is_bold": false,
+        "element": "tho",
+        "column": "major"
+    },
+    "174": {
+        "name": "-VŨ KHÚC(V)",
+        "id": 174,
+        "is_bold": false,
+        "element": "kim",
+        "column": "major"
+    },
+    "175": {
+        "name": "+THIÊN TƯỚNG(M)",
+        "id": 175,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "major"
+    },
+    "176": {
+        "name": "Hóa Lộc(V)",
+        "id": 176,
+        "is_bold": true,
+        "element": "moc",
+        "column": "left"
+    },
+    "177": {
+        "name": "-CỰ MÔN(V)",
+        "id": 177,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "major"
+    },
+    "178": {
+        "name": "+THIÊN ĐỒNG(V)",
+        "id": 178,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "major"
+    },
+    "179": {
+        "name": "-THÁI ÂM(V)",
+        "id": 179,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "major"
+    },
+    "180": {
+        "name": "+THIÊN LƯƠNG(H)",
+        "id": 180,
+        "is_bold": false,
+        "element": "moc",
+        "column": "major"
+    },
+    "181": {
+        "name": "+TỬ VI(V)",
+        "id": 181,
+        "is_bold": false,
+        "element": "tho",
+        "column": "major"
+    },
+    "182": {
+        "name": "-CỰ MÔN(H)",
+        "id": 182,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "major"
+    },
+    "183": {
+        "name": "-PHÁ QUÂN(Đ)",
+        "id": 183,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "major"
+    },
+    "184": {
+        "name": "-THAM LANG(Đ)",
+        "id": 184,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "major"
+    },
+    "185": {
+        "name": "+THÁI DƯƠNG(Đ)",
+        "id": 185,
+        "is_bold": false,
+        "element": "hoa",
+        "column": "major"
+    },
+    "186": {
+        "name": "-THÁI ÂM(Đ)",
+        "id": 186,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "major"
+    },
+    "187": {
+        "name": "+TỬ VI(Đ)",
+        "id": 187,
+        "is_bold": false,
+        "element": "tho",
+        "column": "major"
+    },
+    "188": {
+        "name": "-PHÁ QUÂN(V)",
+        "id": 188,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "major"
+    },
+    "189": {
+        "name": "-VŨ KHÚC(Đ)",
+        "id": 189,
+        "is_bold": false,
+        "element": "kim",
+        "column": "major"
+    },
+    "190": {
+        "name": "+THIÊN ĐỒNG(M)",
+        "id": 190,
+        "is_bold": false,
+        "element": "thuy",
+        "column": "major"
+    },
+    "191": {
+        "name": "Văn Khúc(H)",
+        "id": 191,
+        "is_bold": true,
+        "element": "thuy",
+        "column": "left"
+    },
+    "192": {
+        "name": "Địa Kiếp(H)",
+        "id": 192,
+        "is_bold": true,
+        "element": "hoa",
+        "column": "right"
+    },
+    "193": {
+        "name": "Địa Không(H)",
+        "id": 193,
+        "is_bold": true,
+        "element": "hoa",
+        "column": "right"
+    },
+    "194": {
+        "name": "Văn Xương(H)",
+        "id": 194,
+        "is_bold": true,
+        "element": "kim",
+        "column": "left"
+    }
+}
