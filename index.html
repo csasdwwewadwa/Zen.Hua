@@ -19,6 +19,7 @@
       :root {
         --oneui-bg: #f4f4f6; --oneui-surface: #ffffff; --oneui-surface-strong: #f8f8fa; --oneui-primary: #1b6ef3;
         --oneui-text-primary: #111111; --oneui-text-secondary: #767676;
+        --center-accent: #155eb9;
         --star-kim: #616369; --star-thuy: #000000; --star-hoa: #FE0303; --star-tho: #FF9F00; --star-moc: #049A04;
         --oneui-radius-card: 28px; --oneui-radius-pill: 999px;
         --oneui-easing: cubic-bezier(0.22, 1, 0.36, 1);
@@ -30,6 +31,7 @@
           --oneui-surface-strong: #1f2128;
           --oneui-text-primary: #f0f0f2;
           --oneui-text-secondary: #8d9096;
+          --center-accent: #72adff;
           --star-kim: #b0b3bb;
           --star-thuy: #84b7ff;
           --star-hoa: #ff7b7b;
@@ -133,10 +135,10 @@
     
     .center-info { grid-column: 2 / span 2; grid-row: 2 / span 2; background: var(--oneui-bg); display: flex; flex-direction: column; text-align: center; padding: 16px 20px; }
     .center-metadata { display: flex; flex: 1; min-height: 0; flex-direction: column; align-items: center; justify-content: center; color: var(--oneui-text-primary); }
-    .center-name, .center-highlight { color: #155eb9; font-weight: 800; }
-    .center-accent { color: #155eb9; }
+    .center-name, .center-highlight { color: var(--center-accent); font-weight: 800; }
+    .center-accent { color: var(--center-accent); }
     .center-name { margin: 0; font-size: 20px; line-height: 1.25; }
-    .center-timezone { margin: 2px 0 5px; color: #155eb9; font-size: 15px; }
+    .center-timezone { margin: 2px 0 5px; color: var(--center-accent); font-size: 15px; }
     .center-date-grid { display: grid; grid-template-columns: repeat(4, 1fr); width: 100%; max-width: 430px; margin-bottom: 8px; font-size: 16px; line-height: 1.55; }
     .center-date-grid span { display: block; }
     .center-date-grid .center-date-label { font-weight: 500; }
