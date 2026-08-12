@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>tuvisigma</title>
+  <title>Zen.Hua</title>
   
   <script src="/lunar.js"></script>
   
@@ -38,8 +38,19 @@
         }
       }
       * { box-sizing: border-box; font-family: 'Samsung One', system-ui, sans-serif; }
-      html { color-scheme: light dark; }
-      body { background-color: var(--oneui-bg); color: var(--oneui-text-primary); margin: 0; overflow: hidden; height: 100vh; }
+      html { color-scheme: light; }
+      html[data-theme="dark"] { color-scheme: dark; }
+      body { 
+        background-color: var(--oneui-bg); 
+        color: var(--oneui-text-primary); 
+        margin: 0; 
+        overflow: hidden; 
+        height: 100vh; 
+        padding-top: env(safe-area-inset-top);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+      }
       .app-brand {
         position: fixed;
         top: 12px;
@@ -107,14 +118,33 @@
     .viewport-mask { flex: 1; overflow: hidden; position: relative; touch-action: none; background: var(--oneui-bg); min-width: 100%; min-height: 100%; }
     .chart-grid { display: grid; grid-template-columns: repeat(4, 250px); grid-template-rows: repeat(4, 337px); position: absolute; width: 1000px; height: 1348px; transform-origin: 0 0; transform: translate3d(var(--x), var(--y), 0) scale(var(--scale)); will-change: transform; }
     
-    .p-0 { grid-column: 3; grid-row: 4; } .p-1 { grid-column: 2; grid-row: 4; }
-    .p-2 { grid-column: 1; grid-row: 4; } .p-3 { grid-column: 1; grid-row: 3; }
-    .p-4 { grid-column: 1; grid-row: 2; } .p-5 { grid-column: 1; grid-row: 1; }
-    .p-6 { grid-column: 2; grid-row: 1; } .p-7 { grid-column: 3; grid-row: 1; }
-    .p-8 { grid-column: 4; grid-row: 1; } .p-9 { grid-column: 4; grid-row: 2; }
-    .p-10 { grid-column: 4; grid-row: 3; } .p-11 { grid-column: 4; grid-row: 4; }
+    .p-0 { grid-column: 1; grid-row: 1; }
+    .p-1 { grid-column: 2; grid-row: 1; }
+    .p-2 { grid-column: 3; grid-row: 1; }
+    .p-3 { grid-column: 4; grid-row: 1; }
+    .p-4 { grid-column: 1; grid-row: 2; }
+    .p-5 { grid-column: 4; grid-row: 2; }
+    .p-6 { grid-column: 1; grid-row: 3; }
+    .p-7 { grid-column: 4; grid-row: 3; }
+    .p-8 { grid-column: 1; grid-row: 4; }
+    .p-9 { grid-column: 2; grid-row: 4; }
+    .p-10 { grid-column: 3; grid-row: 4; }
+    .p-11 { grid-column: 4; grid-row: 4; }
     
-    .center-info { grid-column: 2 / span 2; grid-row: 2 / span 2; background: var(--oneui-bg); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
+    .center-info { grid-column: 2 / span 2; grid-row: 2 / span 2; background: var(--oneui-bg); display: flex; flex-direction: column; text-align: center; padding: 16px 20px; }
+    .center-metadata { display: flex; flex: 1; min-height: 0; flex-direction: column; align-items: center; justify-content: center; color: var(--oneui-text-primary); }
+    .center-name, .center-highlight { color: #155eb9; font-weight: 800; }
+    .center-name { margin: 0; font-size: 20px; line-height: 1.25; }
+    .center-timezone { margin: 2px 0 5px; color: #155eb9; font-size: 15px; }
+    .center-date-grid { display: grid; grid-template-columns: repeat(4, 1fr); width: 100%; max-width: 430px; margin-bottom: 8px; font-size: 16px; line-height: 1.55; }
+    .center-date-grid span { display: block; }
+    .center-date-grid .center-date-label { font-weight: 500; }
+    .center-line { margin: 2px 0; font-size: 16px; line-height: 1.32; }
+    .center-highlight { font-size: 17px; }
+    .center-spacer { height: 12px; flex: 0 0 12px; }
+    .center-view-date { flex: 0 0 auto; width: 100%; margin-top: 8px; }
+    .center-view-date label { display: block; font-size: 12px; color: var(--oneui-text-secondary); }
+    .center-view-date input { width: 100%; padding: 10px; margin-top: 4px; text-align: center; }
     .palace { background: var(--oneui-surface); border: 1px solid var(--oneui-bg); padding: 10px; display: flex; flex-direction: column; gap: 8px; overflow: visible; position: relative; }
     .palace-header { position: relative; min-height: 44px; }
     .palace-left-meta, .palace-right-meta { position: absolute; top: 0; display: flex; flex-direction: column; gap: 2px; font-size: 13px; color: var(--oneui-text-secondary); line-height: 1.2; padding-top: 3px;}
@@ -178,13 +208,13 @@
       <div class="input-group">
         <label class="oneui-label">Ngày giờ sinh (Dương lịch)</label>
         <div class="date-row">
-          <input type="date" id="inpBirthDate" class="oneui-input-inline" value="2000-01-01">
+          <input type="text" id="inpBirthDate" class="oneui-input-inline date-text-input" value="01/01/2000" placeholder="DD/MM/YYYY" inputmode="numeric" maxlength="10" autocomplete="bday">
           <input type="time" id="inpBirthTime" class="oneui-input-inline" value="08:00">
         </div>
       </div>
       <div class="input-group">
         <label class="oneui-label">Ngày xem hạn</label>
-        <input type="date" id="inpViewingDate" class="oneui-input" value="2026-07-04">
+        <input type="text" id="inpViewingDate" class="oneui-input date-text-input" placeholder="DD/MM/YYYY" inputmode="numeric" maxlength="10">
       </div>
       <button id="btnSubmit" class="oneui-btn-primary">An sao lá số</button>
     </main>
@@ -202,11 +232,10 @@
       <div id="tuviChart" class="chart-grid">
         
         <div class="palace center-info">
-          <h3 style="margin:0; font-size: 20px;">LÁ SỐ TỬ VI</h3>
-          <p id="lblCenterMeta" style="margin:8px 0; color:var(--oneui-text-secondary);"></p>
-          <div style="margin-top: 12px; width:100%;">
-            <label style="font-size:12px; color:var(--oneui-text-secondary);">Đổi ngày xem hạn (Sao lưu sẽ cập nhật):</label>
-            <input type="date" id="inpLiveViewDate" class="oneui-input" style="padding:10px; text-align:center; margin-top:4px;">
+          <div id="lblCenterMeta" class="center-metadata" aria-live="polite"></div>
+          <div class="center-view-date">
+            <label for="inpLiveViewDate">Đổi ngày xem hạn (Sao lưu sẽ cập nhật):</label>
+            <input type="text" id="inpLiveViewDate" class="oneui-input date-text-input" placeholder="DD/MM/YYYY" inputmode="numeric" maxlength="10">
           </div>
         </div>
 
@@ -222,6 +251,13 @@
   
   <script type="module">
     import { generate_chart } from './src/generate_chart.js';
+
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
+    function syncSystemTheme() {
+      document.documentElement.dataset.theme = systemTheme.matches ? 'dark' : 'light';
+    }
+    syncSystemTheme();
+    systemTheme.addEventListener('change', syncSystemTheme);
     
     function removeVietnameseTones(str) {
       if (!str) return '';
@@ -248,6 +284,49 @@
       const starName = star.name; 
       const elementClass = star.element
       return `<span class="star-chip transit ${elementClass}">${starName}</span>`;
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? '').replace(/[&<>'"]/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[char]));
+    }
+
+    function renderCenterMetadata(chart) {
+      const meta = chart.center_metadata;
+      if (!meta) return '';
+
+      const menhPalace = chart.palaces.find((palace) => palace.palace_name === 'MỆNH');
+      const majorStarLine = menhPalace && menhPalace.major_stars.length === 0
+        ? 'Mệnh Vô Chính Diệu'
+        : (meta.major_star_configuration && meta.major_star_configuration !== 'Không xác định'
+          ? meta.major_star_configuration
+          : `Mệnh: ${(menhPalace?.major_stars ?? []).map((star) => star.name.replace(/^[+-]/, '')).join(', ')}`);
+      const viewingDate = `T${Number(meta.viewing_lunar_month)}/${meta.viewing_lunar_year} ÂL`;
+
+      return `
+        <h3 class="center-name">${escapeHtml(chart.name)}</h3>
+        <p class="center-timezone">(${escapeHtml(meta.timezone)}) Giờ Hà Nội</p>
+        <div class="center-date-grid">
+          <div><span class="center-date-label">Năm</span><span>${meta.birth_year}</span><span>${String(meta.lunar_date).split('/')[2]}</span><span>${escapeHtml(meta.lunar_year_can_chi)}</span></div>
+          <div><span class="center-date-label">Tháng</span><span>${meta.birth_month}</span><span>${String(meta.lunar_date).split('/')[1]}</span><span>${escapeHtml(meta.lunar_month_can_chi)}</span></div>
+          <div><span class="center-date-label">Ngày</span><span>${meta.birth_day}</span><span>${String(meta.lunar_date).split('/')[0]}</span><span>${escapeHtml(meta.lunar_day_can_chi)}</span></div>
+          <div><span class="center-date-label">Giờ</span><span>${String(meta.birth_hour).padStart(2, '0')}:${String(meta.birth_minute).padStart(2, '0')}</span><span>${escapeHtml(meta.hour_can_chi.split(' ').slice(-1)[0])}</span><span>${escapeHtml(meta.hour_can_chi)}</span></div>
+        </div>
+        <p class="center-line center-highlight">${escapeHtml(meta.sex_label)}, ${escapeHtml(meta.logic_direction)}, ${meta.age} tuổi (${viewingDate})</p>
+        <p class="center-line center-highlight">Bản Mệnh: ${escapeHtml(meta.nap_am)} - ${escapeHtml(meta.cuc_name)}</p>
+        <p class="center-line">${escapeHtml(meta.menh_cuc_relation)}</p>
+        <div class="center-spacer"></div>
+        <p class="center-line center-highlight">${escapeHtml(majorStarLine)}</p>
+        <div class="center-spacer"></div>
+        <p class="center-line center-highlight">Chủ Mệnh: ${escapeHtml(meta.principal_star)} - Chủ Thân: ${escapeHtml(meta.body_star)}</p>
+        <p class="center-line">Cân xương tính số: ${escapeHtml(meta.bone_weight)}</p>
+        ${meta.cuu_cung_chieu_menh ? `<p class="center-line">Cường chiếu mệnh: ${escapeHtml(meta.cuu_cung_chieu_menh)}</p>` : ''}
+        <div class="center-spacer"></div>
+        <p class="center-line center-highlight">Mệnh quái: ${escapeHtml(meta.life_trigram)}</p>
+        <p class="center-line">Hướng hợp tuổi: ${escapeHtml(meta.favorable_directions)}</p>
+        <p class="center-line">Tuổi hợp: ${escapeHtml(meta.compatible_ages)}</p>
+        ${meta.kim_lau_hoang_oc ? `<div class="center-spacer"></div><p class="center-line center-highlight">${escapeHtml(meta.kim_lau_hoang_oc)}</p>` : ''}
+        ${meta.tam_tai ? `<p class="center-line center-highlight">${escapeHtml(meta.tam_tai)}</p>` : ''}
+      `;
     }
 
     function renderPalaceCard(palace, element) {
@@ -321,13 +400,13 @@
       const vDateSplitted = vDateStr.split('-');
 
       const sex = isNam ? 1 : 2;
-      const day = bDateSplitted[1];
-      const month = bDateSplitted[2];
+      const day = bDateSplitted[2];
+      const month = bDateSplitted[1];
       const year = bDateSplitted[0];
       const hour = bTimeSplitted[0];
       const minute = bTimeSplitted[1];
       const yearcalc = vDateSplitted[0];
-      const monthcalc = vDateSplitted[2];
+      const monthcalc = vDateSplitted[1];
       const convert_to_lunar = true;
 
       const chart = generate_chart(
@@ -350,6 +429,38 @@
     // ==========================================
     // UI CONTROLLERS
     // ==========================================
+
+    function formatDateInput(event) {
+      const digits = event.target.value.replace(/\D/g, '').slice(0, 8);
+      const parts = [];
+      if (digits.length > 0) parts.push(digits.slice(0, 2));
+      if (digits.length > 2) parts.push(digits.slice(2, 4));
+      if (digits.length > 4) parts.push(digits.slice(4, 8));
+      event.target.value = parts.join('/');
+    }
+
+    function dateInputToIso(value) {
+      const match = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(value);
+      if (!match) return '';
+
+      const [, day, month, year] = match;
+      const date = new Date(Number(year), Number(month) - 1, Number(day));
+      if (date.getFullYear() !== Number(year) || date.getMonth() !== Number(month) - 1 || date.getDate() !== Number(day)) {
+        return '';
+      }
+      return `${year}-${month}-${day}`;
+    }
+
+    const today = new Date();
+    document.getElementById("inpViewingDate").value = [
+      String(today.getDate()).padStart(2, '0'),
+      String(today.getMonth() + 1).padStart(2, '0'),
+      today.getFullYear()
+    ].join('/');
+
+    document.querySelectorAll('.date-text-input').forEach((input) => {
+      input.addEventListener('input', formatDateInput);
+    });
     
     let isNam = true;
     document.getElementById("btnNam").addEventListener("click", () => { 
@@ -365,16 +476,20 @@
 
     function updateChartUI() {
       const name = document.getElementById("inpName").value;
-      const bDate = document.getElementById("inpBirthDate").value;
+      const bDate = dateInputToIso(document.getElementById("inpBirthDate").value);
       const bTime = document.getElementById("inpBirthTime").value;
-      const vDate = document.getElementById("inpViewingDate").value;
-      document.getElementById("inpLiveViewDate").value = vDate;
+      const vDate = dateInputToIso(document.getElementById("inpViewingDate").value);
+      if (!bDate || !vDate) {
+        alert("Vui lòng nhập ngày theo định dạng DD/MM/YYYY.");
+        return;
+      }
+      document.getElementById("inpLiveViewDate").value = document.getElementById("inpViewingDate").value;
 
       const chart = runEngine(name, isNam, bDate, bTime, vDate);
 
       document.getElementById("txtSummaryName").innerText = chart.name;
-      document.getElementById("txtSummarySub").innerText = `placeholder`;
-      document.getElementById("lblCenterMeta").innerHTML = `placeholder`;
+      document.getElementById("txtSummarySub").innerText = `${chart.center_metadata.sex_label} · ${chart.center_metadata.lunar_year_can_chi}`;
+      document.getElementById("lblCenterMeta").innerHTML = renderCenterMetadata(chart);
 
       chart.palaces.forEach((p, idx) => {
         const dom = document.getElementById(`pal-${idx}`);
@@ -396,6 +511,12 @@
     });
     
     document.getElementById("inpLiveViewDate").addEventListener("change", (e) => {
+      const date = dateInputToIso(e.target.value);
+      if (!date) {
+        alert("Vui lòng nhập ngày theo định dạng DD/MM/YYYY.");
+        e.target.value = document.getElementById("inpViewingDate").value;
+        return;
+      }
       document.getElementById("inpViewingDate").value = e.target.value;
       updateChartUI();
     });
