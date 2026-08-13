@@ -40,7 +40,7 @@
           --star-moc: #7ed97e;
       }
       * { box-sizing: border-box; font-family: 'Samsung One', system-ui, sans-serif; }
-      html { color-scheme: light; }
+      html { color-scheme: light; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
       html[data-theme="dark"] { color-scheme: dark; }
       body { 
         background: var(--oneui-bg);
@@ -87,8 +87,8 @@
       .form-shell { display: flex; flex: 1; min-height: 0; overflow: hidden; }
       .page-viewport { flex: 1; min-width: 0; overflow: hidden; }
       .page-track { display: flex; gap: 20px; height: 100%; width: max-content; will-change: transform; transition: transform 420ms var(--oneui-easing); }
-      .app-page { display: flex; flex-direction: column; flex: 0 0 100vw; width: 100vw; min-width: 0; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding-bottom: 108px; }
-      .bottom-nav { position: absolute; z-index: 30; bottom: max(16px, calc(env(safe-area-inset-bottom) + 10px)); left: 50%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; width: min(342px, calc(100vw - 32px)); padding: 5px; transform: translateX(-50%); border-radius: 26px; background: color-mix(in srgb, var(--oneui-surface-strong) 92%, transparent); backdrop-filter: blur(18px); }
+      .app-page { display: flex; flex-direction: column; flex: 0 0 100vw; width: 100vw; min-width: 0; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding-bottom: 0; }
+      .bottom-nav { position: absolute; z-index: 30; bottom: max(16px, calc(env(safe-area-inset-bottom) + 10px)); left: 50%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; width: min(342px, calc(100vw - 32px)); padding: 5px; transform: translateX(-50%); border-radius: 26px; background: color-mix(in srgb, var(--oneui-surface-strong) 92%, transparent); backdrop-filter: blur(18px); box-shadow: 0 10px 28px rgba(0, 0, 0, .16); }
       .nav-item { min-height: 62px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 3px; border: 0; border-radius: 21px; background: transparent; color: var(--oneui-text-secondary); font: inherit; font-size: 11px; font-weight: 720; cursor: pointer; transition: background-color 180ms ease, color 180ms ease, transform 180ms ease; }
       .nav-item-icon { width: 19px; height: 19px; display: block; opacity: .78; }
       html[data-theme="dark"] .nav-item-icon { filter: invert(1); }
@@ -97,11 +97,11 @@
       .nav-item:active { transform: scale(.96); }
       html[data-theme="dark"] .nav-item.active .nav-item-icon { filter: none; }
     
-    .oneui-header { padding: max(88px, calc(env(safe-area-inset-top) + 52px)) 28px 22px; }
-    .header-title { font-size: clamp(40px, 11vw, 52px); line-height: 0.98; letter-spacing: -2.6px; font-weight: 780; margin: 0 0 12px; }
+    .oneui-header { padding: 52px 28px 18px; }
+    .header-title { font-size: clamp(34px, 9vw, 44px); line-height: 0.98; letter-spacing: -2.2px; font-weight: 780; margin: 0 0 10px; }
     .header-subtitle { max-width: none; white-space: nowrap; font-size: clamp(12px, 3.5vw, 14px); line-height: 1.42; color: var(--oneui-text-secondary); margin: 0; }
     
-    .oneui-card-form { background: transparent; border: 0; padding: 10px 24px calc(32px + env(safe-area-inset-bottom)); flex: 1; overflow-y: auto; }
+    .oneui-card-form { background: transparent; border: 0; padding: 10px 24px calc(132px + env(safe-area-inset-bottom)); flex: 1; overflow-y: auto; }
     .input-group { margin-bottom: 22px; padding: 0; background: transparent; border: 0; border-radius: 0; box-shadow: none; }
     .oneui-label { font-size: 13px; font-weight: 700; letter-spacing: 0.01em; color: var(--oneui-text-secondary); margin: 0 4px 10px; display: block; }
     .oneui-input, .oneui-input-inline { width: 100%; background: var(--oneui-surface-strong); border: 0; padding: 17px 16px; border-radius: 18px; color: var(--oneui-text-primary); font-size: 16px; transition: box-shadow 160ms ease, background-color 160ms ease; }
@@ -129,8 +129,8 @@
     .calendar-option.active { background: var(--oneui-text-primary); color: var(--oneui-surface); }
     .oneui-btn-primary { min-height: 58px; background: var(--oneui-primary); color: #ffffff; border: none; width: 100%; padding: 16px 20px; border-radius: var(--oneui-radius-pill); font-size: 16px; font-weight: 750; letter-spacing: 0.01em; margin: 12px 0 4px; cursor: pointer; box-shadow: none; transition: transform 160ms ease, filter 160ms ease; }
     .oneui-btn-primary:active, .header-download:active { transform: scale(0.98); filter: brightness(0.93); }
-    .settings-page, .library-page { padding: max(88px, calc(env(safe-area-inset-top) + 52px)) 24px 124px; }
-    .page-heading { margin: 0 4px 28px; font-size: clamp(34px, 9vw, 44px); line-height: 1; letter-spacing: -2px; }
+    .settings-page, .library-page { padding: 52px 24px 124px; }
+    .page-heading { margin: 0 4px 24px; font-size: clamp(30px, 8vw, 38px); line-height: 1; letter-spacing: -1.8px; }
     .page-description { margin: -16px 4px 28px; color: var(--oneui-text-secondary); font-size: 14px; line-height: 1.45; }
     .settings-list, .library-list { display: grid; gap: 14px; }
     .setting-row, .library-card { background: var(--oneui-surface-strong); border-radius: 22px; padding: 18px; }
@@ -140,7 +140,7 @@
     .theme-option { min-height: 42px; border: 0; border-radius: 14px; background: var(--oneui-surface); color: var(--oneui-text-secondary); font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
     .theme-option.active { background: var(--oneui-text-primary); color: var(--oneui-surface); }
     html:not([data-theme="dark"]) .oneui-input, html:not([data-theme="dark"]) .oneui-input-inline, html:not([data-theme="dark"]) .date-control, html:not([data-theme="dark"]) .time-control, html:not([data-theme="dark"]) .oneui-toggle-group, html:not([data-theme="dark"]) .calendar-option, html:not([data-theme="dark"]) .setting-row, html:not([data-theme="dark"]) .library-card { background: #ffffff; box-shadow: 0 8px 22px rgba(26, 40, 68, .055); }
-    html:not([data-theme="dark"]) .bottom-nav { background: rgba(255,255,255,.84); box-shadow: 0 10px 28px rgba(26, 40, 68, .12); }
+    html:not([data-theme="dark"]) .bottom-nav { background: rgba(255,255,255,.88); box-shadow: 0 10px 28px rgba(26, 40, 68, .12); }
     html:not([data-theme="dark"]) .toggle-btn.active, html:not([data-theme="dark"]) .calendar-option.active { background: #111111; color: #ffffff; box-shadow: none; }
     html:not([data-theme="dark"]) .icon-btn-back, html:not([data-theme="dark"]) .header-bookmark, html:not([data-theme="dark"]) .header-download { background: #ffffff; box-shadow: 0 7px 18px rgba(26, 40, 68, .13); }
     html:not([data-theme="dark"]) .oneui-card-form .input-group { filter: none; }
@@ -161,7 +161,7 @@
     .star-element.tho::before { content: '• '; }
     .star-element.moc::before { content: '• '; }
     
-    .oneui-compact-header { display: flex; align-items: center; gap: 10px; padding: 12px 20px 24px; background: linear-gradient(180deg, var(--oneui-bg) 0%, color-mix(in srgb, var(--oneui-bg) 70%, transparent) 62%, transparent 100%); z-index: 10; border: 0; }
+    .oneui-compact-header { display: flex; align-items: center; gap: 10px; padding: 12px 20px 24px; background: linear-gradient(to bottom, var(--oneui-bg) 0%, transparent 100%); z-index: 10; border: 0; }
     .icon-btn-back, .header-download, .header-bookmark { width: 44px; height: 44px; display: grid; place-items: center; flex: 0 0 44px; margin: 0; padding: 0; border: 0; border-radius: 50%; background: var(--oneui-surface-strong); color: var(--oneui-text-primary); box-shadow: none; cursor: pointer; transition: transform 160ms ease, background-color 160ms ease; }
     .header-bookmark { margin-left: auto; }
     .header-download { margin-left: 0; }
@@ -177,6 +177,9 @@
     /* Grid Canvas */
     .viewport-mask { flex: 1; overflow: hidden; position: relative; touch-action: none; background: var(--oneui-bg); min-width: 100%; min-height: 100%; }
     .chart-grid { display: grid; grid-template-columns: repeat(4, 250px); grid-template-rows: repeat(4, 337px); position: absolute; width: 1000px; height: 1348px; transform-origin: 0 0; transform: translate3d(var(--x), var(--y), 0) scale(var(--scale)); will-change: transform; }
+    .menh-connections { position: absolute; inset: 0; z-index: 1; width: 1000px; height: 1348px; overflow: visible; pointer-events: none; }
+    .menh-connection { stroke: rgba(17, 17, 17, .19); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+    html[data-theme="dark"] .menh-connection { stroke: rgba(255, 255, 255, .18); }
     
     .p-0 { grid-column: 1; grid-row: 1; }
     .p-1 { grid-column: 2; grid-row: 1; }
@@ -191,8 +194,8 @@
     .p-10 { grid-column: 3; grid-row: 4; }
     .p-11 { grid-column: 4; grid-row: 4; }
     
-    .center-info { grid-column: 2 / span 2; grid-row: 2 / span 2; background: var(--oneui-bg); display: flex; flex-direction: column; text-align: center; padding: 16px 20px; }
-    .center-metadata { display: flex; flex: 1; min-height: 0; flex-direction: column; align-items: center; justify-content: center; color: var(--oneui-text-primary); }
+    .center-info { grid-column: 2 / span 2; grid-row: 2 / span 2; background: var(--oneui-bg); display: flex; flex-direction: column; text-align: center; padding: 16px 20px; z-index: 0; }
+    .center-metadata { display: flex; position: relative; z-index: 2; flex: 1; min-height: 0; flex-direction: column; align-items: center; justify-content: center; color: var(--oneui-text-primary); }
     .center-name, .center-highlight { color: var(--center-accent); font-weight: 800; }
     .center-accent { color: var(--center-accent); }
     .center-name { margin: 0; font-size: 20px; line-height: 1.25; }
@@ -203,7 +206,7 @@
     .center-line { margin: 2px 0; font-size: 16px; line-height: 1.32; }
     .center-highlight { font-size: 17px; }
     .center-spacer { height: 12px; flex: 0 0 12px; }
-    .center-view-date { flex: 0 0 auto; width: 100%; margin-top: 8px; }
+    .center-view-date { position: relative; z-index: 2; flex: 0 0 auto; width: 100%; margin-top: 8px; }
     .center-view-date label { display: block; font-size: 12px; color: var(--oneui-text-secondary); }
     .center-view-date .date-control { width: 100%; justify-content: center; margin-top: 4px; }
     .center-view-date .date-segment { padding: 10px 0; }
@@ -212,6 +215,7 @@
     .triet-marker { background: #2865ad; }
     .tuan-triet-shared-marker { background: #16a34a; }
     .palace { background: var(--oneui-surface); border: 1px solid var(--oneui-bg); padding: 10px; display: flex; flex-direction: column; gap: 8px; overflow: visible; position: relative; }
+    .palace:not(.center-info) { z-index: 2; }
     .palace-header { position: relative; min-height: 44px; }
     .palace-left-meta, .palace-right-meta { position: absolute; top: 0; display: flex; flex-direction: column; gap: 2px; font-size: 13px; color: var(--oneui-text-secondary); line-height: 1.2; padding-top: 3px;}
     .palace-left-meta { left: 0; }
@@ -258,7 +262,7 @@
 <body>
   
   <div id="formScreen" class="screen">
-    <div class="app-brand">V0.4 BETA</div>
+    <div class="app-brand">V0.5 BETA</div>
     <div class="form-shell">
     <div class="page-viewport"><div id="pageTrack" class="page-track">
     <section id="settingsPage" class="app-page settings-page" aria-label="Cài đặt">
@@ -353,6 +357,7 @@
     </header>
     <div id="viewportMask" class="viewport-mask">
       <div id="tuviChart" class="chart-grid">
+        <svg id="menhConnections" class="menh-connections" viewBox="0 0 1000 1348" aria-hidden="true"></svg>
         
         <div class="palace center-info">
           <div id="lblCenterMeta" class="center-metadata" aria-live="polite"></div>
@@ -393,6 +398,15 @@
       const theme = appState.theme === 'system' ? (systemTheme.matches ? 'dark' : 'light') : appState.theme;
       document.documentElement.dataset.theme = theme;
       document.querySelectorAll('[data-theme-choice]').forEach((button) => button.classList.toggle('active', button.dataset.themeChoice === appState.theme));
+      syncAndroidSystemBars(theme);
+    }
+    function syncAndroidSystemBars(theme) {
+      const systemBars = window.Capacitor?.Plugins?.SystemBars;
+      if (!window.Capacitor?.isNativePlatform?.() || !systemBars) return;
+      systemBars.set({
+        color: theme === 'dark' ? '#0A0A0C' : '#F5F6FA',
+        dark: theme === 'dark',
+      }).catch(() => {});
     }
     syncSystemTheme();
     systemTheme.addEventListener('change', syncSystemTheme);
@@ -666,7 +680,12 @@
           segment.value = segment.value.replace(/\D/g, '');
           const digit = Number(segment.value);
           const isSingleDigit = segment.value.length === 1;
-          const shouldComplete = index < 2 && isSingleDigit && digit >= 1;
+          // Keep 1, 2 and 3 in the day field available for 10–31, and keep
+          // 0 and 1 in the month field available for 01–12.
+          const shouldComplete = isSingleDigit && (
+            (index === 0 && digit >= 4)
+            || (index === 1 && digit >= 2)
+          );
           if (shouldComplete) segment.value = `0${segment.value}`;
           if (segment.value.length === segment.maxLength && index < segments.length - 1) segments[index + 1].focus();
         });
@@ -798,6 +817,41 @@
       document.getElementById('pageTrack').style.transform = `translate3d(${-index * (window.innerWidth + 20)}px, 0, 0)`;
       document.querySelectorAll('.nav-item').forEach((button) => button.classList.toggle('active', Number(button.dataset.page) === index));
     }
+
+    function renderMenhConnections(chart) {
+      const svg = document.getElementById('menhConnections');
+      const targets = ['MỆNH', 'THIÊN DI', 'TÀI BẠCH', 'QUAN LỘC'];
+      const normalizeName = (name) => removeVietnameseTones(name || '').toUpperCase();
+      const palaceIndexes = Object.fromEntries(targets.map((target) => [target, chart.palaces.findIndex((palace) => normalizeName(palace.palace_name) === normalizeName(target))]));
+      if (Object.values(palaceIndexes).some((index) => index < 0)) {
+        svg.innerHTML = '';
+        return;
+      }
+
+      const cells = [
+        [0, 0], [1, 0], [2, 0], [3, 0], [0, 1], [3, 1],
+        [0, 2], [3, 2], [0, 3], [1, 3], [2, 3], [3, 3],
+      ];
+      const anchorTowardCenter = (index) => {
+        const [column, row] = cells[index];
+        // Corner palaces meet the central area at a corner; the remaining
+        // palaces meet it along an edge. Snap to those exact anchor points.
+        if (row === 0 && column === 0) return { x: 250, y: 337 };
+        if (row === 0 && column === 3) return { x: 750, y: 337 };
+        if (row === 3 && column === 0) return { x: 250, y: 1011 };
+        if (row === 3 && column === 3) return { x: 750, y: 1011 };
+        if (row === 0) return { x: (column + 0.5) * 250, y: 337 };
+        if (row === 3) return { x: (column + 0.5) * 250, y: 1011 };
+        if (column === 0) return { x: 250, y: (row + 0.5) * 337 };
+        return { x: 750, y: (row + 0.5) * 337 };
+      };
+
+      const menh = anchorTowardCenter(palaceIndexes['MỆNH']);
+      svg.innerHTML = ['THIÊN DI', 'TÀI BẠCH', 'QUAN LỘC'].map((name) => {
+        const target = anchorTowardCenter(palaceIndexes[name]);
+        return `<line class="menh-connection" x1="${menh.x}" y1="${menh.y}" x2="${target.x}" y2="${target.y}" />`;
+      }).join('');
+    }
     document.querySelectorAll('.nav-item').forEach((button) => button.addEventListener('click', () => setActivePage(Number(button.dataset.page))));
     {
       const pageViewport = document.querySelector('.page-viewport');
@@ -870,6 +924,7 @@
         }
       });
       renderTuanTriet(chart);
+      renderMenhConnections(chart);
       return chart;
     }
 
