@@ -17,8 +17,9 @@
         font-display: swap;
       }
       :root {
-        --oneui-bg: #f4f4f6; --oneui-surface: #ffffff; --oneui-surface-strong: #f8f8fa; --oneui-primary: #1b6ef3;
+        --oneui-bg: #f5f6fa; --oneui-surface: #ffffff; --oneui-surface-strong: #f1f3f8; --oneui-primary: #2674e8;
         --oneui-text-primary: #111111; --oneui-text-secondary: #767676;
+        --oneui-outline: transparent; --oneui-elevated-shadow: none;
         --center-accent: #155eb9;
         --star-kim: #616369; --star-thuy: #000000; --star-hoa: #FE0303; --star-tho: #FF9F00; --star-moc: #049A04;
         --oneui-radius-card: 28px; --oneui-radius-pill: 999px;
@@ -30,6 +31,7 @@
           --oneui-surface-strong: #1f2128;
           --oneui-text-primary: #f0f0f2;
           --oneui-text-secondary: #8d9096;
+          --oneui-outline: transparent; --oneui-elevated-shadow: none;
           --center-accent: #72adff;
           --star-kim: #b0b3bb;
           --star-thuy: #84b7ff;
@@ -41,7 +43,7 @@
       html { color-scheme: light; }
       html[data-theme="dark"] { color-scheme: dark; }
       body { 
-        background-color: var(--oneui-bg); 
+        background: var(--oneui-bg);
         color: var(--oneui-text-primary); 
         margin: 0; 
         overflow: hidden; 
@@ -82,21 +84,71 @@
       .screen:not(.hidden) {
         z-index: 10;
       }
+      .form-shell { display: flex; flex: 1; min-height: 0; overflow: hidden; }
+      .page-viewport { flex: 1; min-width: 0; overflow: hidden; }
+      .page-track { display: flex; gap: 20px; height: 100%; width: max-content; will-change: transform; transition: transform 420ms var(--oneui-easing); }
+      .app-page { display: flex; flex-direction: column; flex: 0 0 100vw; width: 100vw; min-width: 0; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding-bottom: 108px; }
+      .bottom-nav { position: absolute; z-index: 30; bottom: max(16px, calc(env(safe-area-inset-bottom) + 10px)); left: 50%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; width: min(342px, calc(100vw - 32px)); padding: 5px; transform: translateX(-50%); border-radius: 26px; background: color-mix(in srgb, var(--oneui-surface-strong) 92%, transparent); backdrop-filter: blur(18px); }
+      .nav-item { min-height: 62px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 3px; border: 0; border-radius: 21px; background: transparent; color: var(--oneui-text-secondary); font: inherit; font-size: 11px; font-weight: 720; cursor: pointer; transition: background-color 180ms ease, color 180ms ease, transform 180ms ease; }
+      .nav-item-icon { width: 19px; height: 19px; display: block; opacity: .78; }
+      html[data-theme="dark"] .nav-item-icon { filter: invert(1); }
+      .nav-item.active { background: var(--oneui-text-primary); color: var(--oneui-surface); }
+      .nav-item.active .nav-item-icon { opacity: 1; filter: invert(1); }
+      .nav-item:active { transform: scale(.96); }
+      html[data-theme="dark"] .nav-item.active .nav-item-icon { filter: none; }
     
-    .oneui-header { padding: 75px 24px 40px; }
-    .header-title { font-size: 32px; font-weight: 700; margin: 0 0 4px; }
-    .header-subtitle { font-size: 15px; color: var(--oneui-text-secondary); margin: 0; }
+    .oneui-header { padding: max(88px, calc(env(safe-area-inset-top) + 52px)) 28px 22px; }
+    .header-title { font-size: clamp(40px, 11vw, 52px); line-height: 0.98; letter-spacing: -2.6px; font-weight: 780; margin: 0 0 12px; }
+    .header-subtitle { max-width: 260px; font-size: 14px; line-height: 1.42; color: var(--oneui-text-secondary); margin: 0; }
     
-    .oneui-card-form { background: var(--oneui-surface); border-radius: var(--oneui-radius-card) var(--oneui-radius-card) 0 0; padding: 24px; flex: 1; overflow-y: auto; box-shadow: 0 -4px 24px rgba(0,0,0,0.03); }
-    .input-group { margin-bottom: 16px; }
-    .oneui-label { font-size: 13px; font-weight: 600; color: var(--oneui-text-secondary); margin-bottom: 6px; display: block; }
-    .oneui-input, .oneui-input-inline { width: 100%; background: var(--oneui-bg); border: none; padding: 16px; border-radius: 16px; color: var(--oneui-text-primary); font-size: 15px; }
+    .oneui-card-form { background: transparent; border: 0; padding: 10px 24px calc(32px + env(safe-area-inset-bottom)); flex: 1; overflow-y: auto; }
+    .input-group { margin-bottom: 22px; padding: 0; background: transparent; border: 0; border-radius: 0; box-shadow: none; }
+    .oneui-label { font-size: 13px; font-weight: 700; letter-spacing: 0.01em; color: var(--oneui-text-secondary); margin: 0 4px 10px; display: block; }
+    .oneui-input, .oneui-input-inline { width: 100%; background: var(--oneui-surface-strong); border: 0; padding: 17px 16px; border-radius: 18px; color: var(--oneui-text-primary); font-size: 16px; transition: box-shadow 160ms ease, background-color 160ms ease; }
+    .oneui-input:focus { outline: 0; background: var(--oneui-surface-strong); box-shadow: inset 0 -2px 0 var(--oneui-primary); }
     .date-row { display: grid; grid-template-columns: 2fr 1fr; gap: 10px; }
+    .date-control { display: flex; align-items: center; min-width: 0; padding: 0 12px; background: var(--oneui-surface-strong); border: 0; border-radius: 18px; color: var(--oneui-text-primary); transition: box-shadow 160ms ease; }
+    .date-segment { min-width: 0; border: 0; outline: 0; padding: 16px 0; background: transparent; color: var(--oneui-text-primary); font: inherit; font-size: 15px; text-align: center; }
+    .date-segment::placeholder { color: var(--oneui-text-secondary); opacity: 1; }
+    .date-segment.day, .date-segment.month { width: 2.5ch; }
+    .date-segment.year { width: 4.8ch; }
+    .date-separator { flex: 0 0 auto; color: var(--oneui-text-primary); font-size: 16px; font-weight: 400; }
+    .calendar-suffix { display: none; flex: 0 0 auto; margin-left: 4px; color: var(--oneui-text-secondary); font-size: 13px; font-weight: 600; }
+    .calendar-suffix.visible { display: inline; }
+    .time-control { display: flex; align-items: center; padding: 0 12px; background: var(--oneui-surface-strong); border: 0; border-radius: 18px; color: var(--oneui-text-primary); transition: box-shadow 160ms ease; }
+    .time-segment { width: 2.5ch; min-width: 0; border: 0; outline: 0; padding: 16px 0; background: transparent; color: var(--oneui-text-primary); font: inherit; font-size: 15px; text-align: center; }
+    .time-segment::placeholder { color: var(--oneui-text-secondary); opacity: 1; }
+    .time-separator { color: var(--oneui-text-primary); font-size: 16px; font-weight: 400; }
     
-    .oneui-toggle-group { display: flex; background: var(--oneui-bg); padding: 4px; border-radius: 16px; }
-    .toggle-btn { flex: 1; border: none; background: transparent; padding: 12px; border-radius: 12px; color: var(--oneui-text-secondary); font-weight: 600; cursor: pointer; }
-    .toggle-btn.active { background: var(--oneui-surface); color: var(--oneui-primary); box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-    .oneui-btn-primary { background: var(--oneui-primary); color: #ffffff; border: none; width: 100%; padding: 16px; border-radius: var(--oneui-radius-pill); font-size: 16px; font-weight: 600; margin-top: 10px; cursor: pointer; }
+    .date-control:focus-within, .time-control:focus-within { background: var(--oneui-surface-strong); box-shadow: inset 0 -2px 0 var(--oneui-primary); }
+    .oneui-toggle-group { display: flex; background: var(--oneui-surface-strong); padding: 4px; border: 0; border-radius: 20px; }
+    .toggle-btn { flex: 1; border: none; background: transparent; padding: 13px; border-radius: 16px; color: var(--oneui-text-secondary); font-size: 15px; font-weight: 700; cursor: pointer; transition: color 160ms ease, background-color 160ms ease, box-shadow 160ms ease; }
+    .toggle-btn.active { background: var(--oneui-surface); color: var(--oneui-primary); box-shadow: none; }
+    .calendar-toggle { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .calendar-option { border: 0; border-radius: 18px; padding: 13px 14px; background: var(--oneui-surface-strong); color: var(--oneui-text-secondary); font: inherit; font-weight: 700; cursor: pointer; transition: background-color 160ms ease, color 160ms ease; }
+    .calendar-option.active { background: var(--oneui-text-primary); color: var(--oneui-surface); }
+    .oneui-btn-primary { min-height: 58px; background: var(--oneui-primary); color: #ffffff; border: none; width: 100%; padding: 16px 20px; border-radius: var(--oneui-radius-pill); font-size: 16px; font-weight: 750; letter-spacing: 0.01em; margin: 12px 0 4px; cursor: pointer; box-shadow: none; transition: transform 160ms ease, filter 160ms ease; }
+    .oneui-btn-primary:active, .header-download:active { transform: scale(0.98); filter: brightness(0.93); }
+    .settings-page, .library-page { padding: max(88px, calc(env(safe-area-inset-top) + 52px)) 24px 124px; }
+    .page-heading { margin: 0 4px 28px; font-size: clamp(34px, 9vw, 44px); line-height: 1; letter-spacing: -2px; }
+    .page-description { margin: -16px 4px 28px; color: var(--oneui-text-secondary); font-size: 14px; line-height: 1.45; }
+    .settings-list, .library-list { display: grid; gap: 14px; }
+    .setting-row, .library-card { background: var(--oneui-surface-strong); border-radius: 22px; padding: 18px; }
+    .setting-row label, .setting-title { display: block; font-size: 14px; font-weight: 750; margin-bottom: 8px; }
+    .setting-hint, .empty-library { color: var(--oneui-text-secondary); font-size: 13px; line-height: 1.42; }
+    .theme-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; margin-top: 12px; }
+    .theme-option { min-height: 42px; border: 0; border-radius: 14px; background: var(--oneui-surface); color: var(--oneui-text-secondary); font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+    .theme-option.active { background: var(--oneui-text-primary); color: var(--oneui-surface); }
+    html:not([data-theme="dark"]) .oneui-input, html:not([data-theme="dark"]) .oneui-input-inline, html:not([data-theme="dark"]) .date-control, html:not([data-theme="dark"]) .time-control, html:not([data-theme="dark"]) .oneui-toggle-group, html:not([data-theme="dark"]) .calendar-option, html:not([data-theme="dark"]) .setting-row, html:not([data-theme="dark"]) .library-card { background: #ffffff; box-shadow: 0 8px 22px rgba(26, 40, 68, .055); }
+    html:not([data-theme="dark"]) .bottom-nav { background: rgba(255,255,255,.84); box-shadow: 0 10px 28px rgba(26, 40, 68, .12); }
+    html:not([data-theme="dark"]) .toggle-btn.active, html:not([data-theme="dark"]) .calendar-option.active { background: #111111; color: #ffffff; box-shadow: none; }
+    html:not([data-theme="dark"]) .icon-btn-back, html:not([data-theme="dark"]) .header-bookmark, html:not([data-theme="dark"]) .header-download { background: #ffffff; box-shadow: 0 7px 18px rgba(26, 40, 68, .13); }
+    html:not([data-theme="dark"]) .oneui-card-form .input-group { filter: none; }
+    .library-section-title { margin: 4px 4px 8px; color: var(--oneui-text-secondary); font-size: 13px; font-weight: 750; }
+    .library-card { width: 100%; border: 0; color: inherit; text-align: left; cursor: pointer; font: inherit; }
+    .library-card + .library-card { margin-top: 2px; }
+    .library-card-name { display: block; font-weight: 780; font-size: 16px; margin-bottom: 5px; }
+    .library-card-detail { color: var(--oneui-text-secondary); font-size: 13px; line-height: 1.45; }
     .star-element { display: inline-block; margin: 1px 4px 4px 0; padding: 2px 6px; border-radius: 999px; font-size: 12px; line-height: 1.4; font-weight: 700; }
     .star-element.kim { color: var(--star-kim); }
     .star-element.thuy { color: var(--star-thuy); }
@@ -109,8 +161,18 @@
     .star-element.tho::before { content: '• '; }
     .star-element.moc::before { content: '• '; }
     
-    .oneui-compact-header { display: flex; align-items: center; padding: 16px 24px; background: var(--oneui-surface); z-index: 10; border-bottom: 1px solid var(--oneui-bg); }
-    .icon-btn-back { background: none; border: none; font-size: 24px; color: var(--oneui-text-primary); margin-right: 16px; cursor: pointer; }
+    .oneui-compact-header { display: flex; align-items: center; gap: 10px; padding: 20px 20px 36px; background: linear-gradient(180deg, var(--oneui-bg) 0%, color-mix(in srgb, var(--oneui-bg) 72%, transparent) 58%, transparent 100%); z-index: 10; border: 0; }
+    .icon-btn-back, .header-download, .header-bookmark { width: 44px; height: 44px; display: grid; place-items: center; flex: 0 0 44px; margin: 0; padding: 0; border: 0; border-radius: 50%; background: var(--oneui-surface-strong); color: var(--oneui-text-primary); box-shadow: none; cursor: pointer; transition: transform 160ms ease, background-color 160ms ease; }
+    .header-bookmark { margin-left: auto; }
+    .header-download { margin-left: 0; }
+    .header-icon { width: 22px; height: 22px; display: block; }
+    html[data-theme="dark"] .header-icon { filter: invert(1); }
+    .icon-btn-back:active, .header-download:active, .header-bookmark:active { transform: scale(0.94); background: color-mix(in srgb, var(--oneui-surface-strong) 72%, var(--oneui-text-primary)); }
+    .header-bookmark.active { background: var(--oneui-primary); }
+    .header-bookmark.active .header-icon { filter: invert(1); }
+    .header-download.downloaded { animation: download-success 700ms var(--oneui-easing); background: #20a660; }
+    .header-download.downloaded .header-icon { filter: invert(1); }
+    @keyframes download-success { 0%, 100% { transform: scale(1); } 45% { transform: scale(1.17); } }
     
     /* Grid Canvas */
     .viewport-mask { flex: 1; overflow: hidden; position: relative; touch-action: none; background: var(--oneui-bg); min-width: 100%; min-height: 100%; }
@@ -143,7 +205,8 @@
     .center-spacer { height: 12px; flex: 0 0 12px; }
     .center-view-date { flex: 0 0 auto; width: 100%; margin-top: 8px; }
     .center-view-date label { display: block; font-size: 12px; color: var(--oneui-text-secondary); }
-    .center-view-date input { width: 100%; padding: 10px; margin-top: 4px; text-align: center; }
+    .center-view-date .date-control { width: 100%; justify-content: center; margin-top: 4px; }
+    .center-view-date .date-segment { padding: 10px 0; }
     .tuan-triet-marker { position: absolute; z-index: 20; min-width: 116px; padding: 2px 10px; transform: translate(-50%, -50%); color: #ffffff; font-size: 13px; font-weight: 800; line-height: 1.15; text-align: center; pointer-events: none; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.18); }
     .tuan-marker { background: #829400; }
     .triet-marker { background: #2865ad; }
@@ -175,7 +238,7 @@
     .palace-bottom-center { position: absolute; left: 50%; bottom: 6px; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 2px; }
     .palace-trang-sinh { font-weight: 700; font-size: 13px; }
     .palace-lunar-mansion { font-size: 13px; }
-    .star-chip { display: inline-block; padding: 0px 8px; border-radius: 999px; font-size: 14px; line-height: 1.25; font-weight: 700; background: rgba(17,17,17,0.08); color: var(--oneui-text-primary); white-space: nowrap; overflow: visible; width: fit-content; margin-bottom: 2px; }
+    .star-chip { display: inline-block; padding: 0px 8px; border-radius: 999px; font-size: 14px; line-height: 1.25; font-weight: 700; color: var(--oneui-text-primary); white-space: nowrap; overflow: visible; width: fit-content; margin-bottom: 2px; }
     .star-chip.major { font-size: 15px; padding: 0px 8px; text-transform: uppercase; }
     .star-chip.kim { color: var(--star-kim); }
     .star-chip.thuy { color: var(--star-thuy); }
@@ -196,7 +259,30 @@
   
   <div id="formScreen" class="screen">
     <div class="app-brand">V0.3 BETA</div>
+    <div class="form-shell">
+    <div class="page-viewport"><div id="pageTrack" class="page-track">
+    <section id="settingsPage" class="app-page settings-page" aria-label="Cài đặt">
+      <h2 class="page-heading">Cài đặt</h2>
+      <p class="page-description"></p>
+      <div class="settings-list">
+        <div class="setting-row">
+          <label for="inpTimezone">Múi giờ</label>
+          <input type="text" id="inpTimezone" class="oneui-input" value="GMT+07:00" placeholder="GMT+07:00" inputmode="text">
+          <p class="setting-hint">Ví dụ: GMT+07:00. Múi giờ được dùng khi quy đổi ngày dương sang âm lịch.</p>
+        </div>
+        <div class="setting-row">
+          <span class="setting-title">Giao diện</span>
+          <span class="setting-hint">Chọn theo hệ thống hoặc cố định giao diện bạn thích.</span>
+          <div class="theme-options" role="group" aria-label="Giao diện">
+            <button type="button" class="theme-option" data-theme-choice="light">Sáng</button>
+            <button type="button" class="theme-option" data-theme-choice="dark">Tối</button>
+            <button type="button" class="theme-option active" data-theme-choice="system">Hệ thống</button>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section id="anSaoPage" class="app-page" aria-label="An sao">
     <header class="oneui-header">
       <h1 class="header-title">Zen.Hua</h1>
       <p class="header-subtitle">Dựa trên thuật toán của Thầy Cao Anh</p>
@@ -214,27 +300,56 @@
         </div>
       </div>
       <div class="input-group">
-        <label class="oneui-label">Ngày giờ sinh (Dương lịch)</label>
+        <label class="oneui-label">Loại lịch cho ngày sinh và ngày xem hạn</label>
+        <div class="calendar-toggle" role="group" aria-label="Loại lịch">
+          <button type="button" id="btnSolarCalendar" class="calendar-option active">Dương lịch</button>
+          <button type="button" id="btnLunarCalendar" class="calendar-option">Âm lịch</button>
+        </div>
+      </div>
+      <div class="input-group">
+        <label class="oneui-label">Ngày giờ sinh</label>
         <div class="date-row">
-          <input type="text" id="inpBirthDate" class="oneui-input-inline date-text-input" value="01/01/2000" placeholder="DD/MM/YYYY" inputmode="numeric" maxlength="10" autocomplete="bday">
-          <input type="time" id="inpBirthTime" class="oneui-input-inline" value="08:00">
+          <div class="date-control" id="inpBirthDate" aria-label="Ngày sinh, định dạng ngày tháng năm">
+            <input type="text" id="inpBirthDateDay" class="date-segment day" placeholder="DD" value="01" inputmode="numeric" maxlength="2" autocomplete="bday-day"><span class="date-separator">/</span><input type="text" id="inpBirthDateMonth" class="date-segment month" placeholder="MM" value="01" inputmode="numeric" maxlength="2" autocomplete="bday-month"><span class="date-separator">/</span><input type="text" id="inpBirthDateYear" class="date-segment year" placeholder="YYYY" value="2000" inputmode="numeric" maxlength="4" autocomplete="bday-year"><span class="calendar-suffix" aria-hidden="true">ÂL</span>
+          </div>
+          <div class="time-control" id="inpBirthTime" aria-label="Giờ sinh, định dạng giờ phút">
+            <input type="text" id="inpBirthTimeHour" class="time-segment" placeholder="HH" value="08" inputmode="numeric" maxlength="2"><span class="time-separator">:</span><input type="text" id="inpBirthTimeMinute" class="time-segment" placeholder="MM" value="00" inputmode="numeric" maxlength="2">
+          </div>
         </div>
       </div>
       <div class="input-group">
         <label class="oneui-label">Ngày xem hạn</label>
-        <input type="text" id="inpViewingDate" class="oneui-input date-text-input" placeholder="DD/MM/YYYY" inputmode="numeric" maxlength="10">
+        <div class="date-control" id="inpViewingDate" aria-label="Ngày xem hạn, định dạng ngày tháng năm">
+          <input type="text" id="inpViewingDateDay" class="date-segment day" placeholder="DD" inputmode="numeric" maxlength="2"><span class="date-separator">/</span><input type="text" id="inpViewingDateMonth" class="date-segment month" placeholder="MM" inputmode="numeric" maxlength="2"><span class="date-separator">/</span><input type="text" id="inpViewingDateYear" class="date-segment year" placeholder="YYYY" inputmode="numeric" maxlength="4"><span class="calendar-suffix" aria-hidden="true">ÂL</span>
+        </div>
       </div>
       <button id="btnSubmit" class="oneui-btn-primary">An sao lá số</button>
     </main>
+    </section>
+
+    <section id="libraryPage" class="app-page library-page" aria-label="Thư viện">
+      <h2 class="page-heading">Thư viện</h2>
+      <p class="page-description"></p>
+      <div id="libraryContent" class="library-list"></div>
+    </section>
+    </div></div>
+    </div>
+    <nav class="bottom-nav" aria-label="Điều hướng chính">
+      <button type="button" class="nav-item" data-page="0"><img class="nav-item-icon" src="./src/assets/settings.svg" alt=""><span>Cài đặt</span></button>
+      <button type="button" class="nav-item active" data-page="1"><img class="nav-item-icon" src="./src/assets/chart.svg" alt=""><span>An Sao</span></button>
+      <button type="button" class="nav-item" data-page="2"><img class="nav-item-icon" src="./src/assets/library.svg" alt=""><span>Thư Viện</span></button>
+    </nav>
   </div>
 
   <div id="chartScreen" class="screen hidden">
     <header class="oneui-compact-header">
-      <button id="btnBack" class="icon-btn-back">←</button>
+      <button id="btnBack" class="icon-btn-back" aria-label="Quay lại"><img class="header-icon" src="./src/assets/back.svg" alt=""></button>
       <div>
         <h2 id="txtSummaryName" style="margin:0; font-size:16px;">Đương Số</h2>
         <p id="txtSummarySub" style="margin:2px 0 0; font-size:13px; color:var(--oneui-text-secondary);"></p>
       </div>
+      <button type="button" id="btnBookmark" class="header-bookmark" aria-label="Ghim lá số"><img class="header-icon" src="./src/assets/bookmark.svg" alt=""></button>
+      <button type="button" id="btnDownload" class="header-download" aria-label="Tải xuống lá số"><img class="header-icon" src="./src/assets/download.svg" alt=""></button>
     </header>
     <div id="viewportMask" class="viewport-mask">
       <div id="tuviChart" class="chart-grid">
@@ -242,8 +357,10 @@
         <div class="palace center-info">
           <div id="lblCenterMeta" class="center-metadata" aria-live="polite"></div>
           <div class="center-view-date">
-            <label for="inpLiveViewDate">Đổi ngày xem hạn (Sao lưu sẽ cập nhật):</label>
-            <input type="text" id="inpLiveViewDate" class="oneui-input date-text-input" placeholder="DD/MM/YYYY" inputmode="numeric" maxlength="10">
+            <label for="inpLiveViewDateDay">Đổi ngày xem hạn (Sao lưu sẽ cập nhật):</label>
+            <div class="date-control" id="inpLiveViewDate" aria-label="Đổi ngày xem hạn, định dạng ngày tháng năm">
+              <input type="text" id="inpLiveViewDateDay" class="date-segment day" placeholder="DD" inputmode="numeric" maxlength="2"><span class="date-separator">/</span><input type="text" id="inpLiveViewDateMonth" class="date-segment month" placeholder="MM" inputmode="numeric" maxlength="2"><span class="date-separator">/</span><input type="text" id="inpLiveViewDateYear" class="date-segment year" placeholder="YYYY" inputmode="numeric" maxlength="4"><span class="calendar-suffix" aria-hidden="true">ÂL</span>
+            </div>
           </div>
         </div>
 
@@ -260,9 +377,22 @@
   <script type="module">
     import { generate_chart } from './src/generate_chart.js';
 
+    const STORAGE_KEY = 'zenhua.app-state.v1';
+    const defaultAppState = { timezone: 'GMT+07:00', theme: 'system', history: [], bookmarks: [] };
+    function loadAppState() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        return { ...defaultAppState, ...(saved || {}), history: Array.isArray(saved?.history) ? saved.history : [], bookmarks: Array.isArray(saved?.bookmarks) ? saved.bookmarks : [] };
+      } catch { return { ...defaultAppState }; }
+    }
+    let appState = loadAppState();
+    function persistAppState() { localStorage.setItem(STORAGE_KEY, JSON.stringify(appState)); }
+
     const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
     function syncSystemTheme() {
-      document.documentElement.dataset.theme = systemTheme.matches ? 'dark' : 'light';
+      const theme = appState.theme === 'system' ? (systemTheme.matches ? 'dark' : 'light') : appState.theme;
+      document.documentElement.dataset.theme = theme;
+      document.querySelectorAll('[data-theme-choice]').forEach((button) => button.classList.toggle('active', button.dataset.themeChoice === appState.theme));
     }
     syncSystemTheme();
     systemTheme.addEventListener('change', syncSystemTheme);
@@ -463,22 +593,14 @@
     // MASTER ENGINE EXECUTION 
     // ==========================================
 
-    function runEngine(name, isNam, bDateStr, bTimeStr, vDateStr) {
-      const bDateSplitted = bDateStr.split('-');
-      const bTimeSplitted = bTimeStr.split(':');
-      const vDateSplitted = vDateStr.split('-');
-
+    function runEngine(name, isNam, birthDate, birthTime, viewingDate, isSolarCalendar) {
       const sex = isNam ? 1 : 2;
-      const day = bDateSplitted[2];
-      const month = bDateSplitted[1];
-      const year = bDateSplitted[0];
-      const hour = bTimeSplitted[0];
-      const minute = bTimeSplitted[1];
-      const yearcalc = vDateSplitted[0];
-      const monthcalc = vDateSplitted[1];
-      const convert_to_lunar = true;
-
-      console.log(sex, day, month, year, hour, minute, yearcalc, monthcalc, convert_to_lunar, name)
+      const { day, month, year } = birthDate;
+      const { hour, minute } = birthTime;
+      const yearcalc = viewingDate.year;
+      const monthcalc = viewingDate.month;
+      const convert_to_lunar = isSolarCalendar;
+      const timezone = getTimezone();
 
       const chart = generate_chart(
         sex,
@@ -490,10 +612,13 @@
         yearcalc,
         monthcalc,
         convert_to_lunar,
-        name
+        name,
+        viewingDate.day,
+        isSolarCalendar,
+        timezone.offset,
+        timezone.label,
       );
 
-      console.log(chart);
       return chart;
     }
 
@@ -501,39 +626,185 @@
     // UI CONTROLLERS
     // ==========================================
 
-    function formatDateInput(event) {
-      const digits = event.target.value.replace(/\D/g, '').slice(0, 8);
-      const parts = [];
-      if (digits.length > 0) parts.push(digits.slice(0, 2));
-      if (digits.length > 2) parts.push(digits.slice(2, 4));
-      if (digits.length > 4) parts.push(digits.slice(4, 8));
-      event.target.value = parts.join('/');
+    function dateControlValue(prefix) {
+      const day = document.getElementById(`${prefix}Day`).value;
+      const month = document.getElementById(`${prefix}Month`).value;
+      const year = document.getElementById(`${prefix}Year`).value;
+      return `${day}/${month}/${year}`;
     }
 
-    function dateInputToIso(value) {
-      const match = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(value);
-      if (!match) return '';
-
-      const [, day, month, year] = match;
-      const date = new Date(Number(year), Number(month) - 1, Number(day));
-      if (date.getFullYear() !== Number(year) || date.getMonth() !== Number(month) - 1 || date.getDate() !== Number(day)) {
-        return '';
+    function readDateControl(prefix, isSolar = isSolarCalendar) {
+      const [dayText, monthText, yearText] = dateControlValue(prefix).split('/');
+      if (!/^\d{2}$/.test(dayText) || !/^\d{2}$/.test(monthText) || !/^\d{4}$/.test(yearText)) return null;
+      const day = Number(dayText);
+      const month = Number(monthText);
+      const year = Number(yearText);
+      if (isSolar) {
+        const check = new Date(year, month - 1, day);
+        if (check.getFullYear() !== year || check.getMonth() !== month - 1 || check.getDate() !== day) return null;
+      } else if (day > 30 || month > 12) {
+        return null;
       }
-      return `${year}-${month}-${day}`;
+      return { day, month, year, display: `${dayText}/${monthText}/${yearText}` };
+    }
+
+    function setDateControlValue(prefix, value) {
+      const match = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(value);
+      if (!match) return;
+      const [, day, month, year] = match;
+      document.getElementById(`${prefix}Day`).value = day;
+      document.getElementById(`${prefix}Month`).value = month;
+      document.getElementById(`${prefix}Year`).value = year;
+    }
+
+    function setupDateControl(prefix) {
+      const segments = ['Day', 'Month', 'Year'].map((part) => document.getElementById(`${prefix}${part}`));
+      segments.forEach((segment, index) => {
+        segment.addEventListener('focus', () => segment.select());
+        segment.addEventListener('click', () => segment.select());
+        segment.addEventListener('input', () => {
+          segment.value = segment.value.replace(/\D/g, '');
+          const digit = Number(segment.value);
+          const isSingleDigit = segment.value.length === 1;
+          const shouldComplete = index < 2 && isSingleDigit && digit >= 1;
+          if (shouldComplete) segment.value = `0${segment.value}`;
+          if (segment.value.length === segment.maxLength && index < segments.length - 1) segments[index + 1].focus();
+        });
+      });
+    }
+
+    function timeControlValue(prefix) {
+      return `${document.getElementById(`${prefix}Hour`).value}:${document.getElementById(`${prefix}Minute`).value}`;
+    }
+
+    function readTimeControl(prefix) {
+      const [hourText, minuteText] = timeControlValue(prefix).split(':');
+      if (!/^(?:[01]\d|2[0-3])$/.test(hourText) || !/^[0-5]\d$/.test(minuteText)) return null;
+      return { hour: Number(hourText), minute: Number(minuteText) };
+    }
+
+    function setupTimeControl(prefix) {
+      const segments = ['Hour', 'Minute'].map((part) => document.getElementById(`${prefix}${part}`));
+      segments.forEach((segment, index) => {
+        segment.addEventListener('focus', () => segment.select());
+        segment.addEventListener('click', () => segment.select());
+        segment.addEventListener('input', () => {
+          segment.value = segment.value.replace(/\D/g, '');
+          const digit = Number(segment.value);
+          const isSingleDigit = segment.value.length === 1;
+          const shouldComplete = (index === 0 && isSingleDigit && digit >= 3)
+            || (index === 1 && isSingleDigit && digit >= 6);
+          if (shouldComplete) segment.value = `0${segment.value}`;
+          if (segment.value.length === segment.maxLength && index < segments.length - 1) segments[index + 1].focus();
+        });
+      });
     }
 
     const today = new Date();
-    document.getElementById("inpViewingDate").value = [
+    setDateControlValue('inpViewingDate', [
       String(today.getDate()).padStart(2, '0'),
       String(today.getMonth() + 1).padStart(2, '0'),
       today.getFullYear()
-    ].join('/');
+    ].join('/'));
 
-    document.querySelectorAll('.date-text-input').forEach((input) => {
-      input.addEventListener('input', formatDateInput);
-    });
+    ['inpBirthDate', 'inpViewingDate', 'inpLiveViewDate'].forEach(setupDateControl);
+    setupTimeControl('inpBirthTime');
     
     let isNam = true;
+    let isSolarCalendar = true;
+    let currentChartRecord = null;
+
+    function getTimezone() {
+      const raw = document.getElementById('inpTimezone').value.trim().toUpperCase();
+      const match = /^GMT\s*([+-])(\d{1,2})(?::?(\d{2}))?$/.exec(raw);
+      if (!match) return { offset: 7, label: 'GMT+07:00' };
+      const offset = (Number(match[2]) + Number(match[3] || 0) / 60) * (match[1] === '-' ? -1 : 1);
+      if (offset < -12 || offset > 14) return { offset: 7, label: 'GMT+07:00' };
+      return { offset, label: `GMT${match[1]}${String(match[2]).padStart(2, '0')}:${match[3] || '00'}` };
+    }
+    function saveSettings() {
+      const timezone = getTimezone();
+      document.getElementById('inpTimezone').value = timezone.label;
+      appState.timezone = timezone.label;
+      persistAppState();
+    }
+    document.getElementById('inpTimezone').value = appState.timezone;
+    document.getElementById('inpTimezone').addEventListener('change', saveSettings);
+    document.querySelectorAll('[data-theme-choice]').forEach((button) => button.addEventListener('click', () => {
+      appState.theme = button.dataset.themeChoice;
+      persistAppState();
+      syncSystemTheme();
+    }));
+
+    function recordKey(record) {
+      return [record.name, record.isNam, record.isSolarCalendar, record.birthDate, record.birthTime, record.viewingDate, record.timezone].join('|');
+    }
+    function formRecord() {
+      return {
+        name: document.getElementById('inpName').value.trim() || 'Đương Số',
+        isNam,
+        isSolarCalendar,
+        birthDate: dateControlValue('inpBirthDate'),
+        birthTime: timeControlValue('inpBirthTime'),
+        viewingDate: dateControlValue('inpViewingDate'),
+        timezone: getTimezone().label,
+        savedAt: Date.now(),
+      };
+    }
+    function isBookmarked(record) { return appState.bookmarks.some((item) => recordKey(item) === recordKey(record)); }
+    function saveToHistory(record) {
+      const key = recordKey(record);
+      appState.history = [record, ...appState.history.filter((item) => recordKey(item) !== key)].slice(0, 30);
+      persistAppState();
+      renderLibrary();
+    }
+    function renderLibraryCard(record) {
+      const calendar = record.isSolarCalendar ? 'Dương lịch' : 'Âm lịch';
+      return `<button type="button" class="library-card" data-record-key="${escapeHtml(recordKey(record))}">
+        <span class="library-card-name">${escapeHtml(record.name)}${isBookmarked(record) ? ' · Đã ghim' : ''}</span>
+        <span class="library-card-detail">${record.isNam ? 'Nam' : 'Nữ'} · ${escapeHtml(record.birthDate)} ${escapeHtml(record.birthTime)} · ${calendar}<br>${escapeHtml(record.viewingDate)} · ${escapeHtml(record.timezone)}</span>
+      </button>`;
+    }
+    function renderLibrary() {
+      const target = document.getElementById('libraryContent');
+      const history = appState.history;
+      target.innerHTML = `
+        <section><p class="library-section-title">Đã ghim</p>${appState.bookmarks.length ? appState.bookmarks.map(renderLibraryCard).join('') : '<p class="empty-library">Chưa có lá số được ghim.</p>'}</section>
+        <section><p class="library-section-title">Gần đây</p>${history.length ? history.map(renderLibraryCard).join('') : '<p class="empty-library">Lá số bạn tạo sẽ xuất hiện ở đây.</p>'}</section>`;
+      target.querySelectorAll('[data-record-key]').forEach((button) => button.addEventListener('click', () => {
+        const key = button.dataset.recordKey;
+        const record = [...appState.bookmarks, ...appState.history].find((item) => recordKey(item) === key);
+        if (record) restoreChart(record);
+      }));
+    }
+    function restoreChart(record) {
+      document.getElementById('inpName').value = record.name;
+      setDateControlValue('inpBirthDate', record.birthDate);
+      setDateControlValue('inpViewingDate', record.viewingDate);
+      const [hour, minute] = record.birthTime.split(':');
+      document.getElementById('inpBirthTimeHour').value = hour;
+      document.getElementById('inpBirthTimeMinute').value = minute;
+      document.getElementById('inpTimezone').value = record.timezone;
+      isNam = record.isNam;
+      isSolarCalendar = record.isSolarCalendar;
+      document.getElementById('btnNam').classList.toggle('active', isNam);
+      document.getElementById('btnNu').classList.toggle('active', !isNam);
+      document.getElementById('btnSolarCalendar').classList.toggle('active', isSolarCalendar);
+      document.getElementById('btnLunarCalendar').classList.toggle('active', !isSolarCalendar);
+      syncCalendarSuffixes();
+      openChart();
+    }
+    function setActivePage(index) {
+      document.getElementById('pageTrack').style.transform = `translate3d(${-index * (window.innerWidth + 20)}px, 0, 0)`;
+      document.querySelectorAll('.nav-item').forEach((button) => button.classList.toggle('active', Number(button.dataset.page) === index));
+    }
+    document.querySelectorAll('.nav-item').forEach((button) => button.addEventListener('click', () => setActivePage(Number(button.dataset.page))));
+    window.addEventListener('resize', () => setActivePage(Number(document.querySelector('.nav-item.active')?.dataset.page || 1)));
+    setActivePage(1);
+    renderLibrary();
+    function syncCalendarSuffixes() {
+      document.querySelectorAll('.calendar-suffix').forEach((suffix) => suffix.classList.toggle('visible', !isSolarCalendar));
+    }
     document.getElementById("btnNam").addEventListener("click", () => { 
       isNam = true; 
       document.getElementById("btnNam").classList.add("active"); 
@@ -544,19 +815,31 @@
       document.getElementById("btnNu").classList.add("active"); 
       document.getElementById("btnNam").classList.remove("active"); 
     });
+    document.getElementById("btnSolarCalendar").addEventListener("click", () => {
+      isSolarCalendar = true;
+      syncCalendarSuffixes();
+      document.getElementById("btnSolarCalendar").classList.add("active");
+      document.getElementById("btnLunarCalendar").classList.remove("active");
+    });
+    document.getElementById("btnLunarCalendar").addEventListener("click", () => {
+      isSolarCalendar = false;
+      syncCalendarSuffixes();
+      document.getElementById("btnLunarCalendar").classList.add("active");
+      document.getElementById("btnSolarCalendar").classList.remove("active");
+    });
 
     function updateChartUI() {
       const name = document.getElementById("inpName").value;
-      const bDate = dateInputToIso(document.getElementById("inpBirthDate").value);
-      const bTime = document.getElementById("inpBirthTime").value;
-      const vDate = dateInputToIso(document.getElementById("inpViewingDate").value);
-      if (!bDate || !vDate) {
-        alert("Vui lòng nhập ngày theo định dạng DD/MM/YYYY.");
+      const birthDate = readDateControl('inpBirthDate');
+      const birthTime = readTimeControl('inpBirthTime');
+      const viewingDate = readDateControl('inpViewingDate');
+      if (!birthDate || !viewingDate || !birthTime) {
+        alert("Vui lòng nhập ngày DD/MM/YYYY và giờ HH:MM hợp lệ.");
         return;
       }
-      document.getElementById("inpLiveViewDate").value = document.getElementById("inpViewingDate").value;
+      setDateControlValue('inpLiveViewDate', dateControlValue('inpViewingDate'));
 
-      const chart = runEngine(name, isNam, bDate, bTime, vDate);
+      const chart = runEngine(name, isNam, birthDate, birthTime, viewingDate, isSolarCalendar);
 
       document.getElementById("txtSummaryName").innerText = chart.name;
       document.getElementById("txtSummarySub").innerText = `${chart.center_metadata.sex_label} · ${chart.center_metadata.lunar_year_can_chi}`;
@@ -569,28 +852,80 @@
         }
       });
       renderTuanTriet(chart);
+      return chart;
     }
 
-    document.getElementById("btnSubmit").addEventListener("click", () => {
-      updateChartUI();
+    function openChart() {
+      if (!updateChartUI()) return;
+      currentChartRecord = formRecord();
+      saveToHistory(currentChartRecord);
+      document.getElementById('btnBookmark').classList.toggle('active', isBookmarked(currentChartRecord));
       document.getElementById("formScreen").classList.add("hidden");
       document.getElementById("chartScreen").classList.remove("hidden");
-    });
+      window.scrollTo(0, 0);
+      requestAnimationFrame(() => {
+        window.scrollTo(0, 0);
+        fitChartToViewport();
+      });
+    }
+    document.getElementById("btnSubmit").addEventListener("click", openChart);
     
     document.getElementById("btnBack").addEventListener("click", () => {
       document.getElementById("chartScreen").classList.add("hidden");
       document.getElementById("formScreen").classList.remove("hidden");
     });
+    document.getElementById('btnBookmark').addEventListener('click', () => {
+      if (!currentChartRecord) return;
+      const key = recordKey(currentChartRecord);
+      if (isBookmarked(currentChartRecord)) {
+        appState.bookmarks = appState.bookmarks.filter((item) => recordKey(item) !== key);
+      } else {
+        appState.bookmarks = [{ ...currentChartRecord }, ...appState.bookmarks.filter((item) => recordKey(item) !== key)];
+      }
+      persistAppState();
+      document.getElementById('btnBookmark').classList.toggle('active', isBookmarked(currentChartRecord));
+      renderLibrary();
+    });
     
-    document.getElementById("inpLiveViewDate").addEventListener("change", (e) => {
-      const date = dateInputToIso(e.target.value);
-      if (!date) {
-        alert("Vui lòng nhập ngày theo định dạng DD/MM/YYYY.");
-        e.target.value = document.getElementById("inpViewingDate").value;
+    ['inpLiveViewDateDay', 'inpLiveViewDateMonth', 'inpLiveViewDateYear'].forEach((id) => document.getElementById(id).addEventListener("change", () => {
+      const liveDate = dateControlValue('inpLiveViewDate');
+      if (!readDateControl('inpLiveViewDate')) {
         return;
       }
-      document.getElementById("inpViewingDate").value = e.target.value;
+      setDateControlValue('inpViewingDate', liveDate);
       updateChartUI();
+    }));
+
+    async function downloadChartFile(chartData) {
+      const data = JSON.stringify(chartData, null, 2);
+      const filename = `${removeVietnameseTones(chartData.name || 'la-so-tu-vi').replace(/\s+/g, '-').toLowerCase()}.json`;
+      const nativeDownload = window.Capacitor?.Plugins?.ChartDownload;
+      if (window.Capacitor?.isNativePlatform?.() && nativeDownload) {
+        await nativeDownload.save({ fileName: filename, content: data });
+        return;
+      }
+      const file = new Blob([data], { type: 'application/json' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(file);
+      link.download = filename;
+      link.click();
+      URL.revokeObjectURL(link.href);
+    }
+
+    document.getElementById('btnDownload').addEventListener('click', async () => {
+      const chartData = updateChartUI();
+      if (!chartData) return;
+      try {
+        await downloadChartFile(chartData);
+      } catch (error) {
+        alert('Không thể lưu lá số. Vui lòng thử lại.');
+        return;
+      }
+      const downloadButton = document.getElementById('btnDownload');
+      downloadButton.classList.remove('downloaded');
+      void downloadButton.offsetWidth;
+      downloadButton.classList.add('downloaded');
+      setTimeout(() => downloadButton.classList.remove('downloaded'), 750);
     });
 
     // ==========================================
@@ -603,6 +938,16 @@
     let pinchAnchorX = 0, pinchAnchorY = 0;
     const mask = document.getElementById("viewportMask");
     const chart = document.getElementById("tuviChart");
+
+    function fitChartToViewport() {
+      const padding = 12;
+      const availableWidth = Math.max(0, mask.clientWidth - padding * 2);
+      const availableHeight = Math.max(0, mask.clientHeight - padding * 2);
+      scale = Math.min(availableWidth / 1000, availableHeight / 1348);
+      x = (mask.clientWidth - 1000 * scale) / 2;
+      y = (mask.clientHeight - 1348 * scale) / 2;
+      applyTransform();
+    }
 
     mask.addEventListener("touchstart", (e) => {
       if (e.touches.length === 1) {

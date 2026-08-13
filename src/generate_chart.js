@@ -284,11 +284,11 @@ function solarToLunar(day, month, year, timezone = 7) {
   return [lunarDay, lunarMonth, lunarYear, lunarLeap];
 }
 
-function normalizedLunarDate(day, month, year, hour, convertToLunar) {
+function normalizedLunarDate(day, month, year, hour, convertToLunar, timezone = 7) {
   if (!convertToLunar) return [Number(day), Number(month), Number(year), 0];
   const birthDate = new Date(Date.UTC(Number(year), Number(month) - 1, Number(day)));
   if (Number(hour) === 23) birthDate.setUTCDate(birthDate.getUTCDate() + 1);
-  return solarToLunar(birthDate.getUTCDate(), birthDate.getUTCMonth() + 1, birthDate.getUTCFullYear());
+  return solarToLunar(birthDate.getUTCDate(), birthDate.getUTCMonth() + 1, birthDate.getUTCFullYear(), timezone);
 }
 
 function generateMajorStars(lunarDay, lunarMonth, lunarYear, hour) {
@@ -546,7 +546,7 @@ function computeMajorStarConfiguration(majorStars, menhSlot) {
 }
 
 function computeCenterMetadata(params) {
-  const { sex, day, month, year, hour, minute, lunarDay, lunarMonth, lunarYear, majorStarConfig, yearcalc, monthcalc } = params;
+  const { sex, day, month, year, hour, minute, lunarDay, lunarMonth, lunarYear, majorStarConfig, yearcalc, monthcalc, timezoneLabel = 'GMT+07:00' } = params;
   // Python treats 23:00 as the following solar day before it calculates any
   // date-derived metadata (including the Julian day and displayed solar date).
   const birthDate = new Date(Date.UTC(Number(year), Number(month) - 1, Number(day)));
@@ -642,7 +642,7 @@ function computeCenterMetadata(params) {
   return {
     solar_date: solarDate,
     lunar_date: lunarDate,
-    timezone: 'GMT+07:00',
+    timezone: timezoneLabel,
     birth_year: Number(year),
     birth_month: Number(month),
     birth_day: Number(day),
@@ -696,10 +696,17 @@ function generate_chart(
   monthcalc,
   convert_to_lunar = true,
   name = "Đương Số",
+  viewing_day = 1,
+  viewing_convert_to_lunar = convert_to_lunar,
+  timezone = 7,
+  timezone_label = 'GMT+07:00',
 ) {
   const numericSex = Number(sex);
   const numericHour = Number(hour);
-  const [lunarDay, lunarMonth, lunarYear] = normalizedLunarDate(day, month, year, numericHour, convert_to_lunar);
+  const [lunarDay, lunarMonth, lunarYear] = normalizedLunarDate(day, month, year, numericHour, convert_to_lunar, timezone);
+  const [, viewingLunarMonth, viewingLunarYear] = normalizedLunarDate(viewing_day, monthcalc, yearcalc, 0, viewing_convert_to_lunar, timezone);
+  const normalizedViewingMonth = viewing_convert_to_lunar ? viewingLunarMonth : Number(monthcalc);
+  const normalizedViewingYear = viewing_convert_to_lunar ? viewingLunarYear : Number(yearcalc);
   const chart = { major_stars: generateMajorStars(lunarDay, lunarMonth, lunarYear, numericHour), left_stars: blankTemplate(), right_stars: blankTemplate() };
   const menhBranch = mod(lunarMonth + 1 - hourBranch(numericHour), 12);
   const majorStarConfig = computeMajorStarConfiguration(
@@ -728,7 +735,7 @@ function generate_chart(
   addTemplate(chart, natalAuxiliary(lunarDay, numericHour, numericSex));
   addTemplate(chart, vanXuongVanKhuc(numericHour));
   addTemplate(chart, yearBranchRotation(lunarMonth, lunarYear, numericHour));
-  addTemplate(chart, transitStars(Number(yearcalc)));
+  addTemplate(chart, transitStars(normalizedViewingYear));
   const yearStemSlots = {
     luuHa: [3, 6, 11, 8, 5, 7, 2, 4, 0, 1],
     khoi: [1, 1, 0, 0, 2, 3, 5, 5, 2, 3], viet: [8, 8, 6, 6, 9, 10, 11, 11, 9, 10],
@@ -764,9 +771,9 @@ function generate_chart(
   addTemplate(chart, rightConstrainedNatal(lunarYear));
   const natalTemplates = [chart.major_stars, natalAuxiliary(lunarDay, numericHour, numericSex), vanXuongVanKhuc(numericHour), yearBranchRotation(lunarMonth, lunarYear, numericHour)];
   addTemplate(chart, transformationTemplate(mod(Number(yearcalc), 10), natalTemplates, [8, 122, 83, 53]));
-  const monthlyRow = mod(Number(monthcalc) - 1 + 2 * (mod(Number(yearcalc), 10) - 1), 10);
+  const monthlyRow = mod(normalizedViewingMonth - 1 + 2 * (mod(normalizedViewingYear, 10) - 1), 10);
   addTemplate(chart, transformationTemplate(monthlyRow, natalTemplates, [82, 47, 31, 91]));
-  addTemplate(chart, transformationTemplate(daiVanRow(lunarMonth, lunarYear, numericHour, numericSex, yearcalc), natalTemplates, [30, 97, 9, 90]));
+  addTemplate(chart, transformationTemplate(daiVanRow(lunarMonth, lunarYear, numericHour, numericSex, normalizedViewingYear), natalTemplates, [30, 97, 9, 90]));
   addTemplate(chart, hoaNatalTransformations(lunarYear, natalTemplates));
   chart.right_stars = sortRight(chart.right_stars);
   chart.left_stars = sortLeft(chart.left_stars);
@@ -781,10 +788,11 @@ function generate_chart(
     lunarMonth,
     lunarYear,
     majorStarConfig,
-    yearcalc,
-    monthcalc,
+    yearcalc: normalizedViewingYear,
+    monthcalc: normalizedViewingMonth,
+    timezoneLabel: timezone_label,
   });
-  const palaces = palaceMetadata(numericSex, lunarMonth, lunarYear, numericHour, yearcalc, monthcalc).map(
+  const palaces = palaceMetadata(numericSex, lunarMonth, lunarYear, numericHour, normalizedViewingYear, normalizedViewingMonth).map(
     (metadata, slot) => new PalaceData(
       chart.major_stars[slot],
       chart.left_stars[slot],
