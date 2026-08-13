@@ -28,7 +28,19 @@ Install dependencies:
 npm install
 ```
 
-Start the development server:
+### One-click build and local preview
+
+For the quickest way to view the app as a localhost webpage, run:
+
+```bash
+py build.py
+```
+
+This helper builds the web app, syncs the Capacitor project, and serves the production bundle at [http://localhost:4173](http://localhost:4173). Keep the terminal open while previewing; press `Ctrl+C` to stop the server.
+
+### Development server
+
+For Vite's development server with live reload, run:
 
 ```bash
 npm run dev
@@ -62,6 +74,7 @@ Android Studio opens the `android/` project. Use its normal Run or Build workflo
 
 ```text
 index.html              App UI, rendering, theme, gestures, and controls
+build.py                One-click build, Capacitor sync, and localhost preview server
 src/generate_chart.js   Tử Vi chart-generation engine
 src/rules.js            Chart rules and lookup data
 src/star_data.json      Star names, elements, and display metadata

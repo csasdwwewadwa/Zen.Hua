@@ -41,15 +41,15 @@ const BODY_PALACE_DISPLAY_NAMES = [
   "Thân Mệnh đồng cung",
   "Thân cư Phụ Mẫu",
   "Thân cư Phúc Đức",
-  "Thân cư Điền Trạch",
-  "Thân cư Quan Lộc",
-  "Thân cư Nô Bộc",
-  "Thân cư Thiên Di",
-  "Thân cư Tật Ách",
-  "Thân cư Tài Bạch",
-  "Thân cư Tử Tức",
-  "Thân cư Phu Thê",
-  "Thân cư Huynh Đệ"
+  "Thân cư Điền",
+  "Thân cư Quan",
+  "Thân cư Nô",
+  "Thân cư Di",
+  "Thân cư Tật",
+  "Thân cư Tài",
+  "Thân cư Tử",
+  "Thân cư Thê",
+  "Thân cư Huynh"
 ];
 
 const CUC_NAMES = {
@@ -152,7 +152,9 @@ class ChartData {
       console.log("Right:");
       for (const star of palace.right_stars) console.log(`- ${star.name}`);
     }
-    console.log(`Major Star Configuration: ${this.major_star_configuration}`);
+    if (this.center_metadata) {
+      console.log(`Major Star Configuration: ${this.center_metadata.major_star_configuration}`);
+    }
   }
 }
 
@@ -517,7 +519,18 @@ function starPalace(majorStars, starId) {
   return -1;
 }
 
-function computeMajorStarConfiguration(majorStars) {
+function normalizedStarName(starId) {
+  return STAR_DATA[Number(starId)].name
+    .replace(/Đ/g, 'D').replace(/đ/g, 'd')
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase();
+}
+
+function computeMajorStarConfiguration(majorStars, menhSlot) {
+  // Brightness changes a major star's ID, so use its displayed base name.
+  const menhNames = majorStars[menhSlot].map(normalizedStarName);
+  if (menhNames.some(name => ['THAM LANG', 'PHA QUAN', 'THAT SAT'].some(family => name.includes(family)))) {
+    return 'Sát Phá Lang';
+  }
   const phaQuanSlot = starPalace(majorStars, 118);
   if (phaQuanSlot === 0 || phaQuanSlot === 10) return "Anh tinh nhập miếu";
   const coreStars = [110, 105, 78, 61];
@@ -526,19 +539,9 @@ function computeMajorStarConfiguration(majorStars) {
   const core2 = [110, 78, 15];
   const slot2 = starPalace(majorStars, core2[0]);
   if (core2.every(id => starPalace(majorStars, id) === slot2)) return "Cơ đồng cự";
-  const starPalaceByName = (name) => {
-    for (let slot = 0; slot < majorStars.length; slot += 1) {
-      if (majorStars[slot].some((id) => STAR_DATA[id]?.name.includes(name))) return slot;
-    }
-    return -1;
-  };
-  const tuViSlot = starPalaceByName('TỬ VI');
-  const phuSlot = starPalaceByName('THIÊN PHỦ');
-  const tuongSlot = starPalaceByName('THIÊN TƯỚNG');
-  // The source labels this configuration when both stars appear in the chart;
-  // it is more specific than the broader Phủ–Tướng pattern below.
-  if (tuViSlot !== -1 && phuSlot !== -1) return "Tử Phủ Đồng Cung";
-  if (phuSlot !== -1 && tuongSlot !== -1) return "Phủ Tướng Triều Viên";
+  const phuSlot = starPalace(majorStars, 84);
+  const tuongSlot = starPalace(majorStars, 21);
+  if (phuSlot !== -1 && phuSlot === tuongSlot) return "Phủ tướng triều viên";
   return "Không xác định";
 }
 
@@ -629,7 +632,7 @@ function computeCenterMetadata(params) {
   const boneWeight = _calc_bone_weight(yearCycle, lunarMonth, lunarDay, hourBranch);
   const age = yearcalc - lunarYear + 1;
   const [kimLauHoangOc, tamTai] = _calc_age_restrictions(age, yearBranch, yearcalc);
-  const cuuCungChieuMenh = _calc_cuu_cung_chieu_menh(age, sex);
+  const cuuCungChieuMenh = _calc_cuu_cung_chieu_menh(age);
 
   // Palace indexes for tuan / triet
   const tuanPalaceIndexes = tuanBranchesIdx.map(b => PHYSICAL_SLOT_BY_BRANCH[b]);
@@ -698,7 +701,10 @@ function generate_chart(
   const numericHour = Number(hour);
   const [lunarDay, lunarMonth, lunarYear] = normalizedLunarDate(day, month, year, numericHour, convert_to_lunar);
   const chart = { major_stars: generateMajorStars(lunarDay, lunarMonth, lunarYear, numericHour), left_stars: blankTemplate(), right_stars: blankTemplate() };
-  const majorStarConfig = computeMajorStarConfiguration(chart.major_stars);
+  const menhBranch = mod(lunarMonth + 1 - hourBranch(numericHour), 12);
+  const majorStarConfig = computeMajorStarConfiguration(
+    chart.major_stars, PHYSICAL_SLOT_BY_BRANCH[menhBranch],
+  );
   const hourTemplates = [[[], [], [], [], [], [], [], [], [], [], [], [10, 11]], [[], [], [], [], [], [], [], [193], [], [], [192], []], [[], [], [], [], [], [193], [], [], [], [192], [], []], [[], [], [], [11], [], [], [], [], [10], [], [], []], [[], [], [193], [], [], [], [192], [], [], [], [], []], [[], [193], [], [], [192], [], [], [], [], [], [], []], [[10, 11], [], [], [], [], [], [], [], [], [], [], []], [[], [192], [], [], [193], [], [], [], [], [], [], []], [[], [], [192], [], [], [], [193], [], [], [], [], []], [[], [], [], [10], [], [], [], [], [11], [], [], []], [[], [], [], [], [], [192], [], [], [], [193], [], []], [[], [], [], [], [], [], [], [192], [], [], [193], []]];
   addTemplate(chart, hourTemplates[hourBranch(numericHour)]);
   const stem = mod(lunarYear, 10);
@@ -819,15 +825,11 @@ const COMPATIBLE_BRANCH_GROUPS = [
   [2, 6, 10],  // Dần, Ngọ, Tuất
   [11, 3, 7],  // Hợi, Mão, Mùi
 ];
-// Cửu Diệu is a nine-year cycle based on tuổi mụ. The sequence differs by
-// sex; index 0 is used when tuổi mụ is evenly divisible by 9.
-const CUU_DIEU_MALE_BY_AGE_REMAINDER = [
-  'Mộc Đức', 'La Hầu', 'Thổ Tú', 'Thủy Diệu', 'Thái Bạch',
+// Source-observed cycle: it depends on displayed tuổi mụ, not sex.  The
+// source renders the ninth position as Thái Âm rather than Mộc Đức.
+const CUU_CUNG_BY_AGE_REMAINDER = [
+  'Thái Âm', 'La Hầu', 'Thổ Tú', 'Thủy Diệu', 'Thái Bạch',
   'Thái Dương', 'Vân Hớn', 'Kế Đô', 'Thái Âm',
-];
-const CUU_DIEU_FEMALE_BY_AGE_REMAINDER = [
-  'Thủy Diệu', 'Kế Đô', 'Vân Hớn', 'Mộc Đức', 'Thái Âm',
-  'Thổ Tú', 'La Hầu', 'Thái Dương', 'Thái Bạch',
 ];
 
 function _calc_life_trigram(year, sex) {
@@ -861,9 +863,8 @@ function _calc_bone_weight(year_cycle, month, day, hour_branch) {
 function _calc_age_restrictions(age, birthBranch, viewingYear) {
   const kimLau = KIM_LAU_NAMES[age % 9];
   const kimLauLabel = kimLau ?? 'Không phạm Kim Lâu';
-  const hoangOcIndex = mod(age - 9, 6);
-  const hoangOc = HOANG_OC_NAMES[hoangOcIndex];
-  const hoangOcLabel = [0, 3, 5].includes(hoangOcIndex)
+  const hoangOc = HOANG_OC_NAMES[age % 6];
+  const hoangOcLabel = [0, 3, 5].includes(age % 6)
     ? `Phạm Hoang ốc (${hoangOc})`
     : `Không phạm Hoang ốc (${hoangOc})`;
   const tamTaiYears = TAM_TAI_YEARS_BY_BIRTH_BRANCH[mod(birthBranch, 12)];
@@ -872,11 +873,8 @@ function _calc_age_restrictions(age, birthBranch, viewingYear) {
   return [`${kimLauLabel}-${hoangOcLabel}`, tamTaiLabel];
 }
 
-function _calc_cuu_cung_chieu_menh(age, sex) {
-  const cycle = Number(sex) === 1
-    ? CUU_DIEU_MALE_BY_AGE_REMAINDER
-    : CUU_DIEU_FEMALE_BY_AGE_REMAINDER;
-  return cycle[mod(age, 9)];
+function _calc_cuu_cung_chieu_menh(age) {
+  return CUU_CUNG_BY_AGE_REMAINDER[mod(age, 9)];
 }
 
 module.exports = { ChartData, PalaceData, StarData, generate_chart };
