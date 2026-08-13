@@ -99,7 +99,7 @@
     
     .oneui-header { padding: max(88px, calc(env(safe-area-inset-top) + 52px)) 28px 22px; }
     .header-title { font-size: clamp(40px, 11vw, 52px); line-height: 0.98; letter-spacing: -2.6px; font-weight: 780; margin: 0 0 12px; }
-    .header-subtitle { max-width: 260px; font-size: 14px; line-height: 1.42; color: var(--oneui-text-secondary); margin: 0; }
+    .header-subtitle { max-width: none; white-space: nowrap; font-size: clamp(12px, 3.5vw, 14px); line-height: 1.42; color: var(--oneui-text-secondary); margin: 0; }
     
     .oneui-card-form { background: transparent; border: 0; padding: 10px 24px calc(32px + env(safe-area-inset-bottom)); flex: 1; overflow-y: auto; }
     .input-group { margin-bottom: 22px; padding: 0; background: transparent; border: 0; border-radius: 0; box-shadow: none; }
@@ -161,7 +161,7 @@
     .star-element.tho::before { content: '• '; }
     .star-element.moc::before { content: '• '; }
     
-    .oneui-compact-header { display: flex; align-items: center; gap: 10px; padding: 20px 20px 36px; background: linear-gradient(180deg, var(--oneui-bg) 0%, color-mix(in srgb, var(--oneui-bg) 72%, transparent) 58%, transparent 100%); z-index: 10; border: 0; }
+    .oneui-compact-header { display: flex; align-items: center; gap: 10px; padding: 12px 20px 24px; background: linear-gradient(180deg, var(--oneui-bg) 0%, color-mix(in srgb, var(--oneui-bg) 70%, transparent) 62%, transparent 100%); z-index: 10; border: 0; }
     .icon-btn-back, .header-download, .header-bookmark { width: 44px; height: 44px; display: grid; place-items: center; flex: 0 0 44px; margin: 0; padding: 0; border: 0; border-radius: 50%; background: var(--oneui-surface-strong); color: var(--oneui-text-primary); box-shadow: none; cursor: pointer; transition: transform 160ms ease, background-color 160ms ease; }
     .header-bookmark { margin-left: auto; }
     .header-download { margin-left: 0; }
@@ -799,6 +799,24 @@
       document.querySelectorAll('.nav-item').forEach((button) => button.classList.toggle('active', Number(button.dataset.page) === index));
     }
     document.querySelectorAll('.nav-item').forEach((button) => button.addEventListener('click', () => setActivePage(Number(button.dataset.page))));
+    {
+      const pageViewport = document.querySelector('.page-viewport');
+      let swipeStartX = 0;
+      let swipeStartY = 0;
+      pageViewport.addEventListener('touchstart', (event) => {
+        const touch = event.touches[0];
+        swipeStartX = touch.clientX;
+        swipeStartY = touch.clientY;
+      }, { passive: true });
+      pageViewport.addEventListener('touchend', (event) => {
+        const touch = event.changedTouches[0];
+        const deltaX = touch.clientX - swipeStartX;
+        const deltaY = touch.clientY - swipeStartY;
+        if (Math.abs(deltaX) < 52 || Math.abs(deltaX) <= Math.abs(deltaY)) return;
+        const currentPage = Number(document.querySelector('.nav-item.active')?.dataset.page || 1);
+        setActivePage(Math.max(0, Math.min(2, currentPage + (deltaX < 0 ? 1 : -1))));
+      }, { passive: true });
+    }
     window.addEventListener('resize', () => setActivePage(Number(document.querySelector('.nav-item.active')?.dataset.page || 1)));
     setActivePage(1);
     renderLibrary();
